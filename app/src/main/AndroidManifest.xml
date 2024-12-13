@@ -12,6 +12,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DidaktikappDurango">
         <activity
+            android:name=".actividades.RankingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.DespedidaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.PuzleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.EscudoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.ArtopilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.PatxikotxuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.BasilicaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.SirenaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.FeriaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.MikeldiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.MapaActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
