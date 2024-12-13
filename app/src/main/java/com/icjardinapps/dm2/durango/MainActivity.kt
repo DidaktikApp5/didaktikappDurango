@@ -1,4 +1,4 @@
-package es.icjardin.didaktikappdurango
+package com.icjardinapps.dm2.durango
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

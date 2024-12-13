@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "es.icjardin.didaktikappdurango"
+    namespace = "com.icjardinapps.dm2.durango"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "es.icjardin.didaktikappdurango"
-        minSdk = 29
+        applicationId = "com.icjardinapps.dm2.durango"
+        minSdk = 33
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -36,8 +36,6 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
