@@ -30,7 +30,7 @@ Agertzen diren jokoak:
 - Letra-zopa (ARMARRI)
 - Puzzlea (Irudi normal batekin, azken jolasa)
 
-INGES:
+INGLES:
 When you open the APP, a map of Durango will appear, where 7 stops will appear.
 The stops are marks or symbols.
 Students will be able to click on each of the stops.
