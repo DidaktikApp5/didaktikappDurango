@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="negro">#FF000000</color>
+    <color name="blanco">#FFFFFFFF</color>
+    <color name="amarillo_texto">#FFE9B703</color>
+    <color name="amarillo_imagen">#FFEAC102</color>
+    <color name="azul">#FF0071BC</color>
+    <color name="rojo">#FFD40000</color>
+    <color name="gris">#FF333333</color>
 </resources>
