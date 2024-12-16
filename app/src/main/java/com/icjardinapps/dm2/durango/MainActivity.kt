@@ -1,8 +1,6 @@
 package com.icjardinapps.dm2.durango
 
 import android.os.Bundle
-import android.view.View
-import android.view.ViewTreeObserver
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
