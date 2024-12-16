@@ -14,4 +14,5 @@
     <string name="ingresar_nombre">Ingresa tu nombre de perfil a utilizar en la aplicación.</string>
     <string name="ingresa_tu_nombre_de_perfil">Ingresa tu nombre de perfil</string>
     <string name="comenzar">Comenzar</string>
+    <string name="bienvenida">¡Hola, %s👋!</string>
 </resources>
