@@ -8,4 +8,10 @@
     <string name="ranking">RANKING</string>
     <string name="content_description_acerca_de">ACERCA DE</string>
     <string name="acerca_de">ACERCA DE</string>
+    <string name="content_description_mascota_de_la_aplicacion">Mascota de la aplicación</string>
+    <string name="content_description_separador">Separador</string>
+    <string name="bienvenido_durango">¡Bienvenido a\nDURANGO BIZI!</string>
+    <string name="ingresar_nombre">Ingresa tu nombre de perfil a utilizar en la aplicación.</string>
+    <string name="ingresa_tu_nombre_de_perfil">Ingresa tu nombre de perfil</string>
+    <string name="comenzar">Comenzar</string>
 </resources>
