@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DidaktikappDurango">
         <activity
+            android:name=".actividades.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".actividades.RankingActivity"
             android:exported="false" />
         <activity
