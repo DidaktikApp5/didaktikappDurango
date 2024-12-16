@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">didaktikappDurango</string>
+    <string name="content_description_jugar">JUGAR</string>
+    <string name="jugar">JUGAR</string>
+    <string name="content_description_lenguaje">LENGUAJE</string>
+    <string name="lenguaje">LENGUAJE</string>
+    <string name="content_description_ranking">RANKING</string>
+    <string name="ranking">RANKING</string>
+    <string name="content_description_acerca_de">ACERCA DE</string>
+    <string name="acerca_de">ACERCA DE</string>
 </resources>
