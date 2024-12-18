@@ -1,9 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.DidaktikappDurango" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:fontFamily">@font/jaldi_regular</item>
     </style>
 
     <style name="Theme.DidaktikappDurango" parent="Base.Theme.DidaktikappDurango" />
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/azul</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo_app</item>
+        <item name="windowSplashScreenAnimationDuration">600</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.DidaktikappDurango</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/durangobizi</item>
+    </style>
 </resources>
