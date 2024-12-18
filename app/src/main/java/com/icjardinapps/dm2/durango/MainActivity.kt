@@ -4,9 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.icjardinapps.dm2.durango.actividades.LoginActivity
+import com.icjardinapps.dm2.durango.actividades.MapaActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,5 +35,12 @@ class MainActivity : AppCompatActivity() {
         val user:String = sharedPreferences.getString("username", "").toString()
 
         textViewBienvenida.text = getString(R.string.bienvenida, user)
+
+        // Ir a MapaActivity
+        val cardViewJugar: CardView = findViewById(R.id.card_jugar)
+        cardViewJugar.setOnClickListener {
+            val intent = Intent(this, MapaActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
