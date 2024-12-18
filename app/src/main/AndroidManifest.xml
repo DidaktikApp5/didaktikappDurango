@@ -11,6 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DidaktikappDurango">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <activity
+            android:name=".actividades.MapaActivity"
+            android:exported="false"
+            android:label="@string/title_activity_mapa" />
         <activity
             android:name=".actividades.LoginActivity"
             android:exported="false" />
@@ -43,9 +52,6 @@
             android:exported="false" />
         <activity
             android:name=".actividades.MikeldiActivity"
-            android:exported="false" />
-        <activity
-            android:name=".actividades.MapaActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
