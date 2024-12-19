@@ -43,34 +43,53 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Añadir marcadores al mapa
         //Cerdo de Mikeldi
-        val mikedi = LatLng(43.172993, -2.633388)
-        mMap.addMarker(MarkerOptions().position(mikedi).title("Cerdo de Mikeldi"))
+        val marcadorMikedi = LatLng(43.172993, -2.633388)
+        mMap.addMarker(MarkerOptions().position(marcadorMikedi).title("Cerdo de Mikeldi"))
 
         //Feria de Durango
-        val feria = LatLng(43.171167, -2.630722)
-        mMap.addMarker(MarkerOptions().position(feria).title("Feria de Durango"))
+        val marcadorFeria = LatLng(43.171167, -2.630722)
+        mMap.addMarker(MarkerOptions().position(marcadorFeria).title("Feria de Durango"))
 
         //Sirena de Bombardeo
-        val sirena = LatLng(43.168194, -2.628278)
-        mMap.addMarker(MarkerOptions().position(sirena).title("Sirena de Bombardeo"))
+        val marcadorSirena = LatLng(43.168194, -2.628278)
+        mMap.addMarker(MarkerOptions().position(marcadorSirena).title("Sirena de Bombardeo"))
 
         //Basilica de Santa Ana
-        val basilica = LatLng(43.168389, -2.631222)
-        mMap.addMarker(MarkerOptions().position(basilica).title("Basilica de Santa Ana"))
+        val marcadorBasilica = LatLng(43.168389, -2.631222)
+        mMap.addMarker(MarkerOptions().position(marcadorBasilica).title("Basilica de Santa Ana"))
 
         //Personaje Durango Patxikotxu
-        val personajeDurango = LatLng(43.166778, -2.631833)
-        mMap.addMarker(MarkerOptions().position(personajeDurango).title("Personaje Durango"))
+        val marcadorPersonaje = LatLng(43.166778, -2.631833)
+        mMap.addMarker(MarkerOptions().position(marcadorPersonaje).title("Personaje Durango"))
 
         //Dulce Artopila
-        val artopila = LatLng(43.166778, -2.631833)
-        mMap.addMarker(MarkerOptions().position(artopila).title("Dulce Artopila"))
+        val marcadorArtopila = LatLng(43.166778, -2.631833)
+        mMap.addMarker(MarkerOptions().position(marcadorArtopila).title("Dulce Artopila"))
 
         //Escudo Durango
-        val escudo = LatLng(43.165611, -2.632333)
-        mMap.addMarker(MarkerOptions().position(escudo).title("Escudo Durango"))
+        val marcadorEscudo = LatLng(43.165611, -2.632333)
+        mMap.addMarker(MarkerOptions().position(marcadorEscudo).title("Escudo Durango"))
 
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(mikedi))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(basilica, 16f))
+        // Listener para clics en los marcadores
+        mMap.setOnMarkerClickListener { marker ->
+            when (marker) {
+                marcadorMikedi -> abrirActividad(CerdoMikeldiActivity::class.java)
+                marcadorFeria -> abrirActividad(FeriaDurangoActivity::class.java)
+                marcadorSirena -> abrirActividad(SirenaBombardeoActivity::class.java)
+                marcadorBasilica -> abrirActividad(BasilicaSantaAnaActivity::class.java)
+                marcadorPersonaje -> abrirActividad(PersonajeDurangoActivity::class.java)
+                marcadorArtopila -> abrirActividad(DulceArtopilaActivity::class.java)
+                marcadorEscudo -> abrirActividad(EscudoDurangoActivity::class.java)
+            }
+            true
+        }
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marcadorBasilica, 16f))
+    }
+
+    // Función genérica para abrir actividades
+    private fun <T> abrirActividad(clase: Class<T>) {
+        val intent = Intent(this, clase)
+        startActivity(intent)
     }
 }
