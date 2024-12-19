@@ -9,6 +9,7 @@ import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.icjardinapps.dm2.durango.actividades.LoginActivity
 import com.icjardinapps.dm2.durango.actividades.MapaActivity
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +42,24 @@ class MainActivity : AppCompatActivity() {
         cardViewJugar.setOnClickListener {
             val intent = Intent(this, MapaActivity::class.java)
             startActivity(intent)
+        }
+
+        // Cambiar idioma
+        val cardViewIdioma: CardView = findViewById(R.id.card_lenguaje)
+        cardViewIdioma.setOnClickListener {
+            val currentLanguage = sharedPreferences.getString("idioma", "es") // Obtener el idioma actual
+            val newLanguage = if (currentLanguage == "es") "eu" else "es" // Cambiar el idioma a euskera o español
+            sharedPreferences.edit().putString("idioma", newLanguage).apply() // Guardar el nuevo idioma
+
+            // Cambiar el idioma de la aplicación
+            val locale = Locale(newLanguage)
+            Locale.setDefault(locale)
+            val config = resources.configuration
+            config.locale = locale
+            resources.updateConfiguration(config, resources.displayMetrics)
+
+            // Reiniciar la actividad para aplicar los cambios de idioma
+            recreate()
         }
     }
 }
