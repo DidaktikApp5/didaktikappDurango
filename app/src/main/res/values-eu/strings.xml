@@ -15,4 +15,5 @@
     <string name="ingresa_tu_nombre_de_perfil">Sartu zure profilaren izena</string>
     <string name="comenzar">Hasi</string>
     <string name="bienvenida">¡Kaitxo, %s👋!</string>
+    <string name="title_activity_mapa">MapaActivity</string>
 </resources>
