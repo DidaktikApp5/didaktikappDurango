@@ -41,9 +41,36 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        // Añadir marcadores al mapa
+        //Cerdo de Mikeldi
+        val mikedi = LatLng(43.172993, -2.633388)
+        mMap.addMarker(MarkerOptions().position(mikedi).title("Cerdo de Mikeldi"))
+
+        //Feria de Durango
+        val feria = LatLng(43.171167, -2.630722)
+        mMap.addMarker(MarkerOptions().position(feria).title("Feria de Durango"))
+
+        //Sirena de Bombardeo
+        val sirena = LatLng(43.168194, -2.628278)
+        mMap.addMarker(MarkerOptions().position(sirena).title("Sirena de Bombardeo"))
+
+        //Basilica de Santa Ana
+        val basilica = LatLng(43.168389, -2.631222)
+        mMap.addMarker(MarkerOptions().position(basilica).title("Basilica de Santa Ana"))
+
+        //Personaje Durango Patxikotxu
+        val personajeDurango = LatLng(43.166778, -2.631833)
+        mMap.addMarker(MarkerOptions().position(personajeDurango).title("Personaje Durango"))
+
+        //Dulce Artopila
+        val artopila = LatLng(43.166778, -2.631833)
+        mMap.addMarker(MarkerOptions().position(artopila).title("Dulce Artopila"))
+
+        //Escudo Durango
+        val escudo = LatLng(43.165611, -2.632333)
+        mMap.addMarker(MarkerOptions().position(escudo).title("Escudo Durango"))
+
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(mikedi))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(basilica, 16f))
     }
 }
