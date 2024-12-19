@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.durango.actividades
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -29,65 +30,48 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
         // Añadir marcadores al mapa
-        //Cerdo de Mikeldi
-        val marcadorMikedi = LatLng(43.172993, -2.633388)
-        mMap.addMarker(MarkerOptions().position(marcadorMikedi).title("Cerdo de Mikeldi"))
+        val marcadorMikedi = mMap.addMarker(MarkerOptions().position(LatLng(43.172993, -2.633388)))
+        marcadorMikedi?.tag = "mikedi"
 
-        //Feria de Durango
-        val marcadorFeria = LatLng(43.171167, -2.630722)
-        mMap.addMarker(MarkerOptions().position(marcadorFeria).title("Feria de Durango"))
+        val marcadorFeria = mMap.addMarker(MarkerOptions().position(LatLng(43.171167, -2.630722)))
+        marcadorFeria?.tag = "feria"
 
-        //Sirena de Bombardeo
-        val marcadorSirena = LatLng(43.168194, -2.628278)
-        mMap.addMarker(MarkerOptions().position(marcadorSirena).title("Sirena de Bombardeo"))
+        val marcadorSirena = mMap.addMarker(MarkerOptions().position(LatLng(43.168194, -2.628278)))
+        marcadorSirena?.tag = "sirena"
 
-        //Basilica de Santa Ana
-        val marcadorBasilica = LatLng(43.168389, -2.631222)
-        mMap.addMarker(MarkerOptions().position(marcadorBasilica).title("Basilica de Santa Ana"))
+        val marcadorBasilica = mMap.addMarker(MarkerOptions().position(LatLng(43.168389, -2.631222)))
+        marcadorBasilica?.tag = "basilica"
 
-        //Personaje Durango Patxikotxu
-        val marcadorPersonaje = LatLng(43.166778, -2.631833)
-        mMap.addMarker(MarkerOptions().position(marcadorPersonaje).title("Personaje Durango"))
+        val marcadorPersonajeArtopila = mMap.addMarker(MarkerOptions().position(LatLng(43.166778, -2.631833)))
+        marcadorPersonajeArtopila?.tag = "personajeArtopila"
 
-        //Dulce Artopila
-        val marcadorArtopila = LatLng(43.166778, -2.631833)
-        mMap.addMarker(MarkerOptions().position(marcadorArtopila).title("Dulce Artopila"))
-
-        //Escudo Durango
-        val marcadorEscudo = LatLng(43.165611, -2.632333)
-        mMap.addMarker(MarkerOptions().position(marcadorEscudo).title("Escudo Durango"))
+        val marcadorEscudo = mMap.addMarker(MarkerOptions().position(LatLng(43.165611, -2.632333)))
+        marcadorEscudo?.tag = "escudo"
 
         // Listener para clics en los marcadores
         mMap.setOnMarkerClickListener { marker ->
-            when (marker) {
-                marcadorMikedi -> abrirActividad(CerdoMikeldiActivity::class.java)
-                marcadorFeria -> abrirActividad(FeriaDurangoActivity::class.java)
-                marcadorSirena -> abrirActividad(SirenaBombardeoActivity::class.java)
-                marcadorBasilica -> abrirActividad(BasilicaSantaAnaActivity::class.java)
-                marcadorPersonaje -> abrirActividad(PersonajeDurangoActivity::class.java)
-                marcadorArtopila -> abrirActividad(DulceArtopilaActivity::class.java)
-                marcadorEscudo -> abrirActividad(EscudoDurangoActivity::class.java)
+            when (marker.tag) {
+                "mikedi" -> abrirActividad(MikeldiActivity::class.java)
+                "feria" -> abrirActividad(FeriaActivity::class.java)
+                "sirena" -> abrirActividad(SirenaActivity::class.java)
+                "basilica" -> abrirActividad(BasilicaActivity::class.java)
+                "personajeArtopila" -> abrirActividad(PatxikotxuActivity::class.java)
+                "artopila" -> abrirActividad(ArtopilActivity::class.java)
+                "escudo" -> abrirActividad(EscudoActivity::class.java)
+                else -> false  // Si no se encuentra el tag, no hace nada
             }
             true
         }
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marcadorBasilica, 16f))
+        // Mover la cámara al centro del mapa
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marcadorBasilica!!.position, 16f))
     }
 
-    // Función genérica para abrir actividades
+    // Función para abrir actividades
     private fun <T> abrirActividad(clase: Class<T>) {
         val intent = Intent(this, clase)
         startActivity(intent)
