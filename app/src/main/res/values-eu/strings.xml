@@ -15,6 +15,7 @@
     <string name="ingresa_tu_nombre_de_perfil">Sartu zure profilaren izena</string>
     <string name="comenzar">Hasi</string>
     <string name="bienvenida">¡Kaitxo, %s👋!</string>
+    <string name="title_activity_mapa">MapaActivity</string>
     <string name="desarrollado_por">Nork garatua:</string>
     <string name="integrantes">Julio González\nMikel Ramos\nLierni Sarraoa\nLuis Ortiz de Villalba</string>
     <string name="cerrar">Itxi</string>

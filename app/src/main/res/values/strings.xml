@@ -15,6 +15,7 @@
     <string name="ingresa_tu_nombre_de_perfil">Ingresa tu nombre de perfil</string>
     <string name="comenzar">Comenzar</string>
     <string name="bienvenida">¡Hola, %s👋!</string>
+    <string name="title_activity_mapa">MapaActivity</string>
     <string name="desarrollado_por">Desarrollado por:</string>
     <string name="integrantes">Julio González\nMikel Ramos\nLierni Sarraoa\nLuis Ortiz de Villalba</string>
     <string name="cerrar">Cerrar</string>
