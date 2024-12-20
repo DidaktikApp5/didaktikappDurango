@@ -1,7 +1,10 @@
 package com.icjardinapps.dm2.durango
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -12,8 +15,12 @@ import com.icjardinapps.dm2.durango.actividades.MapaActivity
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var dialog: Dialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        dialog = Dialog(this)
 
         val screenSplash: SplashScreen = installSplashScreen()
         screenSplash.setKeepOnScreenCondition { false }
@@ -61,5 +68,31 @@ class MainActivity : AppCompatActivity() {
             // Reiniciar la actividad para aplicar los cambios de idioma
             recreate()
         }
+
+        // Mostrar Acerca de
+        val cardViewAcercaDe: CardView = findViewById(R.id.card_acercaDe)
+        cardViewAcercaDe.setOnClickListener {
+            acercaDe()
+        }
+    }
+
+    private fun acercaDe() {
+        dialog.setContentView(R.layout.acerca_de)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val ivCerrar: ImageView = dialog.findViewById(R.id.ivAcercaDeCerrar)
+
+        val btnCerrar: Button = dialog.findViewById(R.id.btnAcercaDeCerrar)
+
+        ivCerrar.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        btnCerrar.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 }
