@@ -1,10 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/activity_basilica"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".actividades.BasilicaActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/layoutPuntaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/puntuacion"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:layout_alignParentEnd="true"
+            android:text="@string/_0"
+            android:id="@+id/puntos"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/imageViewImagen"
+        android:src="@drawable/basilica"
+        android:scaleType="fitCenter"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:id="@+id/tvPregunta"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/pregunta_1"/>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/verdadero"
+            android:background="@drawable/button_background"
+            android:id="@+id/buttonVerdadero"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/falso"
+            android:background="@drawable/button_background"
+            android:id="@+id/buttonFalso"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
