@@ -22,6 +22,8 @@
     <string name="enhorabuena">¡Enhorabuena!</string>
     <string name="texto_enhorabuena">¡Muy bien! Has completado la actividad correctamente.</string>
     <string name="trofeo">Trofeo</string>
+    <string name="volver">VOLVER</string>
+    <string name="puzleFinal">PUZLE FINAL</string>
     <string name="puntuacion">Puntuación:</string>
     <string name="_0">0</string>
     <string name="pregunta_1">La basílica se llama Santa Ana de Uribarri.</string>
