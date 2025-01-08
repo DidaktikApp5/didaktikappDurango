@@ -12,8 +12,12 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.Dash
+import com.google.android.gms.maps.model.Gap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PatternItem
+import com.google.android.gms.maps.model.PolylineOptions
 import com.icjardinapps.dm2.durango.MainActivity
 import com.icjardinapps.dm2.durango.R
 import com.icjardinapps.dm2.durango.databinding.ActivityMapaBinding
@@ -94,6 +98,28 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
             .position(LatLng(43.165611, -2.632333))
             .icon(BitmapDescriptorFactory.fromBitmap(iconBitmapEscudo)))
         marcadorEscudo?.tag = "escudo"
+
+        // Patrón de línea punteada
+        val pattern: List<PatternItem> = listOf(
+            Dash(30f),  // Segmentos de la línea
+            Gap(20f)    // Epacios entre los segmentos
+        )
+
+        // Camino entre los marcadores
+        val polylineOptions = PolylineOptions()
+            .add(LatLng(43.172993, -2.633388))  // Mikeldi
+            .add(LatLng(43.171167, -2.630722))  // Feria
+            .add(LatLng(43.168194, -2.628278))  // Sirena
+            .add(LatLng(43.168389, -2.631222))  // Basilica
+            .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
+            .add(LatLng(43.165611, -2.632333))  // Escudo
+            .width(15f)  // Grosor de la línea
+            .color(android.graphics.Color.RED)  // Color de la línea
+            .pattern(pattern) // Patron
+            .geodesic(true) // Seguir la curvatura de la tierra
+
+        // Añadir la polyline al mapa
+        mMap.addPolyline(polylineOptions)
 
         // Listener para clics en los marcadores
         mMap.setOnMarkerClickListener { marker ->
