@@ -22,4 +22,6 @@
     <string name="enhorabuena">Zorionak!</string>
     <string name="texto_enhorabuena">Oso ondo! Jarduera behar bezala amaitu duzu.</string>
     <string name="trofeo">Garaikurra</string>
+    <string name="volver">ITZULERA</string>
+    <string name="puzleFinal">AZKEN PUZZLEA</string>
 </resources>

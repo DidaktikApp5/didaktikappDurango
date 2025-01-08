@@ -3,13 +3,13 @@ package com.icjardinapps.dm2.durango.actividades
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.icjardinapps.dm2.durango.MainActivity
 import com.icjardinapps.dm2.durango.R
 import com.icjardinapps.dm2.durango.databinding.ActivityMapaBinding
 
@@ -24,10 +24,20 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        // Obtener el SupportMapFragment y notificar cuando el mapa esté listo para ser usado.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        // Listener para el botón Volver
+        binding.btnVolver.setOnClickListener {
+            abrirActividad(MainActivity::class.java)
+        }
+
+        // Listener para el botón Puzzle Final
+        binding.btnPuzzleFinal.setOnClickListener {
+            abrirActividad(PuzleActivity::class.java)
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
