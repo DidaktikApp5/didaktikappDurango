@@ -47,45 +47,101 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textoEnunciado">
 
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="wrap_content"
+        <!-- RadioButton y botón de altavoz en un LinearLayout -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="20sp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="@string/opcion1" />
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical">
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="20sp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="@string/opcion2" />
+            <RadioButton
+                android:id="@+id/rdOpcion1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="20sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/opcion1" />
 
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="20sp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="@string/opcion3" />
+            <Button
+                android:id="@+id/btnAltavoz1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/altavoz"/>
+        </LinearLayout>
 
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="wrap_content"
+        <!-- Repite para cada opción -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="20sp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="@string/opcion4" />
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical">
+
+            <RadioButton
+                android:id="@+id/rdOpcion2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="20sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/opcion2" />
+
+            <Button
+                android:id="@+id/btnAltavoz2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/altavoz" />
+        </LinearLayout>
+
+        <!-- Repite para más opciones según sea necesario -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical">
+
+            <RadioButton
+                android:id="@+id/rdOpcion3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="20sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/opcion3" />
+
+            <Button
+                android:id="@+id/btnAltavoz3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/altavoz" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical">
+
+            <RadioButton
+                android:id="@+id/rdOpcion4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="20sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/opcion4" />
+
+            <Button
+                android:id="@+id/btnAltavoz4"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/altavoz" />
+        </LinearLayout>
 
     </RadioGroup>
 
