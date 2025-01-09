@@ -40,4 +40,10 @@
     <string name="_3de4">Ia-ia badaukazu!</string>
     <string name="_4de4">Bikain!</string>
     <string name="puntaje_final">%1$d / %2$d</string>
+    <string name="explicacionSirena">1937ko Martxoaren 31n Durangon egon zen bonbardaketa gogorarazteko, urtero data horretan egunean 3 aldiz (goizeko 8:00etan, arratsaldeko lehenego orduan eta eguneko azken orduan), bonbardaketa egunean jo zuen sirena entzuten da. Hau, biktimak ohoratzeko, baita memoriarekin, bakearekin eta justiziarekin dugun konpromisoa berresteko ere egiten da.</string>
+    <string name="enunciadoSirena">Aukeratu bonbardaketa sirenaren soinu zuzena</string>
+    <string name="opcion1">Aukera 1</string>
+    <string name="opcion2">Aukera 2</string>
+    <string name="opcion3">Aukera 3</string>
+    <string name="opcion4">Aukera 4</string>
 </resources>
