@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.R
 
 class BasilicaActivity : AppCompatActivity() {
+    private lateinit var mensajeMascota: TextView
     private lateinit var tvPuntaje: TextView
     private lateinit var tvPregunta: TextView
     private lateinit var ivImagen: ImageView
@@ -27,6 +28,7 @@ class BasilicaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_basilica)
 
         val mascotaImage = findViewById<ImageView>(R.id.iv_Mascota)
+        mensajeMascota = findViewById<TextView>(R.id.mensajeMascota)
 
         // Inicia la animación cuando se carga la ventana
         mascotaImage.setImageResource(R.drawable.idle)
@@ -49,7 +51,9 @@ class BasilicaActivity : AppCompatActivity() {
                 puntaje++
                 actualizarPuntaje(puntaje)
                 tvPregunta.setTextColor(Color.GREEN)
+                mensajeMascota.text = getString(R.string.correcto)
             } else {
+                mensajeMascota.text = getString(R.string.incorrecto)
                 tvPregunta.setTextColor(Color.RED)
             }
 
@@ -62,8 +66,10 @@ class BasilicaActivity : AppCompatActivity() {
                 puntaje++
                 actualizarPuntaje(puntaje)
                 tvPregunta.setTextColor(Color.GREEN)
+                mensajeMascota.text = getString(R.string.correcto)
             } else {
                 tvPregunta.setTextColor(Color.RED)
+                mensajeMascota.text = getString(R.string.incorrecto)
             }
 
             siguientePreguntaOFinal()
@@ -74,6 +80,7 @@ class BasilicaActivity : AppCompatActivity() {
         btnVerdadero.isEnabled = true
         btnFalso.isEnabled = true
         tvPregunta.setTextColor(Color.BLACK)
+        mensajeMascota.text = ""
         ivImagen.setImageResource(Preguntas.imagenes[numPregunta])
         tvPregunta.text = Preguntas.preguntas[numPregunta]
         respuesta = Preguntas.respuestas[numPregunta]
@@ -98,7 +105,7 @@ class BasilicaActivity : AppCompatActivity() {
 
             Handler().postDelayed({
                 actualizarPregunta()
-            }, 1000)
+            }, 1500)
         }
     }
 }
