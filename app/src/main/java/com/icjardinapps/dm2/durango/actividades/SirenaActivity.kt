@@ -52,6 +52,10 @@ class SirenaActivity : AppCompatActivity() {
                 Toast.makeText(this, getString(R.string.SirenaselecionaOpcion), Toast.LENGTH_SHORT).show()
             } else {
                 if (selectedOptionId == correctOption) {
+                    if (::mediaPlayer.isInitialized) {
+                        mediaPlayer.release()
+                    }
+
                     val intent = Intent(this, ResultadosSirenaActivity::class.java)
                     startActivity(intent)
                 } else {
