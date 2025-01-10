@@ -48,7 +48,11 @@ class BasilicaActivity : AppCompatActivity() {
             if (respuesta) {
                 puntaje++
                 actualizarPuntaje(puntaje)
+                tvPregunta.setTextColor(Color.GREEN)
+            } else {
+                tvPregunta.setTextColor(Color.RED)
             }
+
             siguientePreguntaOFinal()
         }
 
@@ -57,7 +61,11 @@ class BasilicaActivity : AppCompatActivity() {
             if (!respuesta) {
                 puntaje++
                 actualizarPuntaje(puntaje)
+                tvPregunta.setTextColor(Color.GREEN)
+            } else {
+                tvPregunta.setTextColor(Color.RED)
             }
+
             siguientePreguntaOFinal()
         }
     }
