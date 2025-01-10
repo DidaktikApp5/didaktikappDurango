@@ -40,4 +40,6 @@
     <string name="_3de4">Ia-ia badaukazu!</string>
     <string name="_4de4">Bikain!</string>
     <string name="puntaje_final">%1$d / %2$d</string>
+    <string name="correcto">Erantzun zuzena!</string>
+    <string name="incorrecto">Erantzun okerra!</string>
 </resources>

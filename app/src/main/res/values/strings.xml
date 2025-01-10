@@ -40,4 +40,6 @@
     <string name="_3de4">¡Casi lo tienes!</string>
     <string name="_4de4">¡Excelente!</string>
     <string name="puntaje_final">Puntuaste %1$d de %2$d</string>
+    <string name="correcto">¡Respuesta correcta!</string>
+    <string name="incorrecto">¡Respuesta incorrecta!</string>
 </resources>
