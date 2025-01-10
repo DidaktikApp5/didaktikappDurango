@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_resultados_sirena"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".actividades.ResultadosSirenaActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:padding="16dp"
+        android:textColor="#000"
+        android:layout_margin="16dp"
+        android:id="@+id/enhorabuena"
+        android:text="@string/enhorabuena"/>
+
+    <TextView
+        android:layout_below="@+id/enhorabuena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:padding="16dp"
+        android:textColor="#000"
+        android:layout_margin="16dp"
+        android:id="@+id/acertadas"
+        android:text="@string/aciertoSirena"/>
+
+    <ImageView
+        android:id="@+id/iv_Mascota"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:contentDescription="@string/content_description_mascota_de_la_aplicacion"
+        android:src="@drawable/frame0"
+        android:layout_below="@+id/acertadas"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_below="@+id/iv_Mascota"
+        android:id="@+id/volverMapa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/volver_mapa"
+        android:padding="8dp"
+        android:background="@drawable/button_background"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
