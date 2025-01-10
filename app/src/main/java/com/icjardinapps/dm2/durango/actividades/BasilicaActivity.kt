@@ -1,7 +1,10 @@
 package com.icjardinapps.dm2.durango.actividades
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -22,6 +25,12 @@ class BasilicaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_basilica)
+
+        val mascotaImage = findViewById<ImageView>(R.id.iv_Mascota)
+
+        // Inicia la animación cuando se carga la ventana
+        mascotaImage.setImageResource(R.drawable.idle)
+        (mascotaImage.drawable as AnimationDrawable).start()
 
         // Inicializar las preguntas
         Preguntas.init(this)
@@ -54,6 +63,9 @@ class BasilicaActivity : AppCompatActivity() {
     }
 
     private fun actualizarPregunta() {
+        btnVerdadero.isEnabled = true
+        btnFalso.isEnabled = true
+        tvPregunta.setTextColor(Color.BLACK)
         ivImagen.setImageResource(Preguntas.imagenes[numPregunta])
         tvPregunta.text = Preguntas.preguntas[numPregunta]
         respuesta = Preguntas.respuestas[numPregunta]
@@ -73,7 +85,12 @@ class BasilicaActivity : AppCompatActivity() {
             finish()
             startActivity(intent)
         } else {
-            actualizarPregunta()
+            btnVerdadero.isEnabled = false
+            btnFalso.isEnabled = false
+
+            Handler().postDelayed({
+                actualizarPregunta()
+            }, 1000)
         }
     }
 }
