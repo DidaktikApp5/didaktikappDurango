@@ -47,4 +47,7 @@
     <string name="opcion3">Aukera 3</string>
     <string name="opcion4">Aukera 4</string>
     <string name="comprobar">Jakin</string>
+    <string name="SirenaselecionaOpcion">Hautatu aukera bat</string>
+    <string name="SirenaIncorrecto">Okerra, saiatu berriro</string>
+    <string name="aciertoSirena">Soinu egokia jo duzu</string>
 </resources>

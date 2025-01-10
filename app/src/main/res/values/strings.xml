@@ -47,4 +47,7 @@
     <string name="opcion3">Opcion 3</string>
     <string name="opcion4">Opcion 4</string>
     <string name="comprobar">Comprobar</string>
+    <string name="SirenaselecionaOpcion">Selecciona una opción</string>
+    <string name="SirenaIncorrecto">Incorrecto, inténtalo de nuevo</string>
+    <string name="aciertoSirena">Has acertado el sonido correcto</string>
 </resources>

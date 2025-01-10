@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.durango.actividades
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
@@ -48,12 +49,13 @@ class SirenaActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnComprobarOpcion).setOnClickListener {
             val selectedOptionId = findViewById<RadioGroup>(R.id.radioGroupOpciones).checkedRadioButtonId
             if (selectedOptionId == -1) {
-                Toast.makeText(this, "Selecciona una opción", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.SirenaselecionaOpcion), Toast.LENGTH_SHORT).show()
             } else {
                 if (selectedOptionId == correctOption) {
-                    Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, ResultadosSirenaActivity::class.java)
+                    startActivity(intent)
                 } else {
-                    Toast.makeText(this, "Incorrecto, inténtalo de nuevo", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.SirenaIncorrecto), Toast.LENGTH_SHORT).show()
                     reproducirAudio(R.raw.malo)
                 }
             }
