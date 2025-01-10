@@ -1,8 +1,10 @@
 package com.icjardinapps.dm2.durango.actividades
 
 import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.R
@@ -19,6 +21,12 @@ class ResultadosBasilicaActivity : AppCompatActivity() {
         textViewPuntaje = findViewById(R.id.puntajeFinal)
         tvPuntajeFinal = findViewById(R.id.acertadas)
         btnReintentar = findViewById(R.id.btnFinal)
+
+        val mascotaImage = findViewById<ImageView>(R.id.iv_Mascota)
+
+        // Inicia la animación cuando se carga la ventana
+        mascotaImage.setImageResource(R.drawable.idle)
+        (mascotaImage.drawable as AnimationDrawable).start()
 
         val puntos = intent.extras?.getInt("finalScore") ?: 0
 
