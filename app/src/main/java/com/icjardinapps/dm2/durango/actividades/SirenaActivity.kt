@@ -21,7 +21,6 @@ class SirenaActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_sirena)
 
-        // Configuración para las barras del sistema (opcional)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -30,19 +29,19 @@ class SirenaActivity : AppCompatActivity() {
 
         // Configuración de los botones de los altavoces
         findViewById<Button>(R.id.btnAltavoz1).setOnClickListener {
-            playAudio(R.raw.sirenafuego) // Reproduce el audio correspondiente
+            reproducirAudio(R.raw.sirenafuego)
         }
 
         findViewById<Button>(R.id.btnAltavoz2).setOnClickListener {
-            playAudio(R.raw.bonbardeo)
+            reproducirAudio(R.raw.bonbardeo)
         }
 
         findViewById<Button>(R.id.btnAltavoz3).setOnClickListener {
-            playAudio(R.raw.sirenabombero)
+            reproducirAudio(R.raw.sirenabombero)
         }
 
         findViewById<Button>(R.id.btnAltavoz4).setOnClickListener {
-            playAudio(R.raw.campanaescuela)
+            reproducirAudio(R.raw.campanaescuela)
         }
 
         // Configuración del botón "Comprobar"
@@ -55,13 +54,14 @@ class SirenaActivity : AppCompatActivity() {
                     Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "Incorrecto, inténtalo de nuevo", Toast.LENGTH_SHORT).show()
+                    reproducirAudio(R.raw.malo)
                 }
             }
         }
     }
 
     // Función para reproducir el audio
-    private fun playAudio(resourceId: Int) {
+    private fun reproducirAudio(resourceId: Int) {
         // Verifica si ya existe un MediaPlayer inicializado, si es así, libéralo
         if (::mediaPlayer.isInitialized) {
             mediaPlayer.release() // Libera el reproductor si ya existe
