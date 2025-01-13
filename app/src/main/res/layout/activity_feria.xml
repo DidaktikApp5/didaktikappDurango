@@ -7,4 +7,85 @@
     android:layout_height="match_parent"
     tools:context=".actividades.FeriaActivity">
 
+    <!-- Imagen de la bolsa donde los productos pueden ser arrastrados -->
+
+    <ImageView
+        android:id="@+id/bolsa"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/bolsa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ets"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ets"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bolsa" />
+
+    <ImageView
+        android:id="@+id/esparrago"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/esparrago"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toEndOf="@id/ets"
+        app:layout_constraintTop_toBottomOf="@id/bolsa" />
+
+    <ImageView
+        android:id="@+id/zapatos"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/zapatos"
+        app:layout_constraintBottom_toTopOf="@id/hamburguesa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ets"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/hamburguesa"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="72dp"
+        android:src="@drawable/hamburguesa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.648"
+        app:layout_constraintStart_toEndOf="@id/zapatos"
+        app:layout_constraintTop_toBottomOf="@id/esparrago" />
+
+    <ImageView
+        android:id="@+id/goazen"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/goazen"
+        app:layout_constraintBottom_toTopOf="@id/libro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/zapatos"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/libro"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/libro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.393"
+        app:layout_constraintStart_toEndOf="@id/goazen"
+        app:layout_constraintTop_toBottomOf="@id/hamburguesa"
+        app:layout_constraintVertical_bias="0.046" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
