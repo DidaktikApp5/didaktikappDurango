@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_basilica"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,8 +32,8 @@
     </RelativeLayout>
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginBottom="16dp"
         android:id="@+id/imageViewImagen"
@@ -45,9 +46,9 @@
         android:layout_gravity="center"
         android:textAlignment="center"
         android:id="@+id/tvPregunta"
-        android:textSize="18sp"
-        android:padding="8dp"
-        android:layout_marginBottom="16dp"
+        android:textSize="20sp"
+        android:padding="14dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/pregunta_1"/>
 
 
@@ -63,8 +64,8 @@
             android:text="@string/verdadero"
             android:background="@drawable/button_background"
             android:id="@+id/buttonVerdadero"
-            android:layout_marginRight="4dp"
-            android:layout_marginLeft="4dp"/>
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="0dp"
@@ -73,10 +74,35 @@
             android:text="@string/falso"
             android:background="@drawable/button_background"
             android:id="@+id/buttonFalso"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
 
     </LinearLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/mensajeMascota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/iv_Mascota"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_Mascota"
+            android:layout_width="220sp"
+            android:layout_height="220sp"
+            android:contentDescription="@string/content_description_mascota_de_la_aplicacion"
+            android:src="@drawable/frame0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
