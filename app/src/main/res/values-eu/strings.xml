@@ -52,4 +52,5 @@
     <string name="SirenaselecionaOpcion">Hautatu aukera bat</string>
     <string name="SirenaIncorrecto">Okerra, saiatu berriro</string>
     <string name="aciertoSirena">Soinu egokia jo duzu</string>
+    <string name="FeriaIncorrecto">Comprobar</string>
 </resources>

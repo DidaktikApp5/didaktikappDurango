@@ -52,4 +52,5 @@
     <string name="SirenaselecionaOpcion">Selecciona una opción</string>
     <string name="SirenaIncorrecto">Incorrecto, inténtalo de nuevo</string>
     <string name="aciertoSirena">Has acertado el sonido correcto</string>
+    <string name="FeriaIncorrecto">Elementu hori ez da Azokakoa</string>
 </resources>

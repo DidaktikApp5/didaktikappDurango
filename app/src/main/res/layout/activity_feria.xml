@@ -11,6 +11,7 @@
 
     <ImageView
         android:id="@+id/bolsa"
+        android:tag="bolsa"
         android:layout_width="225dp"
         android:layout_height="225dp"
         android:layout_marginTop="32dp"
@@ -21,6 +22,7 @@
 
     <ImageView
         android:id="@+id/ets"
+        android:tag="ets"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="28dp"
@@ -31,6 +33,7 @@
 
     <ImageView
         android:id="@+id/esparrago"
+        android:tag="esparrago"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="64dp"
@@ -42,6 +45,7 @@
 
     <ImageView
         android:id="@+id/zapatos"
+        android:tag="zapatos"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="100dp"
@@ -54,6 +58,7 @@
 
     <ImageView
         android:id="@+id/hamburguesa"
+        android:tag="hamburguesa"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="72dp"
@@ -65,6 +70,7 @@
 
     <ImageView
         android:id="@+id/goazen"
+        android:tag="goazen"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="28dp"
@@ -77,6 +83,7 @@
 
     <ImageView
         android:id="@+id/libro"
+        android:tag="libro"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="40dp"
