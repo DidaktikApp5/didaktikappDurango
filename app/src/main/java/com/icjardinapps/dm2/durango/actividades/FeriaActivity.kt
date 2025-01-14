@@ -59,8 +59,9 @@ class FeriaActivity : AppCompatActivity() {
                                 mediaPlayer.release()
                             }
 
-                            //val intent = Intent(this, ResultadosActivity::class.java)
-                            //startActivity(intent)
+                            val intent = Intent(this, ResultadosActivity::class.java)
+                            intent.putExtra(ResultadosActivity.nombreActividad, "Feria")
+                            startActivity(intent)
                         }
                     } else {
                         reproducirAudio(R.raw.malo)

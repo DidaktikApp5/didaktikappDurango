@@ -19,7 +19,7 @@
     <string name="desarrollado_por">Nork garatua:</string>
     <string name="integrantes">Julio González\nMikel Ramos\nLierni Sarraoa\nLuis Ortiz de Villalba</string>
     <string name="cerrar">Itxi</string>
-    <string name="enhorabuena">Zorionak!</string>
+    <string name="enhorabuena">Zorionak! Puzzlearen pieza berri bat lortu duzu</string>
     <string name="texto_enhorabuena">Oso ondo! Jarduera behar bezala amaitu duzu.</string>
     <string name="trofeo">Garaikurra</string>
     <string name="volver">ITZULERA</string>
@@ -52,5 +52,6 @@
     <string name="SirenaselecionaOpcion">Hautatu aukera bat</string>
     <string name="SirenaIncorrecto">Okerra, saiatu berriro</string>
     <string name="aciertoSirena">Soinu egokia jo duzu</string>
-    <string name="FeriaIncorrecto">Comprobar</string>
+    <string name="FeriaIncorrecto">Este elemento no pertenece a la Feria</string>
+    <string name="aciertoFeria">Has acertado los elementos correctos de la feria</string>
 </resources>

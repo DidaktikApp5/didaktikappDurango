@@ -57,6 +57,7 @@ class SirenaActivity : AppCompatActivity() {
                     }
 
                     val intent = Intent(this, ResultadosActivity::class.java)
+                    intent.putExtra(ResultadosActivity.nombreActividad, "Sirena")
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, getString(R.string.SirenaIncorrecto), Toast.LENGTH_SHORT).show()

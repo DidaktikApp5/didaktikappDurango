@@ -52,5 +52,6 @@
     <string name="SirenaselecionaOpcion">Selecciona una opción</string>
     <string name="SirenaIncorrecto">Incorrecto, inténtalo de nuevo</string>
     <string name="aciertoSirena">Has acertado el sonido correcto</string>
-    <string name="FeriaIncorrecto">Elementu hori ez da Azokakoa</string>
+    <string name="FeriaIncorrecto">Elementu hau ez da Azokakoa</string>
+    <string name="aciertoFeria">Azokaren elementu zuzenak asmatu dituzu</string>
 </resources>
