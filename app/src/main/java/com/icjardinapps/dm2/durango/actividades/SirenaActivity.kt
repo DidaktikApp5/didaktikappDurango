@@ -56,7 +56,7 @@ class SirenaActivity : AppCompatActivity() {
                         mediaPlayer.release()
                     }
 
-                    val intent = Intent(this, ResultadosSirenaActivity::class.java)
+                    val intent = Intent(this, ResultadosActivity::class.java)
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, getString(R.string.SirenaIncorrecto), Toast.LENGTH_SHORT).show()

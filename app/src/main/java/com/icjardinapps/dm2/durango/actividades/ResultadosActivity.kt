@@ -8,10 +8,11 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.R
 
-class ResultadosSirenaActivity : AppCompatActivity() {
+class ResultadosActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_resultados_sirena)
+        setContentView(R.layout.activity_resultados)
 
         val buttonVolverMapa: Button = findViewById(R.id.volverMapa)
         val mascotaImage = findViewById<ImageView>(R.id.iv_Mascota)
@@ -20,9 +21,16 @@ class ResultadosSirenaActivity : AppCompatActivity() {
         mascotaImage.setImageResource(R.drawable.idle)
         (mascotaImage.drawable as AnimationDrawable).start()
 
+        // Obtener el nombre de la actividad de origen
+        val nombreJuego = intent.getStringExtra("nombreJuego")
+
         buttonVolverMapa.setOnClickListener {
             val intent = Intent(this, MapaActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun cambiarTexto(nombreJuego: String) {
+
     }
 }
