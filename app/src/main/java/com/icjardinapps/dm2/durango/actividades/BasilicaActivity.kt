@@ -65,10 +65,10 @@ class BasilicaActivity : AppCompatActivity() {
             if (!respuesta) {
                 puntaje++
                 actualizarPuntaje(puntaje)
-                tvPregunta.setTextColor(Color.GREEN)
+                tvPregunta.setTextColor(getColor(R.color.verde))
                 mensajeMascota.text = getString(R.string.correcto)
             } else {
-                tvPregunta.setTextColor(Color.RED)
+                tvPregunta.setTextColor(getColor(R.color.rojo))
                 mensajeMascota.text = getString(R.string.incorrecto)
             }
 
