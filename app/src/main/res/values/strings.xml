@@ -19,7 +19,7 @@
     <string name="desarrollado_por">Desarrollado por:</string>
     <string name="integrantes">Julio González\nMikel Ramos\nLierni Sarraoa\nLuis Ortiz de Villalba</string>
     <string name="cerrar">Cerrar</string>
-    <string name="enhorabuena">¡Enhorabuena!</string>
+    <string name="enhorabuena">¡Enhorabuena! Has obtenido una nueva pieza del Puzle</string>
     <string name="texto_enhorabuena">¡Muy bien! Has completado la actividad correctamente.</string>
     <string name="trofeo">Trofeo</string>
     <string name="volver">VOLVER</string>
@@ -52,4 +52,6 @@
     <string name="SirenaselecionaOpcion">Selecciona una opción</string>
     <string name="SirenaIncorrecto">Incorrecto, inténtalo de nuevo</string>
     <string name="aciertoSirena">Has acertado el sonido correcto</string>
+    <string name="FeriaIncorrecto">Este elemento no pertenece a la Feria</string>
+    <string name="aciertoFeria">Has acertado los elementos correctos de la feria</string>
 </resources>
