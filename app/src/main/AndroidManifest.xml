@@ -57,7 +57,7 @@
             android:name=".actividades.MikeldiActivity"
             android:exported="false" />
         <activity
-            android:name=".actividades.ResultadosSirenaActivity"
+            android:name=".actividades.ResultadosActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
