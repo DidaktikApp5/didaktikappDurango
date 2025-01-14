@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background_gradient"
     tools:context=".actividades.BasilicaActivity">
 
     <RelativeLayout
@@ -32,8 +33,8 @@
     </RelativeLayout>
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginBottom="16dp"
         android:id="@+id/imageViewImagen"
@@ -49,6 +50,8 @@
         android:textSize="20sp"
         android:padding="14dp"
         android:layout_marginBottom="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:text="@string/pregunta_1"/>
 
 
@@ -90,15 +93,15 @@
             android:layout_marginBottom="16dp"
             android:text=""
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="22sp"
             app:layout_constraintBottom_toTopOf="@id/iv_Mascota"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/iv_Mascota"
-            android:layout_width="220sp"
-            android:layout_height="220sp"
+            android:layout_width="200sp"
+            android:layout_height="200sp"
             android:contentDescription="@string/content_description_mascota_de_la_aplicacion"
             android:src="@drawable/frame0"
             app:layout_constraintBottom_toBottomOf="parent"
