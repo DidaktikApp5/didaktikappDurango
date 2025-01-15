@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.durango.actividades
 
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.R
 
 class ResultadosBasilicaActivity : AppCompatActivity() {
+    private lateinit var dialog: Dialog
     private lateinit var textViewPuntaje: TextView
     private lateinit var tvPuntajeFinal: TextView
     private lateinit var btnReintentar: Button
@@ -17,6 +19,8 @@ class ResultadosBasilicaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultados_basilica)
+
+        dialog = Dialog(this)
 
         textViewPuntaje = findViewById(R.id.puntajeFinal)
         tvPuntajeFinal = findViewById(R.id.acertadas)
@@ -48,12 +52,27 @@ class ResultadosBasilicaActivity : AppCompatActivity() {
 
         btnReintentar.setOnClickListener {
             if(puntos == 4) {
-                val intent = Intent(this, MapaActivity::class.java)
-                startActivity(intent)
+                obtenerPieza()
             } else {
                 startActivity(Intent(this@ResultadosBasilicaActivity, BasilicaActivity::class.java))
                 finish()
             }
         }
+    }
+
+    private fun obtenerPieza() {
+        dialog.setContentView(R.layout.ganar)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val btnCerrar: Button = dialog.findViewById(R.id.btnGanarCerrar)
+
+        btnCerrar.setOnClickListener {
+            val intent = Intent(this, MapaActivity::class.java)
+            startActivity(intent)
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 }

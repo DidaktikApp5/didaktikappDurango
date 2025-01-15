@@ -6,7 +6,7 @@
     <color name="azul">#FF0071BC</color>
     <color name="azul_claro">#0D91D5</color>
     <color name="fondo">#98ceed</color>
-    <color name="rojo">#FFD40000</color>
+    <color name="rojo">#FF0000</color>
     <color name="verde">#55FF00</color>
     <color name="gris">#FF333333</color>
 </resources>

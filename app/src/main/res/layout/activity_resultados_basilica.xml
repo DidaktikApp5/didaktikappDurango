@@ -44,7 +44,7 @@
         android:textColor="#000"
         android:layout_margin="16dp"
         android:id="@+id/puntajeFinal"
-        android:text="@string/enhorabuena"/>
+        android:text=""/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
