@@ -19,7 +19,8 @@
     <string name="desarrollado_por">Nork garatua:</string>
     <string name="integrantes">Julio González\nMikel Ramos\nLierni Sarraoa\nLuis Ortiz de Villalba</string>
     <string name="cerrar">Itxi</string>
-    <string name="enhorabuena">Zorionak! Puzzlearen pieza berri bat lortu duzu</string>
+    <string name="enhorabuena">Puzzlearen pieza berri bat lortu duzu</string>
+    <string name="titulo_enhorabuena">Zorionak!</string>
     <string name="texto_enhorabuena">Oso ondo! Jarduera behar bezala amaitu duzu.</string>
     <string name="trofeo">Garaikurra</string>
     <string name="volver">ITZULERA</string>

@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.durango.actividades
 
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
@@ -15,9 +16,13 @@ class ResultadosActivity : AppCompatActivity() {
         const val nombreActividad = "nombreJuego"
     }
 
+    private lateinit var dialog: Dialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultados)
+
+        dialog = Dialog(this)
 
         val txtAcierto: TextView = findViewById(R.id.txtAcierto)
         val buttonVolverMapa: Button = findViewById(R.id.volverMapa)
@@ -32,8 +37,7 @@ class ResultadosActivity : AppCompatActivity() {
         cambiarTexto(nombreJuego, txtAcierto)
 
         buttonVolverMapa.setOnClickListener {
-            val intent = Intent(this, MapaActivity::class.java)
-            startActivity(intent)
+            obtenerPieza()
         }
     }
 
@@ -46,5 +50,21 @@ class ResultadosActivity : AppCompatActivity() {
                 txtAcierto.text = getString(R.string.aciertoFeria)
             }
         }
+    }
+
+    private fun obtenerPieza() {
+        dialog.setContentView(R.layout.ganar)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val btnCerrar: Button = dialog.findViewById(R.id.btnGanarCerrar)
+
+        btnCerrar.setOnClickListener {
+            val intent = Intent(this, MapaActivity::class.java)
+            startActivity(intent)
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 }

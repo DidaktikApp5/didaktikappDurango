@@ -19,24 +19,13 @@
             android:layout_height="match_parent"
             android:background="@drawable/background_gradient">
 
-            <ImageView
-                android:id="@+id/ivGanarCerrar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="@string/cerrar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/close" />
-
             <TextView
                 android:id="@+id/tvGanarTitulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/enhorabuena"
-                android:textColor="@color/azul"
+                android:text="@string/titulo_enhorabuena"
+                android:textColor="@color/negro"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:text="@string/texto_enhorabuena"
+                android:text="@string/enhorabuena"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
