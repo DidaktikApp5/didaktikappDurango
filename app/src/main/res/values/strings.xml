@@ -55,4 +55,5 @@
     <string name="aciertoSirena">Has acertado el sonido correcto</string>
     <string name="FeriaIncorrecto">Este elemento no pertenece a la Feria</string>
     <string name="aciertoFeria">Has acertado los elementos correctos de la feria</string>
+    <string name="antesComenzar">Antes de Comenzar...</string>
 </resources>

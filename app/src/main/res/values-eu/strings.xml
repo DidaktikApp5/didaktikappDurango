@@ -55,4 +55,5 @@
     <string name="aciertoSirena">Soinu egokia jo duzu</string>
     <string name="FeriaIncorrecto">Elementu hau ez da Azokakoa</string>
     <string name="aciertoFeria">Azokaren elementu zuzenak asmatu dituzu</string>
+    <string name="antesComenzar">Hasi aurretik...</string>
 </resources>
