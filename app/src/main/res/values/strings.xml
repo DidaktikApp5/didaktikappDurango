@@ -55,4 +55,7 @@
     <string name="aciertoSirena">Has acertado el sonido correcto</string>
     <string name="FeriaIncorrecto">Este elemento no pertenece a la Feria</string>
     <string name="aciertoFeria">Has acertado los elementos correctos de la feria</string>
+    <string name="salir_app">Salir</string>
+    <string name="titulo_despedida">¡Felicidades! Has completado todas las actividades.</string>
+    <string name="texto_despedida">Espero que hayas disfrutado de la experiencia de aprendizaje sobre durango.</string>
 </resources>

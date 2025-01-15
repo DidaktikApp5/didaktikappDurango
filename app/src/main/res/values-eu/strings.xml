@@ -55,4 +55,7 @@
     <string name="aciertoSirena">Soinu egokia jo duzu</string>
     <string name="FeriaIncorrecto">Elementu hau ez da Azokakoa</string>
     <string name="aciertoFeria">Azokaren elementu zuzenak asmatu dituzu</string>
+    <string name="salir_app">Irten</string>
+    <string name="titulo_despedida">Zorionak! Jarduera guztiak bete dituzu.</string>
+    <string name="texto_despedida">Espero dut Durangori buruzko ikaskuntzaren esperientziaz gozatu izana.</string>
 </resources>
