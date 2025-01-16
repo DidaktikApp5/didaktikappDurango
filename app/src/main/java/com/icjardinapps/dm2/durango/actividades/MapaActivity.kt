@@ -5,9 +5,15 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
+import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
+import android.widget.SeekBar
+import android.widget.VideoView
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -128,13 +134,13 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         // Listener para clics en los marcadores
         mMap.setOnMarkerClickListener { marker ->
             when (marker.tag) {
-                "mikeldi" -> abrirActividad(MikeldiActivity::class.java)
-                "feria" -> abrirActividad(FeriaActivity::class.java)
-                "sirena" -> abrirActividad(SirenaActivity::class.java)
+                "mikeldi" -> mostrarInfoMikeldi()
+                "feria" -> mostrarInfoFeria()
+                "sirena" -> mostrarInfoSirena()
                 "basilica" -> mostrarInfoBasilica()
-                "personajeArtopila" -> abrirActividad(PatxikotxuActivity::class.java)
-                "artopila" -> abrirActividad(ArtopilActivity::class.java)
-                "escudo" -> abrirActividad(EscudoActivity::class.java)
+                "personajeArtopila" -> mostrarInfoPatxikotxu()
+                "artopila" -> mostrarInfoArtopila()
+                "escudo" -> mostrarInfoEscudo()
                 else -> false  // Si no se encuentra el tag, no hace nada
             }
             true
@@ -168,6 +174,79 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         startActivity(intent)
     }
 
+    private fun mostrarInfoMikeldi() {
+        dialog.setContentView(R.layout.info_mikeldi) // Asegúrate de que el layout es el correcto
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoMikeldi)
+        val seekBar: SeekBar = dialog.findViewById(R.id.seekBarAudio)
+        val mediaPlayer = MediaPlayer.create(this, R.raw.mikeldi_explicacion)
+
+        mediaPlayer.setOnPreparedListener {
+            seekBar.max = mediaPlayer.duration
+            mediaPlayer.start() // Inicia la reproducción cuando el MediaPlayer está preparado
+            updateSeekBar(seekBar, mediaPlayer)
+        }
+
+        // Actualización del SeekBar
+        mediaPlayer.setOnCompletionListener {
+            seekBar.progress = 0
+        }
+
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                if (fromUser) {
+                    mediaPlayer.seekTo(progress)
+                }
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                mediaPlayer.pause()
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                mediaPlayer.start()
+            }
+        })
+
+        btnComenzar.setOnClickListener {
+            abrirActividad(MikeldiActivity::class.java)
+            mediaPlayer.stop() // Detén el MediaPlayer al cambiar de actividad
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun updateSeekBar(seekBar: SeekBar, mediaPlayer: MediaPlayer) {
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                seekBar.progress = mediaPlayer.currentPosition
+                handler.postDelayed(this, 1000)
+            }
+        }, 1000)
+    }
+
+
+
+
+    private fun mostrarInfoSirena() {
+        dialog.setContentView(R.layout.info_sirena)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoSirena)
+
+        btnComenzar.setOnClickListener {
+            abrirActividad(SirenaActivity::class.java)
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
     private fun mostrarInfoBasilica() {
         dialog.setContentView(R.layout.info_basilica)
 
@@ -182,4 +261,129 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
 
         dialog.show()
     }
+
+    private fun mostrarInfoFeria() {
+        dialog.setContentView(R.layout.info_feria)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        // Obtener el VideoView del layout
+        val videoView: VideoView = dialog.findViewById(R.id.videoViewInfoFeria)
+
+        // Establecer la ruta del video
+        val uriPath = "android.resource://" + packageName + "/" + R.raw.feria_explicacion
+        videoView.setVideoURI(Uri.parse(uriPath))
+
+        // Habilitar los controles del video
+        videoView.setMediaController(android.widget.MediaController(this))
+        videoView.setMediaController(android.widget.MediaController(this).apply {
+            setAnchorView(videoView)  // Ancla los controles al VideoView
+        })
+
+        // Iniciar el video
+        videoView.start()
+
+        // Obtener el botón y configurar su acción
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoFeria)
+        btnComenzar.setOnClickListener {
+            abrirActividad(FeriaActivity::class.java)
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun mostrarInfoArtopila() {
+        dialog.setContentView(R.layout.info_artopila)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        // Obtener el VideoView del layout
+        val videoView: VideoView = dialog.findViewById(R.id.videoViewInfoArtopila)
+
+        // Establecer la ruta del video
+        val uriPath = "android.resource://" + packageName + "/" + R.raw.artopila_explicacion
+        videoView.setVideoURI(Uri.parse(uriPath))
+
+        // Habilitar los controles del video
+        videoView.setMediaController(android.widget.MediaController(this))
+        videoView.setMediaController(android.widget.MediaController(this).apply {
+            setAnchorView(videoView)  // Ancla los controles al VideoView
+        })
+
+        // Iniciar el video
+        videoView.start()
+
+        // Obtener el botón y configurar su acción
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoArtopila)
+        btnComenzar.setOnClickListener {
+            abrirActividad(ArtopilActivity::class.java)
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun mostrarInfoPatxikotxu() {
+        dialog.setContentView(R.layout.info_patxikotxu)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        // Obtener el VideoView del layout
+        val videoView: VideoView = dialog.findViewById(R.id.videoViewInfoPatxikotxu)
+
+        // Establecer la ruta del video
+        val uriPath = "android.resource://" + packageName + "/" + R.raw.patxikotxu_explicacion
+        videoView.setVideoURI(Uri.parse(uriPath))
+
+        // Habilitar los controles del video
+        videoView.setMediaController(android.widget.MediaController(this))
+        videoView.setMediaController(android.widget.MediaController(this).apply {
+            setAnchorView(videoView)  // Ancla los controles al VideoView
+        })
+
+        // Iniciar el video
+        videoView.start()
+
+        // Obtener el botón y configurar su acción
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoPatxikotxu)
+        btnComenzar.setOnClickListener {
+            abrirActividad(PatxikotxuActivity::class.java)
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun mostrarInfoEscudo() {
+        dialog.setContentView(R.layout.info_escudo)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        // Obtener el VideoView del layout
+        val videoView: VideoView = dialog.findViewById(R.id.videoViewInfoEscudo)
+
+        // Establecer la ruta del video
+        val uriPath = "android.resource://" + packageName + "/" + R.raw.escudo_explicacion
+        videoView.setVideoURI(Uri.parse(uriPath))
+
+        // Habilitar los controles del video
+        videoView.setMediaController(android.widget.MediaController(this))
+        videoView.setMediaController(android.widget.MediaController(this).apply {
+            setAnchorView(videoView)  // Ancla los controles al VideoView
+        })
+
+        // Iniciar el video
+        videoView.start()
+
+        // Obtener el botón y configurar su acción
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoEscudo)
+        btnComenzar.setOnClickListener {
+            abrirActividad(EscudoActivity::class.java)
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
 }
