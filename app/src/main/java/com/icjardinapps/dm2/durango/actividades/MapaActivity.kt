@@ -1,11 +1,13 @@
 package com.icjardinapps.dm2.durango.actividades
 
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -23,12 +25,14 @@ import com.icjardinapps.dm2.durango.R
 import com.icjardinapps.dm2.durango.databinding.ActivityMapaBinding
 
 class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
-
+    private lateinit var dialog: Dialog
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        dialog = Dialog(this)
 
         binding = ActivityMapaBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -127,7 +131,7 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
                 "mikeldi" -> abrirActividad(MikeldiActivity::class.java)
                 "feria" -> abrirActividad(FeriaActivity::class.java)
                 "sirena" -> abrirActividad(SirenaActivity::class.java)
-                "basilica" -> abrirActividad(BasilicaActivity::class.java)
+                "basilica" -> mostrarInfoBasilica()
                 "personajeArtopila" -> abrirActividad(PatxikotxuActivity::class.java)
                 "artopila" -> abrirActividad(ArtopilActivity::class.java)
                 "escudo" -> abrirActividad(EscudoActivity::class.java)
@@ -162,5 +166,20 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun <T> abrirActividad(clase: Class<T>) {
         val intent = Intent(this, clase)
         startActivity(intent)
+    }
+
+    private fun mostrarInfoBasilica() {
+        dialog.setContentView(R.layout.info_basilica)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoBasilica)
+
+        btnComenzar.setOnClickListener {
+            abrirActividad(BasilicaActivity::class.java)
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 }
