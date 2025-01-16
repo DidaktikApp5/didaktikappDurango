@@ -5,9 +5,11 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.VideoView
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -129,7 +131,7 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.setOnMarkerClickListener { marker ->
             when (marker.tag) {
                 "mikeldi" -> abrirActividad(MikeldiActivity::class.java)
-                "feria" -> abrirActividad(FeriaActivity::class.java)
+                "feria" -> mostrarInfoFeria()
                 "sirena" -> abrirActividad(SirenaActivity::class.java)
                 "basilica" -> mostrarInfoBasilica()
                 "personajeArtopila" -> abrirActividad(PatxikotxuActivity::class.java)
@@ -182,4 +184,36 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
 
         dialog.show()
     }
+
+    private fun mostrarInfoFeria() {
+        dialog.setContentView(R.layout.info_feria)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        // Obtener el VideoView del layout
+        val videoView: VideoView = dialog.findViewById(R.id.videoViewInfoFeria)
+
+        // Establecer la ruta del video
+        val uriPath = "android.resource://" + packageName + "/" + R.raw.feria_explicacion
+        videoView.setVideoURI(Uri.parse(uriPath))
+
+        // Habilitar los controles del video
+        videoView.setMediaController(android.widget.MediaController(this))
+        videoView.setMediaController(android.widget.MediaController(this).apply {
+            setAnchorView(videoView)  // Ancla los controles al VideoView
+        })
+
+        // Iniciar el video
+        videoView.start()
+
+        // Obtener el botón y configurar su acción
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoFeria)
+        btnComenzar.setOnClickListener {
+            abrirActividad(FeriaActivity::class.java)
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
 }
