@@ -5,10 +5,14 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
+import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
+import android.widget.SeekBar
 import android.widget.VideoView
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -130,7 +134,7 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         // Listener para clics en los marcadores
         mMap.setOnMarkerClickListener { marker ->
             when (marker.tag) {
-                "mikeldi" -> abrirActividad(MikeldiActivity::class.java)
+                "mikeldi" -> mostrarInfoMikeldi()
                 "feria" -> mostrarInfoFeria()
                 "sirena" -> mostrarInfoSirena()
                 "basilica" -> mostrarInfoBasilica()
@@ -169,6 +173,64 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         val intent = Intent(this, clase)
         startActivity(intent)
     }
+
+    private fun mostrarInfoMikeldi() {
+        dialog.setContentView(R.layout.info_mikeldi) // Asegúrate de que el layout es el correcto
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoMikeldi)
+        val seekBar: SeekBar = dialog.findViewById(R.id.seekBarAudio)
+        val mediaPlayer = MediaPlayer.create(this, R.raw.mikeldi_explicacion)
+
+        mediaPlayer.setOnPreparedListener {
+            seekBar.max = mediaPlayer.duration
+            mediaPlayer.start() // Inicia la reproducción cuando el MediaPlayer está preparado
+            updateSeekBar(seekBar, mediaPlayer)
+        }
+
+        // Actualización del SeekBar
+        mediaPlayer.setOnCompletionListener {
+            seekBar.progress = 0
+        }
+
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                if (fromUser) {
+                    mediaPlayer.seekTo(progress)
+                }
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                mediaPlayer.pause()
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                mediaPlayer.start()
+            }
+        })
+
+        btnComenzar.setOnClickListener {
+            abrirActividad(MikeldiActivity::class.java)
+            mediaPlayer.stop() // Detén el MediaPlayer al cambiar de actividad
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun updateSeekBar(seekBar: SeekBar, mediaPlayer: MediaPlayer) {
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                seekBar.progress = mediaPlayer.currentPosition
+                handler.postDelayed(this, 1000)
+            }
+        }, 1000)
+    }
+
+
+
 
     private fun mostrarInfoSirena() {
         dialog.setContentView(R.layout.info_sirena)
