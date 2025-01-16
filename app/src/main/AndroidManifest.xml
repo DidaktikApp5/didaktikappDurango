@@ -60,6 +60,9 @@
             android:name=".actividades.ResultadosActivity"
             android:exported="false" />
         <activity
+            android:name=".actividades.ExplicacionJuegoActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">

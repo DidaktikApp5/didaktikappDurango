@@ -40,12 +40,12 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Listener para el botón Volver
         binding.btnVolver.setOnClickListener {
-            abrirActividad(MainActivity::class.java)
+            abrirActividad(MainActivity::class.java,"main")
         }
 
         // Listener para el botón Puzzle Final
         binding.btnPuzzleFinal.setOnClickListener {
-            abrirActividad(PuzleActivity::class.java)
+            abrirActividad(PuzleActivity::class.java,"puzle")
         }
     }
 
@@ -124,13 +124,13 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         // Listener para clics en los marcadores
         mMap.setOnMarkerClickListener { marker ->
             when (marker.tag) {
-                "mikeldi" -> abrirActividad(MikeldiActivity::class.java)
-                "feria" -> abrirActividad(FeriaActivity::class.java)
-                "sirena" -> abrirActividad(SirenaActivity::class.java)
-                "basilica" -> abrirActividad(BasilicaActivity::class.java)
-                "personajeArtopila" -> abrirActividad(PatxikotxuActivity::class.java)
-                "artopila" -> abrirActividad(ArtopilActivity::class.java)
-                "escudo" -> abrirActividad(EscudoActivity::class.java)
+                "mikeldi" -> abrirActividad(ExplicacionJuegoActivity::class.java,"mikeldi")
+                "feria" -> abrirActividad(ExplicacionJuegoActivity::class.java,"feria")
+                "sirena" -> abrirActividad(ExplicacionJuegoActivity::class.java,"sirena")
+                "basilica" -> abrirActividad(ExplicacionJuegoActivity::class.java,"basilica")
+                "personajeArtopila" -> abrirActividad(ExplicacionJuegoActivity::class.java,"personajeArtopila")
+                "artopila" -> abrirActividad(ExplicacionJuegoActivity::class.java,"artopila")
+                "escudo" -> abrirActividad(ExplicacionJuegoActivity::class.java,"escudo")
                 else -> false  // Si no se encuentra el tag, no hace nada
             }
             true
@@ -159,8 +159,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     // Función para abrir actividades
-    private fun <T> abrirActividad(clase: Class<T>) {
+    private fun <T> abrirActividad(clase: Class<T>,palabraJuego:String) {
         val intent = Intent(this, clase)
+        intent.putExtra(ExplicacionJuegoActivity.palabraJuegoRecivido, palabraJuego)
         startActivity(intent)
     }
 }
