@@ -79,10 +79,10 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         val iconBitmapEscudo = getBitmapFromVectorDrawable(vectorDrawableEscudo)
 
         // Añadir marcadores al mapa
-        val marcadorMikedi = mMap.addMarker(MarkerOptions()
+        val marcadorMikeldi = mMap.addMarker(MarkerOptions()
             .position(LatLng(43.172993, -2.633388))
             .icon(BitmapDescriptorFactory.fromBitmap(iconBitmapMikeldi)))
-        marcadorMikedi?.tag = "mikeldi"
+        marcadorMikeldi?.tag = "mikeldi"
 
         val marcadorFeria = mMap.addMarker(MarkerOptions()
             .position(LatLng(43.171167, -2.630722))
