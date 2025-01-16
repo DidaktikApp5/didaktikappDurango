@@ -175,7 +175,7 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun mostrarInfoMikeldi() {
-        dialog.setContentView(R.layout.info_mikeldi) // Asegúrate de que el layout es el correcto
+        dialog.setContentView(R.layout.info_mikeldi)
 
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
