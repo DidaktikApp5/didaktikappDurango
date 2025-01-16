@@ -132,7 +132,7 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
             when (marker.tag) {
                 "mikeldi" -> abrirActividad(MikeldiActivity::class.java)
                 "feria" -> mostrarInfoFeria()
-                "sirena" -> abrirActividad(SirenaActivity::class.java)
+                "sirena" -> mostrarInfoSirena()
                 "basilica" -> mostrarInfoBasilica()
                 "personajeArtopila" -> abrirActividad(PatxikotxuActivity::class.java)
                 "artopila" -> abrirActividad(ArtopilActivity::class.java)
@@ -168,6 +168,21 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun <T> abrirActividad(clase: Class<T>) {
         val intent = Intent(this, clase)
         startActivity(intent)
+    }
+
+    private fun mostrarInfoSirena() {
+        dialog.setContentView(R.layout.info_sirena)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoSirena)
+
+        btnComenzar.setOnClickListener {
+            abrirActividad(SirenaActivity::class.java)
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
     private fun mostrarInfoBasilica() {
