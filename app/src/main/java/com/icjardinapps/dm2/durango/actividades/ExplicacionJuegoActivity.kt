@@ -4,10 +4,12 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
+import android.view.Gravity
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.SeekBar
+import android.widget.TextView
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.R
@@ -177,6 +179,22 @@ class ExplicacionJuegoActivity : AppCompatActivity() {
             isPlaying = false
             seekBar.progress = 0 // Restablecer SeekBar al inicio
         }
+    }
+
+    private fun agregarTextoAlContenedor(textoResId: Int) {
+        // Crear un TextView
+        val textView = TextView(this)
+
+        // Establecer el texto desde los recursos
+        textView.text = getString(textoResId)
+
+        // Configurar el tamaño y el color del texto (personaliza a tu gusto)
+        textView.textSize = 20f  // Tamaño del texto
+        textView.setTextColor(resources.getColor(android.R.color.black))  // Color del texto
+        textView.gravity = Gravity.CENTER  // Alineación centrada del texto
+
+        // Añadir el TextView al contenedor
+        contenedorContenido.addView(textView)
     }
 
     override fun onDestroy() {
