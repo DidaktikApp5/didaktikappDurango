@@ -5,6 +5,68 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".actividades.DespedidaActivity">
 
+    <ImageView
+        android:id="@+id/ivDecoracionDespedida"
+        android:layout_width="179dp"
+        android:layout_height="205dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/top_left" />
+
+    <TextView
+        android:id="@+id/tituloDespedida"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/titulo_despedida"
+        android:textAlignment="center"
+        android:textColor="@color/negro"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivDecoracionDespedida" />
+
+    <TextView
+        android:id="@+id/textoDespedida"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/texto_despedida"
+        android:textAlignment="center"
+        android:textColor="@color/negro"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloDespedida" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSalirDespedida"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_background"
+        android:padding="8dp"
+        android:text="@string/salir_app"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoDespedida" />
+
+    <ImageView
+        android:id="@+id/ivMascotaDespedida"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:contentDescription="@string/content_description_mascota_de_la_aplicacion"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/frame0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

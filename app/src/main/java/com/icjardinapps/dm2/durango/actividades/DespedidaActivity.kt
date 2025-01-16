@@ -1,21 +1,29 @@
 package com.icjardinapps.dm2.durango.actividades
 
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.icjardinapps.dm2.durango.R
 
 class DespedidaActivity : AppCompatActivity() {
+    private lateinit var btnSalir: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_despedida)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        val mascotaImage = findViewById<ImageView>(R.id.ivMascotaDespedida)
+
+        // Inicia la animación cuando se carga la ventana
+        mascotaImage.setImageResource(R.drawable.idle)
+        (mascotaImage.drawable as AnimationDrawable).start()
+
+        btnSalir = findViewById(R.id.btnSalirDespedida)
+
+        btnSalir.setOnClickListener {
+            finish()
         }
     }
 }

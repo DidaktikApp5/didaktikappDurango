@@ -1,11 +1,13 @@
 package com.icjardinapps.dm2.durango.actividades
 
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -23,12 +25,14 @@ import com.icjardinapps.dm2.durango.R
 import com.icjardinapps.dm2.durango.databinding.ActivityMapaBinding
 
 class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
-
+    private lateinit var dialog: Dialog
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        dialog = Dialog(this)
 
         binding = ActivityMapaBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -40,12 +44,12 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Listener para el botón Volver
         binding.btnVolver.setOnClickListener {
-            abrirActividad(MainActivity::class.java,"main")
+            abrirActividad(MainActivity::class.java)
         }
 
         // Listener para el botón Puzzle Final
         binding.btnPuzzleFinal.setOnClickListener {
-            abrirActividad(PuzleActivity::class.java,"puzle")
+            abrirActividad(PuzleActivity::class.java)
         }
     }
 
@@ -124,13 +128,13 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         // Listener para clics en los marcadores
         mMap.setOnMarkerClickListener { marker ->
             when (marker.tag) {
-                "mikeldi" -> abrirActividad(ExplicacionJuegoActivity::class.java,"mikeldi")
-                "feria" -> abrirActividad(ExplicacionJuegoActivity::class.java,"feria")
-                "sirena" -> abrirActividad(ExplicacionJuegoActivity::class.java,"sirena")
-                "basilica" -> abrirActividad(ExplicacionJuegoActivity::class.java,"basilica")
-                "personajeArtopila" -> abrirActividad(ExplicacionJuegoActivity::class.java,"personajeArtopila")
-                "artopila" -> abrirActividad(ExplicacionJuegoActivity::class.java,"artopila")
-                "escudo" -> abrirActividad(ExplicacionJuegoActivity::class.java,"escudo")
+                "mikeldi" -> abrirActividad(MikeldiActivity::class.java)
+                "feria" -> abrirActividad(FeriaActivity::class.java)
+                "sirena" -> abrirActividad(SirenaActivity::class.java)
+                "basilica" -> mostrarInfoBasilica()
+                "personajeArtopila" -> abrirActividad(PatxikotxuActivity::class.java)
+                "artopila" -> abrirActividad(ArtopilActivity::class.java)
+                "escudo" -> abrirActividad(EscudoActivity::class.java)
                 else -> false  // Si no se encuentra el tag, no hace nada
             }
             true
@@ -159,9 +163,23 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     // Función para abrir actividades
-    private fun <T> abrirActividad(clase: Class<T>,palabraJuego:String) {
+    private fun <T> abrirActividad(clase: Class<T>) {
         val intent = Intent(this, clase)
-        intent.putExtra(ExplicacionJuegoActivity.palabraJuegoRecivido, palabraJuego)
         startActivity(intent)
+    }
+
+    private fun mostrarInfoBasilica() {
+        dialog.setContentView(R.layout.info_basilica)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoBasilica)
+
+        btnComenzar.setOnClickListener {
+            abrirActividad(BasilicaActivity::class.java)
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 }
