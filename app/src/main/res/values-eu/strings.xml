@@ -55,4 +55,10 @@
     <string name="aciertoSirena">Soinu egokia jo duzu</string>
     <string name="FeriaIncorrecto">Elementu hau ez da Azokakoa</string>
     <string name="aciertoFeria">Azokaren elementu zuzenak asmatu dituzu</string>
+    <string name="salir_app">Irten</string>
+    <string name="titulo_despedida">Zorionak! Jarduera guztiak bete dituzu.</string>
+    <string name="texto_despedida">Espero dut Durangori buruzko ikaskuntzaren esperientziaz gozatu izana.</string>
+    <string name="informacion">INFORMAZIOA</string>
+    <string name="texto_info_basilica">\tHemen daukagun eraikina Uribarriko Santa Maria Basilika deitzen da eta XV. mendearen amaieran sortu zen. Monumentu hau Euskal Herriko lanik izugarrienetako bat da. Basilikaz gain, haren elizpea nabarmena da, izan ere, Euskal Herriko handiena da.\n
+\tBitxikeri moduan, 1937ko martxoaren 31n Durangok jasan zuen bonbardaketan, basilikako arkupea eta eraikina suntsituta geratu ziren, eta bertan mezatan zeuden herritarrak hil egin ziren.</string>
 </resources>

@@ -55,4 +55,10 @@
     <string name="aciertoSirena">Has acertado el sonido correcto</string>
     <string name="FeriaIncorrecto">Este elemento no pertenece a la Feria</string>
     <string name="aciertoFeria">Has acertado los elementos correctos de la feria</string>
+    <string name="salir_app">Salir</string>
+    <string name="titulo_despedida">¡Felicidades! Has completado todas las actividades.</string>
+    <string name="texto_despedida">Espero que hayas disfrutado de la experiencia de aprendizaje sobre durango.</string>
+    <string name="informacion">INFORMACIÓN</string>
+    <string name="texto_info_basilica">\tEl edificio que tenemos aquí se llama Basílica de Santa María de Uribarri y se creó a finales del siglo XV. Este monumento es una de las obras más impresionantes de Euskal Herria. Además de la basílica, su pórtico es notable, ya que es el más grande de Euskal Herria.\n
+\tComo curiosidad, en el bombardeo que sufrió Durango el 31 de marzo de 1937, el pórtico y el edificio de la basílica quedaron destruidos, y en él murieron los ciudadanos que participaban en la misa.</string>
 </resources>
