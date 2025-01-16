@@ -135,7 +135,7 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
                 "sirena" -> mostrarInfoSirena()
                 "basilica" -> mostrarInfoBasilica()
                 "personajeArtopila" -> mostrarInfoPatxikotxu()
-                "artopila" -> abrirActividad(ArtopilActivity::class.java)
+                "artopila" -> mostrarInfoArtopila()
                 "escudo" -> abrirActividad(EscudoActivity::class.java)
                 else -> false  // Si no se encuentra el tag, no hace nada
             }
@@ -225,6 +225,37 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         val btnComenzar: Button = dialog.findViewById(R.id.btnInfoFeria)
         btnComenzar.setOnClickListener {
             abrirActividad(FeriaActivity::class.java)
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun mostrarInfoArtopila() {
+        dialog.setContentView(R.layout.info_artopila)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        // Obtener el VideoView del layout
+        val videoView: VideoView = dialog.findViewById(R.id.videoViewInfoArtopila)
+
+        // Establecer la ruta del video
+        val uriPath = "android.resource://" + packageName + "/" + R.raw.artopila_explicacion
+        videoView.setVideoURI(Uri.parse(uriPath))
+
+        // Habilitar los controles del video
+        videoView.setMediaController(android.widget.MediaController(this))
+        videoView.setMediaController(android.widget.MediaController(this).apply {
+            setAnchorView(videoView)  // Ancla los controles al VideoView
+        })
+
+        // Iniciar el video
+        videoView.start()
+
+        // Obtener el botón y configurar su acción
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoArtopila)
+        btnComenzar.setOnClickListener {
+            abrirActividad(ArtopilActivity::class.java)
             dialog.dismiss()
         }
 
