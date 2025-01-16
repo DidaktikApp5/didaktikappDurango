@@ -49,11 +49,7 @@ class ExplicacionJuegoActivity : AppCompatActivity() {
                 reproducirAudio(R.raw.mikeldi_explicacion)
             }
             "feria" -> {
-                val videoView = VideoView(this)
-                //val uriPath = "android.resource://" + packageName + "/" + R.raw.tu_video // Reemplaza con tu archivo de video
-                //videoView.setVideoURI(Uri.parse(uriPath))
-                videoView.start()
-                contenedorContenido.addView(videoView)
+                reproducirVideo(R.raw.feria_explicacion)
             }
             "sirena" -> {
                 val imageView = ImageView(this)
@@ -116,6 +112,27 @@ class ExplicacionJuegoActivity : AppCompatActivity() {
         val intent = Intent(this, clase)
         startActivity(intent)
     }
+
+    private fun reproducirVideo(videoResId: Int) {
+        val videoView = VideoView(this)
+
+        // Establece la ruta del video utilizando el ID de recurso pasado como parámetro
+        val uriPath = "android.resource://" + packageName + "/" + videoResId
+        videoView.setVideoURI(Uri.parse(uriPath))
+
+        // Habilita los controles de video predeterminados
+        val mediaController = android.widget.MediaController(this).apply {
+            setAnchorView(videoView)  // Ancla los controles al VideoView
+        }
+        videoView.setMediaController(mediaController)
+
+        // Inicia la reproducción del video
+        videoView.start()
+
+        // Añadir el VideoView al FrameLayout
+        contenedorContenido.addView(videoView)
+    }
+
 
     private fun reproducirAudio(audioResId: Int) {
         mediaPlayer?.release()
