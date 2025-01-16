@@ -1,14 +1,15 @@
 package com.icjardinapps.dm2.durango.actividades
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.icjardinapps.dm2.durango.R
 
 class ExplicacionJuegoActivity : AppCompatActivity() {
@@ -31,6 +32,12 @@ class ExplicacionJuegoActivity : AppCompatActivity() {
 
         val palabraJuego = intent.getStringExtra(palabraJuegoRecivido)
         mostrarContenido(palabraJuego)
+
+        //Boton comenzar actividad
+        val btnComenzar: Button = findViewById(R.id.btnComenzar)
+        btnComenzar.setOnClickListener {
+            comenzarActividad(palabraJuego)
+        }
     }
 
     private fun mostrarContenido(palabraJuego: String?) {
@@ -75,6 +82,39 @@ class ExplicacionJuegoActivity : AppCompatActivity() {
             }
 
         }
+    }
+
+    private fun comenzarActividad(palabraJuego: String?) {
+        when (palabraJuego) {
+            "mikeldi" -> {
+                abrirActividad(MikeldiActivity::class.java)
+            }
+            "feria" -> {
+                abrirActividad(FeriaActivity::class.java)
+            }
+            "sirena" -> {
+                abrirActividad(SirenaActivity::class.java)
+            }
+            "basilica" -> {
+                abrirActividad(BasilicaActivity::class.java)
+            }
+            "personajeArtopila" -> {
+                abrirActividad(PatxikotxuActivity::class.java)
+            }
+            "artopila" -> {
+                abrirActividad(ArtopilActivity::class.java)
+            }
+            "escudo" -> {
+                abrirActividad(EscudoActivity::class.java)
+            }
+
+        }
+    }
+
+    // Función para abrir actividades
+    private fun <T> abrirActividad(clase: Class<T>) {
+        val intent = Intent(this, clase)
+        startActivity(intent)
     }
 
     private fun reproducirAudio(audioResId: Int) {
