@@ -8,7 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.icjardinapps.dm2.durango.R
 
 class EscudoActivity : AppCompatActivity() {
-    // Listas para almacenar las palabras y sus lugares correctos
+    /*// Listas para almacenar las palabras y sus lugares correctos
     private val palabras = listOf("palabra1", "palabra2", "palabra3")
     private val lugaresCorrectos = listOf("lugar1", "lugar2", "lugar3")
 
@@ -47,6 +47,6 @@ class EscudoActivity : AppCompatActivity() {
             lugarTextView.setTextColor(Color.GREEN)
             palabrasCorrectas++ // Incrementar el contador de palabras correctas
         }
-    }
+    }*/
 
 }

@@ -8,7 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.icjardinapps.dm2.durango.R
 
 class ArtopilActivity : AppCompatActivity() {
-    // Variables para la lógica del juego
+    /*// Variables para la lógica del juego
     private var vidasRestantes = 3
     private var piezasCorrectas = 0
     private val piezasPuzzle = listOf(
@@ -69,6 +69,6 @@ class ArtopilActivity : AppCompatActivity() {
     // Función para actualizar el número de vidas en la interfaz
     private fun actualizarVidas() {
         tvVidas.text = "Vidas: $vidasRestantes"
-    }
+    }*/
 
 }
