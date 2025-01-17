@@ -63,4 +63,14 @@
 \tComo curiosidad, en el bombardeo que sufrió Durango el 31 de marzo de 1937, el pórtico y el edificio de la basílica quedaron destruidos, y en él murieron los ciudadanos que participaban en la misa.</string>
     <string name="antesComenzar">Antes de Comenzar...</string>
     <string name="texto_info_Sirena">Para conmemorar el bombardeo ocurrido en Durango el 31 de marzo de 1937, cada año en esa fecha 3 veces al día (a las 8:00 de la mañana, a primera hora de la tarde y a última hora del día), suena la sirena que Se escucha el sonido del día del bombardeo. Esto se hace para honrar a las víctimas, así como para reafirmar nuestro compromiso con la memoria, la paz y la justicia.</string>
+    <string name="quienes_son">¿Quienes son estos personajes?</string>
+    <string name="patxikotxu">Patxikotxu</string>
+    <string name="pantxike">Pantxike</string>
+    <string name="potxikotxu">Potxikotxu</string>
+    <string name="pantxilotu">Pantxilotu</string>
+    <string name="pantxikixu">Pantxikixu</string>
+    <string name="pantxika">Pantxika</string>
+    <string name="patxike">Patxike</string>
+    <string name="pantxiko">Pantxiko</string>
+    <string name="aciertoPatxikotxu">Has acertado los nombres de los personajes</string>
 </resources>

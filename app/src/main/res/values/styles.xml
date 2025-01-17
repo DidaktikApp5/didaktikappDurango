@@ -18,6 +18,11 @@
         <item name="fontFamily">@font/angkor_regular</item>
         <item name="android:textColor">@color/amarillo</item>
     </style>
+    <style name="styTV.texto">
+        <item name="android:textSize">28sp</item>
+        <item name="fontFamily">@font/jomhuria_regular</item>
+        <item name="android:textColor">@color/gris</item>
+    </style>
     <!-- EditTexts -->
     <style name="styET" parent="TextAppearance.AppCompat.Display1">
         <item name="android:layout_width">match_parent</item>

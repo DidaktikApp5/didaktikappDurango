@@ -49,6 +49,9 @@ class ResultadosActivity : AppCompatActivity() {
             "Feria" -> {
                 txtAcierto.text = getString(R.string.aciertoFeria)
             }
+            "Patxikotxu" -> {
+                txtAcierto.text = getString(R.string.aciertoPatxikotxu)
+            }
         }
     }
 
