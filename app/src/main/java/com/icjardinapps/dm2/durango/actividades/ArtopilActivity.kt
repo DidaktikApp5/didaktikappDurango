@@ -1,6 +1,8 @@
 package com.icjardinapps.dm2.durango.actividades
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -8,6 +10,18 @@ import androidx.core.view.WindowInsetsCompat
 import com.icjardinapps.dm2.durango.R
 
 class ArtopilActivity : AppCompatActivity() {
+    private lateinit var btnVolverMapa: Button
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_artopil)
+        btnVolverMapa = findViewById(R.id.btnVolverMapa)
+        btnVolverMapa.setOnClickListener {
+            val intent = Intent(this, MapaActivity::class.java)
+            startActivity(intent)
+        }
+
+    }
     /*// Variables para la lógica del juego
     private var vidasRestantes = 3
     private var piezasCorrectas = 0

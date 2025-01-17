@@ -73,4 +73,6 @@
     <string name="patxike">Patxike</string>
     <string name="pantxiko">Pantxiko</string>
     <string name="aciertoPatxikotxu">Pertsonaien izenak asmatu dituzu</string>
+    <string name="intentos_artopil">Gainerako saiakera:</string>
+    <string name="intentos_artopil_numero">0</string>
 </resources>
