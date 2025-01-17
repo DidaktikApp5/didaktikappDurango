@@ -11,6 +11,9 @@
         android:roundIcon="@drawable/icon_app"
         android:supportsRtl="true"
         android:theme="@style/Theme.DidaktikappDurango">
+        <activity
+            android:name=".actividades.ResultadosBasilicaActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -52,6 +55,9 @@
             android:exported="false" />
         <activity
             android:name=".actividades.MikeldiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.ResultadosActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
