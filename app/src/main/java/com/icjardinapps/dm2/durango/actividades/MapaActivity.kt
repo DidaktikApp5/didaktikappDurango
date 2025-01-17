@@ -79,10 +79,10 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         val iconBitmapEscudo = getBitmapFromVectorDrawable(vectorDrawableEscudo)
 
         // Añadir marcadores al mapa
-        val marcadorMikedi = mMap.addMarker(MarkerOptions()
+        val marcadorMikeldi = mMap.addMarker(MarkerOptions()
             .position(LatLng(43.172993, -2.633388))
             .icon(BitmapDescriptorFactory.fromBitmap(iconBitmapMikeldi)))
-        marcadorMikedi?.tag = "mikeldi"
+        marcadorMikeldi?.tag = "mikeldi"
 
         val marcadorFeria = mMap.addMarker(MarkerOptions()
             .position(LatLng(43.171167, -2.630722))
@@ -175,7 +175,7 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun mostrarInfoMikeldi() {
-        dialog.setContentView(R.layout.info_mikeldi) // Asegúrate de que el layout es el correcto
+        dialog.setContentView(R.layout.info_mikeldi)
 
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
@@ -229,9 +229,6 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         }, 1000)
     }
 
-
-
-
     private fun mostrarInfoSirena() {
         dialog.setContentView(R.layout.info_sirena)
 
@@ -247,6 +244,11 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         dialog.show()
     }
 
+    /**
+     * Función que muestra una ventana de diálogo con la información de la Basilica.
+     *
+     * @author Julio González
+     */
     private fun mostrarInfoBasilica() {
         dialog.setContentView(R.layout.info_basilica)
 

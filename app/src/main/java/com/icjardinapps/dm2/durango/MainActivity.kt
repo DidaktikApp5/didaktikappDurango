@@ -14,17 +14,36 @@ import com.icjardinapps.dm2.durango.actividades.LoginActivity
 import com.icjardinapps.dm2.durango.actividades.MapaActivity
 import java.util.Locale
 
+/**
+ * Actividad principal que muestra el menú de inicio de la aplicación
+ *
+ * @author Julio González
+ */
 class MainActivity : AppCompatActivity() {
+    /**
+     * Ventana de diálogo para mostrar el acerca de
+     */
     private lateinit var dialog: Dialog
 
+    /**
+     * Función que se llama cuando se inicia la actividad.
+     * Maneja la verificación de si es la primera vez que se inicia la aplicación
+     * y el cambio de idioma.
+     *
+     * @author Julio González
+     * @param savedInstanceState Estado de la actividad
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Inicializar el diálogo
         dialog = Dialog(this)
 
+        // Iniciar el Splash Screen
         val screenSplash: SplashScreen = installSplashScreen()
         screenSplash.setKeepOnScreenCondition { false }
 
+        // Verificar si es la primera vez
         val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
         val isFirstTime = sharedPreferences.getBoolean("isFirstTime", true)
 
@@ -32,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             // Si es la primera vez, abrir LoginActivity
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-            finish() // Finalizamos la MainActivity para no volver a ella
+            finish() // Finaliza la MainActivity para no volver a ella
         } else {
             // Si ya no es la primera vez, mostrar la actividad principal
             setContentView(R.layout.activity_main)
@@ -76,6 +95,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Función que muestra una ventana de diálogo con los desarrolladores de la app
+     *
+     * @author Julio González
+     */
     private fun acercaDe() {
         dialog.setContentView(R.layout.acerca_de)
 

@@ -12,17 +12,59 @@ import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.R
 
 class BasilicaActivity : AppCompatActivity() {
+    /**
+     * Texto de mensaje de mascota.
+     */
     private lateinit var mensajeMascota: TextView
+
+    /**
+     * Texto de puntaje.
+     */
     private lateinit var tvPuntaje: TextView
+
+    /**
+     * Texto de pregunta.
+     */
     private lateinit var tvPregunta: TextView
+
+    /**
+     * Imagen para cada pregunta.
+     */
     private lateinit var ivImagen: ImageView
+
+    /**
+     * Botón de verdadero.
+     */
     private lateinit var btnVerdadero: Button
+
+    /**
+     * Botón de falso.
+     */
     private lateinit var btnFalso: Button
 
+    /**
+     * Verificación de respuesta.
+     */
     private var respuesta: Boolean = false
+
+    /**
+     * Puntaje.
+     */
     private var puntaje: Int = 0
+
+    /**
+     * Número de pregunta.
+     */
     private var numPregunta: Int = 0
 
+    /**
+     * Al iniciar la aplicación. Maneja la lógica del juego de verdadero o falso.
+     * Si se responde correctámente da un mensaje de 'correcto' y la pregunta se pone verde,
+     * en caso contrario mensaje de 'incorrecto' y el texto en rojo.
+     *
+     * @author Julio González
+     * @param savedInstanceState Estado de la actividad
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_basilica)
@@ -37,6 +79,7 @@ class BasilicaActivity : AppCompatActivity() {
         // Inicializar las preguntas
         Preguntas.init(this)
 
+        // Asociar con el xml
         tvPuntaje = findViewById(R.id.puntos)
         ivImagen = findViewById(R.id.imageViewImagen)
         tvPregunta = findViewById(R.id.tvPregunta)
@@ -76,6 +119,12 @@ class BasilicaActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Habilita los botones.
+     * Vuelve a poner el texto de color negro y muestra la siguiente pregunta.
+     *
+     * @author Julio González
+     */
     private fun actualizarPregunta() {
         btnVerdadero.isEnabled = true
         btnFalso.isEnabled = true
@@ -87,10 +136,23 @@ class BasilicaActivity : AppCompatActivity() {
         numPregunta++
     }
 
+    /**
+     * Actualiza el puntaje actual obtenido.
+     *
+     * @author Julio González
+     * @param punto Puntaje obtenido
+     */
     private fun actualizarPuntaje(punto: Int) {
         tvPuntaje.text = "$puntaje"
     }
 
+    /**
+     * Verifica si hay preguntas por salir o si es la ultima pregunta.
+     * Añade un delay de 1.5s antes de pasar a la siguiente pregunta.
+     * Deshabilita los botones para no ser pulsados mientras cambia de pregunta.
+     *
+     * @author Julio González
+     */
     private fun siguientePreguntaOFinal() {
         if (numPregunta == Preguntas.preguntas.size) {
             val intent = Intent(this, ResultadosBasilicaActivity::class.java)
