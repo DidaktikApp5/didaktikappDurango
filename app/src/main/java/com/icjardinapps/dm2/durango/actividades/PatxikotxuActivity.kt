@@ -140,7 +140,7 @@ class PatxikotxuActivity : AppCompatActivity() {
     private fun comprobarAciertos(){
         if(nombresAcertados == 2){
             val intent = Intent(this, ResultadosActivity::class.java)
-            intent.putExtra(ResultadosActivity.nombreActividad, "Patxikotxu")
+            intent.putExtra(ResultadosActivity.NOMBREACTIVIDAD, "Patxikotxu")
             startActivity(intent)
         }
     }
