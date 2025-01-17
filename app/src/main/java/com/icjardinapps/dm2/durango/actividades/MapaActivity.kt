@@ -229,9 +229,6 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         }, 1000)
     }
 
-
-
-
     private fun mostrarInfoSirena() {
         dialog.setContentView(R.layout.info_sirena)
 
@@ -247,6 +244,11 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         dialog.show()
     }
 
+    /**
+     * Función que muestra una ventana de diálogo con la información de la Basilica.
+     *
+     * @author Julio González
+     */
     private fun mostrarInfoBasilica() {
         dialog.setContentView(R.layout.info_basilica)
 

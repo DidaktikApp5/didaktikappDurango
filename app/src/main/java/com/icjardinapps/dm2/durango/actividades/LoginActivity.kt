@@ -11,11 +11,25 @@ import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.MainActivity
 import com.icjardinapps.dm2.durango.R
 
+/**
+ * Clase que representa la actividad de inicio de sesión.
+ * Aparece la primera vez que se inicia la aplicación para introducir tu nombre.
+ *
+ * @author Julio González
+ */
 class LoginActivity : AppCompatActivity() {
+    /**
+     * Al iniciar la actividad.
+     * Controla la animación de la mascota y guardar el nombre introducido.
+     *
+     * @author Julio González
+     * @param savedInstanceState Estado de la actividad
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        // Asociar con el xml
         val editTextNombre: EditText = findViewById(R.id.editTextNombre)
         val botonComenzar: Button = findViewById(R.id.btnComenzar)
         val mascotaImage = findViewById<ImageView>(R.id.iv_Mascota)
