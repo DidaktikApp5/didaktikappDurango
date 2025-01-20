@@ -5,6 +5,7 @@ build/
 # Local configuration files
 local.properties
 secrets.properties
+config.properties
 
 # Android Studio and IntelliJ IDEA files
 .idea/
