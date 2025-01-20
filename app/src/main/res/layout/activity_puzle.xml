@@ -12,19 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_alignParentTop="true"
-        android:background="@android:color/darker_gray"
+        android:background="@drawable/puzzle"
+        android:alpha="0.4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <ImageView
-            android:id="@+id/imagePuzzle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:alpha="0.2"
-            android:contentDescription="@string/pieza"
-            android:src="@drawable/puzzle" />
-    </FrameLayout>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <!-- Piezas del puzzle (debajo) -->
     <LinearLayout
