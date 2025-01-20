@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".actividades.PuzleActivity">
+    tools:context=".actividades.PuzleActivity"
+    android:background="@drawable/background_gradient">
 
     <!-- Zona del puzzle donde se deben colocar las piezas -->
     <FrameLayout
