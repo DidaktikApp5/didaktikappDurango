@@ -45,4 +45,5 @@ The games that appear:
 - Associate photos with words (Patxikotxu and Pantxike)
 - Word search (ARMARRI)
 - Puzzle (With a normal image, final game)
+- Hola
 
