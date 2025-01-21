@@ -73,6 +73,8 @@
     <string name="patxike">Patxike</string>
     <string name="pantxiko">Pantxiko</string>
     <string name="aciertoPatxikotxu">Pertsonaien izenak asmatu dituzu</string>
-    <string name="intentos_artopil">Gainerako saiakera:</string>
-    <string name="intentos_artopil_numero">0</string>
+    <string name="intentos_artopil">Gainerako saiakerak:</string>
+    <string name="intentos_artopil_numero">3</string>
+    <string name="aciertoArtopil">Artopilen irudia asmatu duzu</string>
+    <string name="errorArtopil">Irudi hau ez da Aropilaren irudia</string>
 </resources>

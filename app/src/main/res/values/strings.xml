@@ -74,5 +74,7 @@
     <string name="pantxiko">Pantxiko</string>
     <string name="aciertoPatxikotxu">Has acertado los nombres de los personajes</string>
     <string name="intentos_artopil">Intentos restantes:</string>
-    <string name="intentos_artopil_numero">0</string>
+    <string name="intentos_artopil_numero">3</string>
+    <string name="aciertoArtopil">Has acertado la imagen de Artopil</string>
+    <string name="errorArtopil">Esta imagen no es la imagen de Artopil</string>
 </resources>
