@@ -138,7 +138,7 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
             if(marker.tag == "personajeArtopila"){
                 mostrarInfoPatxikotxu()
             }
-            if(marker.tag == "personajeArtopila"){
+            if(marker.tag == ""){
                 mostrarInfoArtopila()
             }
             when (marker.tag) {

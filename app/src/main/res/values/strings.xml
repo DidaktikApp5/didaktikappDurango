@@ -78,4 +78,5 @@
     <string name="aciertoArtopil">Has acertado la imagen de Artopil</string>
     <string name="errorArtopil">Esta imagen no es la imagen de Artopil</string>
     <string name="encontrarMikeldi">Has encontrado a Mikeldi</string>
+    <string name="sopa_de_letras">Sopa de letras</string>
 </resources>
