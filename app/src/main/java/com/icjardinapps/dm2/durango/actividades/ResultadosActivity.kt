@@ -55,6 +55,9 @@ class ResultadosActivity : AppCompatActivity() {
             "Artopil" -> {
                 txtAcierto.text = getString(R.string.aciertoArtopil)
             }
+            "Mikeldi" -> {
+                txtAcierto.text = getString(R.string.encontrarMikeldi)
+            }
         }
     }
 
