@@ -110,7 +110,7 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvSopaLetras"
         style="@style/styTV.titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -123,8 +123,8 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TableLayout
-        android:layout_width="324dp"
-        android:layout_height="382dp"
+        android:layout_width="570dp"
+        android:layout_height="401dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -135,121 +135,936 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
-                android:id="@+id/tr1"
+                android:id="@+id/tr1_1"
+                style="@style/styTV.texto"
+                android:layout_width="5dp"
+                android:layout_height="20dp"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr1_2"
                 style="@style/styTV.texto"
                 android:layout_width="57dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr1_3"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr1_4"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr1_5"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr1_6"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr1_7"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr1_8"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr1_9"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr1_10"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
-                android:id="@+id/tr2"
+                android:id="@+id/tr2_1"
                 style="@style/styTV.texto"
                 android:layout_width="57dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr2_2"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr2_3"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr2_4"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr2_5"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr2_6"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr2_7"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr2_8"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr2_9"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr2_10"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
-                android:id="@+id/tr3"
+                android:id="@+id/tr3_1"
                 style="@style/styTV.texto"
                 android:layout_width="57dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr3_2"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr3_3"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr3_4"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr3_5"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr3_6"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr3_7"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr3_8"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr3_9"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr3_10"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
-                android:id="@+id/tr4"
+                android:id="@+id/tr4_1"
                 style="@style/styTV.texto"
                 android:layout_width="57dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr4_2"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr4_3"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr4_4"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr4_5"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr4_6"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr4_7"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr4_8"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr4_9"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr4_10"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
-                android:id="@+id/tr5"
+                android:id="@+id/tr5_1"
                 style="@style/styTV.texto"
                 android:layout_width="57dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr5_2"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr5_3"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr5_4"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr5_5"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr5_6"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr5_7"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr5_8"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr5_9"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr5_10"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
-                android:id="@+id/tr6"
+                android:id="@+id/tr6_1"
                 style="@style/styTV.texto"
                 android:layout_width="57dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr6_2"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr6_3"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr6_4"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr6_5"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr6_6"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr6_7"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr6_8"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr6_9"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr6_10"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
-                android:id="@+id/tr7"
+                android:id="@+id/tr7_1"
                 style="@style/styTV.texto"
                 android:layout_width="57dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr7_2"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr7_3"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr7_4"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr7_5"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr7_6"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr7_7"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr7_8"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr7_9"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr7_10"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
-                android:id="@+id/tr8"
+                android:id="@+id/tr8_1"
                 style="@style/styTV.texto"
                 android:layout_width="57dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr8_2"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr8_3"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr8_4"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr8_5"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr8_6"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr8_7"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr8_8"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr8_9"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr8_10"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
-                android:id="@+id/tr9"
+                android:id="@+id/tr9_1"
                 style="@style/styTV.texto"
                 android:layout_width="57dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr9_2"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr9_3"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr9_4"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr9_5"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr9_6"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr9_7"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr9_8"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr9_9"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr9_10"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
-                android:id="@+id/tr10"
+                android:id="@+id/tr10_1"
                 style="@style/styTV.texto"
                 android:layout_width="57dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr10_2"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr10_3"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr10_4"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr10_5"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr10_6"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr10_7"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr10_8"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr10_9"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr10_10"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tr11_1"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr11_2"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr11_3"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr11_4"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr11_5"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr11_6"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr11_7"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr11_8"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr11_9"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tr11_10"
+                style="@style/styTV.texto"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center" />
         </TableRow>
     </TableLayout>
 
