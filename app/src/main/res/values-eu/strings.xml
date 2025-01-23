@@ -14,7 +14,7 @@
     <string name="ingresar_nombre">Sartu aplikazioan erabili beharreko profilaren izena.</string>
     <string name="ingresa_tu_nombre_de_perfil">Sartu zure profilaren izena</string>
     <string name="comenzar">Hasi</string>
-    <string name="bienvenida">¡Kaitxo, %s👋!</string>
+    <string name="bienvenida">¡Kaixo, %s👋!</string>
     <string name="title_activity_mapa">MapaActivity</string>
     <string name="desarrollado_por">Nork garatua:</string>
     <string name="integrantes">Julio González\nMikel Ramos\nLierni Sarraoa\nLuis Ortiz de Villalba</string>
@@ -73,5 +73,11 @@
     <string name="patxike">Patxike</string>
     <string name="pantxiko">Pantxiko</string>
     <string name="aciertoPatxikotxu">Pertsonaien izenak asmatu dituzu</string>
+    <string name="intentos_artopil">Gainerako saiakerak:</string>
+    <string name="intentos_artopil_numero">3</string>
+    <string name="aciertoArtopil">Artopilen irudia asmatu duzu</string>
+    <string name="errorArtopil">Irudi hau ez da Aropilaren irudia</string>
+    <string name="encontrarMikeldi">Mikeldi aurkitu dezu</string>
+    <string name="sopa_de_letras">Letra-zopa</string>
     <string name="pieza">PIEZA</string>
 </resources>

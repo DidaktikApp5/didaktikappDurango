@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.VideoView
@@ -34,6 +35,7 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var dialog: Dialog
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapaBinding
+    private var nombreActividadUbicacion5: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -133,13 +135,17 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Listener para clics en los marcadores
         mMap.setOnMarkerClickListener { marker ->
+            if(marker.tag == "personajeArtopila"){
+                mostrarInfoPatxikotxu()
+            }
+            if(marker.tag == ""){
+                mostrarInfoArtopila()
+            }
             when (marker.tag) {
                 "mikeldi" -> mostrarInfoMikeldi()
                 "feria" -> mostrarInfoFeria()
                 "sirena" -> mostrarInfoSirena()
                 "basilica" -> mostrarInfoBasilica()
-                "personajeArtopila" -> mostrarInfoPatxikotxu()
-                "artopila" -> mostrarInfoArtopila()
                 "escudo" -> mostrarInfoEscudo()
                 else -> false  // Si no se encuentra el tag, no hace nada
             }

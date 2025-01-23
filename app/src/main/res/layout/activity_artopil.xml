@@ -5,6 +5,93 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".actividades.ArtopilActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnVolverMapa"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_gravity="top|end"
+        android:background="@drawable/button_background"
+        android:text="@string/volver_mapa"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.021" />
+
+    <TextView
+        android:id="@+id/tv_textoIntentos"
+        style="@style/styTV.titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intentos_artopil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.335"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.103" />
+
+    <TextView
+        android:id="@+id/tvVidas"
+        style="@style/styTV.titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intentos_artopil_numero"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintStart_toEndOf="@+id/tv_textoIntentos"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.102" />
+
+    <ImageView
+        android:id="@+id/ivArtopil"
+        android:layout_width="198dp"
+        android:layout_height="152dp"
+        app:layout_constraintBottom_toTopOf="@+id/ivBizcocho"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_textoIntentos"
+        app:layout_constraintVertical_bias="0.533"
+        app:srcCompat="@drawable/artopil" />
+
+    <ImageView
+        android:id="@+id/ivMadalena"
+        android:layout_width="192dp"
+        android:layout_height="134dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/madalena" />
+
+    <ImageView
+        android:id="@+id/ivRoscon"
+        android:layout_width="192dp"
+        android:layout_height="126dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/ivMadalena"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/roscon" />
+
+    <ImageView
+        android:id="@+id/ivBizcocho"
+        android:layout_width="197dp"
+        android:layout_height="167dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/ivRoscon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/bizcocho" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

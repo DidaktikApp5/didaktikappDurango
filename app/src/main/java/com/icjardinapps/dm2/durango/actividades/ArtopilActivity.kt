@@ -1,6 +1,13 @@
 package com.icjardinapps.dm2.durango.actividades
 
+import android.content.Intent
+import android.media.Image
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -8,67 +15,66 @@ import androidx.core.view.WindowInsetsCompat
 import com.icjardinapps.dm2.durango.R
 
 class ArtopilActivity : AppCompatActivity() {
-    /*// Variables para la lógica del juego
-    private var vidasRestantes = 3
-    private var piezasCorrectas = 0
-    private val piezasPuzzle = listOf(
-        R.drawable.pieza1,
-        R.drawable.pieza2,
-        R.drawable.pieza3,
-        R.drawable.pieza4
-    )
-    private val imagenesIncorrectas = listOf(
-        R.drawable.imagen_incorrecta1,
-        R.drawable.imagen_incorrecta2,
-        R.drawable.imagen_incorrecta3
-    )
-
-    // Vistas del layout
+    /**
+     * Variables para los elementos de la interfaz
+     */
+    private lateinit var btnVolverMapa: Button
+    private lateinit var ivArtopil: ImageView
+    private lateinit var ivMadalena: ImageView
+    private lateinit var ivRoscon: ImageView
+    private lateinit var ivBizcocho: ImageView
     private lateinit var tvVidas: TextView
-    private lateinit var ivPuzzle: ImageView
+
+    private lateinit var ivCorrecto: ImageView
+    private lateinit var sonidoError: MediaPlayer
+
+    private var vidasRestantes: Int = 3
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_artopil)
-
-        // Inicializar las vistas
+        btnVolverMapa = findViewById(R.id.btnVolverMapa)
+        ivArtopil = findViewById(R.id.ivArtopil)
+        ivMadalena = findViewById(R.id.ivMadalena)
+        ivRoscon = findViewById(R.id.ivRoscon)
+        ivBizcocho = findViewById(R.id.ivBizcocho)
         tvVidas = findViewById(R.id.tvVidas)
-        ivPuzzle = findViewById(R.id.ivPuzzle)
+        ivCorrecto = ivArtopil
+        sonidoError = MediaPlayer.create(this, R.raw.malo)
+        btnVolverMapa.setOnClickListener {
+            val intent = Intent(this, MapaActivity::class.java)
+            startActivity(intent)
+        }
+        ivArtopil.setOnClickListener{
+            comprobarImagen(ivArtopil)
+        }
+        ivMadalena.setOnClickListener{
+            comprobarImagen(ivMadalena)
+        }
+        ivRoscon.setOnClickListener{
+            comprobarImagen(ivRoscon)
+        }
+        ivBizcocho.setOnClickListener{
+            comprobarImagen(ivBizcocho)
+        }
 
-        // Mostrar las vidas iniciales
-        actualizarVidas()
+    }
 
-        // Establecer un listener para la imagen del rompecabezas
-        ivPuzzle.setOnClickListener {
-            // Obtener una imagen aleatoria del rompecabezas o una incorrecta
-            val imagen = if (piezasCorrectas < piezasPuzzle.size) {
-                piezasPuzzle.random()
-            } else {
-                imagenesIncorrectas.random()
-            }
-            ivPuzzle.setImageResource(imagen)
-
-            // Comprobar si la imagen es correcta o incorrecta
-            if (imagen in piezasPuzzle) {
-                // La imagen es correcta
-                piezasCorrectas++
-                Toast.makeText(this, "Correcto!", Toast.LENGTH_SHORT).show()
-            } else {
-                // La imagen es incorrecta
-                vidasRestantes--
-                Toast.makeText(this, "In correcto! Vidas restantes: $vidasRestantes", Toast.LENGTH_SHORT).show()
-                if (vidasRestantes <= 0) {
-                    Toast.makeText(this, "Juego terminado!", Toast.LENGTH_LONG).show()
-                    // Aquí puedes agregar lógica para reiniciar el juego o finalizar la actividad
-                }
-            }
+    private fun comprobarImagen(iv: ImageView) {
+        if(iv == ivCorrecto){
+            val intent = Intent(this, ResultadosActivity::class.java)
+            intent.putExtra(ResultadosActivity.nombreActividad, "Artopil")
+            startActivity(intent)
+        } else {
+            vidasRestantes--
+            Toast.makeText(this, getString(R.string.errorArtopil), Toast.LENGTH_SHORT).show()
+            sonidoError.start()
             actualizarVidas()
+            iv.setImageDrawable(null)
         }
     }
 
-    // Función para actualizar el número de vidas en la interfaz
     private fun actualizarVidas() {
-        tvVidas.text = "Vidas: $vidasRestantes"
-    }*/
-
+        tvVidas.text = vidasRestantes.toString()
+    }
 }
