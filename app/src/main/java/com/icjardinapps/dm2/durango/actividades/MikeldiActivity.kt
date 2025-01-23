@@ -21,7 +21,7 @@ class MikeldiActivity : AppCompatActivity() {
         btnVolverMapa = findViewById(R.id.btnVolverMapa)
         ivMikeldi.setOnClickListener{
             val intent = Intent(this, ResultadosActivity::class.java)
-            intent.putExtra(ResultadosActivity.nombreActividad, "Mikeldi")
+            intent.putExtra(ResultadosActivity.NOMBREACTIVIDAD, "Mikeldi")
             startActivity(intent)
         }
         btnVolverMapa.setOnClickListener{
