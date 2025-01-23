@@ -18,10 +18,15 @@ class EscudoActivity : AppCompatActivity() {
         arrayOf("S\t", "M\t", "U\t", "R\t", "F\t", "D\t", "M\t", "E\t", "L\t", "L\t"),
         arrayOf("I\t", "N\t", "A\t", "R\t", "U\t", "O\t", "C\t", "A\t", "E\t", "L\t"),
         arrayOf("B\t", "G\t", "A\t", "N\t", "M\t", "R\t", "B\t", "Y\t", "D\t", "U\t"),
+
         arrayOf("A\t", "L\t", "H\t", "G\t", "A\t", "A\t", "D\t", "R\t", "O\t", "P\t"),
+
         arrayOf("I\t", "O\t", "Q\t", "A\t", "Z\t", "R\t", "P\t", "Y\t", "R\t", "U\t"),
+
         arrayOf("A\t", "T\t", "E\t", "I\t", "G\t", "A\t", "I\t", "L\t", "R\t", "S\t"),
+
         arrayOf("M\t", "N\t", "A\t", "E\t", "O\t", "B\t", "T\t", "A\t", "E\t", "A\t"),
+
         arrayOf("S\t", "B\t", "U\t", "Y\t", "F\t", "D\t", "E\t", "A\t", "A\t", "R\t"),
         arrayOf("I\t", "A\t", "R\t", "R\t", "I\t", "A\t", "U\t", "O\t", "N\t", "G\t"),
         arrayOf("T\t", "T\t", "A\t", "B\t", "I\t", "R\t", "A\t", "I\t", "P\t", "R\t"),
