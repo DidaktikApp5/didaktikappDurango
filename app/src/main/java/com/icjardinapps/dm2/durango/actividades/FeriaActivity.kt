@@ -60,7 +60,7 @@ class FeriaActivity : AppCompatActivity() {
                             }
 
                             val intent = Intent(this, ResultadosActivity::class.java)
-                            intent.putExtra(ResultadosActivity.nombreActividad, "Feria")
+                            intent.putExtra(ResultadosActivity.NOMBREACTIVIDAD, "Feria")
                             startActivity(intent)
                         }
                     } else {

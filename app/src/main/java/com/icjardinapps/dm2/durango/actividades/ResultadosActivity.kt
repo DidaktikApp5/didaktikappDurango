@@ -13,7 +13,7 @@ import com.icjardinapps.dm2.durango.R
 class ResultadosActivity : AppCompatActivity() {
 
     companion object {
-        const val nombreActividad = "nombreJuego"
+        const val NOMBREACTIVIDAD = "nombreJuego"
     }
 
     private lateinit var dialog: Dialog
@@ -33,7 +33,7 @@ class ResultadosActivity : AppCompatActivity() {
         (mascotaImage.drawable as AnimationDrawable).start()
 
         // Obtener el nombre de la actividad de origen
-        val nombreJuego = intent.getStringExtra(nombreActividad)
+        val nombreJuego = intent.getStringExtra(NOMBREACTIVIDAD)
         cambiarTexto(nombreJuego, txtAcierto)
 
         buttonVolverMapa.setOnClickListener {
@@ -61,6 +61,11 @@ class ResultadosActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Función que muestra una ventana de diálogo con un mensaje de obtención de pieza.
+     *
+     * @author Julio González
+     */
     private fun obtenerPieza() {
         dialog.setContentView(R.layout.ganar)
 
