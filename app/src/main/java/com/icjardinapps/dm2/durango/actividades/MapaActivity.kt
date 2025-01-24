@@ -135,17 +135,12 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Listener para clics en los marcadores
         mMap.setOnMarkerClickListener { marker ->
-            if(marker.tag == "personajeArtopila"){
-                mostrarInfoPatxikotxu()
-            }
-            if(marker.tag == ""){
-                mostrarInfoArtopila()
-            }
             when (marker.tag) {
                 "mikeldi" -> mostrarInfoMikeldi()
                 "feria" -> mostrarInfoFeria()
                 "sirena" -> mostrarInfoSirena()
                 "basilica" -> mostrarInfoBasilica()
+                "personajeArtopila" -> mostrarInfoArtopila()
                 "escudo" -> mostrarInfoEscudo()
                 else -> false  // Si no se encuentra el tag, no hace nada
             }
