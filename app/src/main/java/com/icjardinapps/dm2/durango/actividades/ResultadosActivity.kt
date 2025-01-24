@@ -37,7 +37,12 @@ class ResultadosActivity : AppCompatActivity() {
         cambiarTexto(nombreJuego, txtAcierto)
 
         buttonVolverMapa.setOnClickListener {
-            obtenerPieza()
+            if(nombreJuego.equals("Artopil")) {
+                obtenerPiezaPatxi()
+            } else {
+                obtenerPieza()
+            }
+
         }
     }
 
@@ -75,6 +80,22 @@ class ResultadosActivity : AppCompatActivity() {
 
         btnCerrar.setOnClickListener {
             val intent = Intent(this, MapaActivity::class.java)
+            startActivity(intent)
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun obtenerPiezaPatxi() {
+        dialog.setContentView(R.layout.ganar)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val btnCerrar: Button = dialog.findViewById(R.id.btnGanarCerrar)
+
+        btnCerrar.setOnClickListener {
+            val intent = Intent(this, PatxikotxuActivity::class.java)
             startActivity(intent)
             dialog.dismiss()
         }

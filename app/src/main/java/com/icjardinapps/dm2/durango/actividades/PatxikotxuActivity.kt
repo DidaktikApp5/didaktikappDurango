@@ -1,10 +1,13 @@
 package com.icjardinapps.dm2.durango.actividades
 
+import android.app.Dialog
 import android.content.Intent
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.VideoView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,6 +24,7 @@ class PatxikotxuActivity : AppCompatActivity() {
      * Variables que se necesita
      */
     private var nombresAcertados: Int = 0
+    private lateinit var dialog: Dialog
 
     /**
      * Variables para el audio y la comprobación
@@ -52,7 +56,8 @@ class PatxikotxuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         // Crea la interfaz con el layout activity_patxikotxu.xml
         setContentView(R.layout.activity_patxikotxu)
-
+        dialog = Dialog(this)
+        mostrarInfoPatxikotxu()
         // Inicializa los elementos de la interfaz
         tvPatxikotxu = findViewById(R.id.tvPatxikotxu)
         tvPantxike = findViewById(R.id.tvPantxike)
@@ -155,4 +160,39 @@ class PatxikotxuActivity : AppCompatActivity() {
         sonidoCorrecto.release()
     }
 
+    private fun mostrarInfoPatxikotxu() {
+        dialog.setContentView(R.layout.info_patxikotxu)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        // Obtener el VideoView del layout
+        val videoView: VideoView = dialog.findViewById(R.id.videoViewInfoPatxikotxu)
+
+        // Establecer la ruta del video
+        val uriPath = "android.resource://" + packageName + "/" + R.raw.patxikotxu_explicacion
+        videoView.setVideoURI(Uri.parse(uriPath))
+
+        // Habilitar los controles del video
+        videoView.setMediaController(android.widget.MediaController(this))
+        videoView.setMediaController(android.widget.MediaController(this).apply {
+            setAnchorView(videoView)  // Ancla los controles al VideoView
+        })
+
+        // Iniciar el video
+        videoView.start()
+
+        // Obtener el botón y configurar su acción
+        val btnComenzar: Button = dialog.findViewById(R.id.btnInfoPatxikotxu)
+        btnComenzar.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    // Función para abrir actividades
+    private fun <T> abrirActividad(clase: Class<T>) {
+        val intent = Intent(this, clase)
+        startActivity(intent)
+    }
 }
