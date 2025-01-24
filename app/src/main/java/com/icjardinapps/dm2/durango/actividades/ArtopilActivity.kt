@@ -63,7 +63,7 @@ class ArtopilActivity : AppCompatActivity() {
     private fun comprobarImagen(iv: ImageView) {
         if(iv == ivCorrecto){
             val intent = Intent(this, ResultadosActivity::class.java)
-            intent.putExtra(ResultadosActivity.nombreActividad, "Artopil")
+            intent.putExtra(ResultadosActivity.NOMBREACTIVIDAD, "Artopil")
             startActivity(intent)
         } else {
             vidasRestantes--
