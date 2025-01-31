@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
         (mascotaImage.drawable as AnimationDrawable).start()
 
         botonComenzar.setOnClickListener {
-            val nombre = editTextNombre.text.toString()
+            var nombre = editTextNombre.text.toString()
 
             if (nombre.isNotBlank()) {
                 // Guardamos el nombre de usuario en SharedPreferences
@@ -51,8 +51,16 @@ class LoginActivity : AppCompatActivity() {
                 editor.putString("username", nombre)
 
                 Thread {
-                    val insertSuccess = bd.guardarAlumnoBBDD(nombre)
-                    println("¿Se insertó correctamente? $insertSuccess")
+                    var insertSuccess = bd.guardarAlumnoBBDD(nombre)
+
+                    if(!insertSuccess) {
+                        var num = 1
+                        do {
+                            insertSuccess = bd.guardarAlumnoBBDD(nombre + num)
+                            num++
+                        } while(!insertSuccess)
+                        nombre+=(num-1)
+                    }
                 }.start()
 
                 editor.putBoolean("isFirstTime", false) // Marcar que ya no es la primera vez
