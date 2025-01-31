@@ -52,7 +52,7 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.play.services.maps)
     implementation(libs.androidx.gridlayout)
-    implementation(libs.mariadb.java.client)
+    implementation(libs.mysql.connector.java)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
