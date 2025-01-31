@@ -10,6 +10,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.MainActivity
 import com.icjardinapps.dm2.durango.R
+import com.icjardinapps.dm2.durango.db.ConexionDb
 
 /**
  * Clase que representa la actividad de inicio de sesión.
@@ -26,6 +27,8 @@ class LoginActivity : AppCompatActivity() {
      * @param savedInstanceState Estado de la actividad
      */
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val bd=ConexionDb(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -46,6 +49,12 @@ class LoginActivity : AppCompatActivity() {
                 val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
                 editor.putString("username", nombre)
+
+                Thread {
+                    val insertSuccess = bd.guardarAlumnoBBDD(nombre)
+                    println("¿Se insertó correctamente? $insertSuccess")
+                }.start()
+
                 editor.putBoolean("isFirstTime", false) // Marcar que ya no es la primera vez
                 editor.apply()
 
