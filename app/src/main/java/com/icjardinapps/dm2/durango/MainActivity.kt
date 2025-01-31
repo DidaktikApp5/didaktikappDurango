@@ -55,43 +55,43 @@ class MainActivity : AppCompatActivity() {
         } else {
             // Si ya no es la primera vez, mostrar la actividad principal
             setContentView(R.layout.activity_main)
-        }
 
-        // Mostrar el nombre del usuario introducido en el LoginActivity
-        val textViewBienvenida: TextView = findViewById(R.id.tv_nombreJugador)
-        val user:String = sharedPreferences.getString("username", "").toString()
+            // Mostrar el nombre del usuario introducido en el LoginActivity
+            val textViewBienvenida: TextView = findViewById(R.id.tv_nombreJugador)
+            val user:String = sharedPreferences.getString("username", "").toString()
 
-        textViewBienvenida.text = getString(R.string.bienvenida, user)
+            textViewBienvenida.text = getString(R.string.bienvenida, user)
 
-        // Ir a MapaActivity
-        val cardViewJugar: CardView = findViewById(R.id.card_jugar)
-        cardViewJugar.setOnClickListener {
-            val intent = Intent(this, MapaActivity::class.java)
-            startActivity(intent)
-        }
+            // Ir a MapaActivity
+            val cardViewJugar: CardView = findViewById(R.id.card_jugar)
+            cardViewJugar.setOnClickListener {
+                val intent = Intent(this, MapaActivity::class.java)
+                startActivity(intent)
+            }
 
-        // Cambiar idioma
-        val cardViewIdioma: CardView = findViewById(R.id.card_lenguaje)
-        cardViewIdioma.setOnClickListener {
-            val currentLanguage = sharedPreferences.getString("idioma", "es") // Obtener el idioma actual
-            val newLanguage = if (currentLanguage == "es") "eu" else "es" // Cambiar el idioma a euskera o español
-            sharedPreferences.edit().putString("idioma", newLanguage).apply() // Guardar el nuevo idioma
+            // Cambiar idioma
+            val cardViewIdioma: CardView = findViewById(R.id.card_lenguaje)
+            cardViewIdioma.setOnClickListener {
+                val currentLanguage = sharedPreferences.getString("idioma", "es") // Obtener el idioma actual
+                val newLanguage = if (currentLanguage == "es") "eu" else "es" // Cambiar el idioma a euskera o español
+                sharedPreferences.edit().putString("idioma", newLanguage).apply() // Guardar el nuevo idioma
 
-            // Cambiar el idioma de la aplicación
-            val locale = Locale(newLanguage)
-            Locale.setDefault(locale)
-            val config = resources.configuration
-            config.locale = locale
-            resources.updateConfiguration(config, resources.displayMetrics)
+                // Cambiar el idioma de la aplicación
+                val locale = Locale(newLanguage)
+                Locale.setDefault(locale)
+                val config = resources.configuration
+                config.locale = locale
+                resources.updateConfiguration(config, resources.displayMetrics)
 
-            // Reiniciar la actividad para aplicar los cambios de idioma
-            recreate()
-        }
+                // Reiniciar la actividad para aplicar los cambios de idioma
+                recreate()
+            }
 
-        // Mostrar Acerca de
-        val cardViewAcercaDe: CardView = findViewById(R.id.card_acercaDe)
-        cardViewAcercaDe.setOnClickListener {
-            acercaDe()
+            // Mostrar Acerca de
+            val cardViewAcercaDe: CardView = findViewById(R.id.card_acercaDe)
+            cardViewAcercaDe.setOnClickListener {
+                acercaDe()
+            }
         }
     }
 
