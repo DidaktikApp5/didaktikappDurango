@@ -36,6 +36,12 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    packaging {
+        resources {
+            excludes += "META-INF/AL2.0"
+            excludes += "META-INF/LGPL2.1"
+        }
+    }
 }
 
 dependencies {
@@ -46,6 +52,7 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.play.services.maps)
     implementation(libs.androidx.gridlayout)
+    implementation(libs.mariadb.java.client)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
