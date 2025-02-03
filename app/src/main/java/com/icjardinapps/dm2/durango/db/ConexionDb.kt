@@ -4,6 +4,7 @@ import android.content.Context
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.PreparedStatement
+import java.sql.ResultSet
 import java.sql.SQLException
 import java.util.Properties
 
@@ -66,17 +67,41 @@ class ConexionDb(context: Context) {
         return false
     }
 
-    fun guardarPuntuacionNivel(usuario:String,puntuacion:Int,lugar:String):Boolean{
+    fun todasPuntuaciones(): MutableList<String> {
+        val lista: MutableList<String> = mutableListOf()
+        val conexion = obtenerConexion()
+
+        if (conexion != null) {
+            try {
+                val query = "SELECT alumno_usuario, nivel FROM puntuacion where aplicacion_id_aplicacion=4 ORDER BY nivel desc"
+                val statement: PreparedStatement = conexion.prepareStatement(query)
+                val resultSet: ResultSet = statement.executeQuery()
+
+                while (resultSet.next()) {
+                    val alumno = resultSet.getString("alumno_usuario")
+                    val nivel = resultSet.getInt("nivel")
+                    lista.add("$alumno - Puntuacion: $nivel")
+                }
+            } catch (e: SQLException) {
+                e.printStackTrace()
+            } finally {
+                conexion.close()
+            }
+        }
+        return lista
+    }
+
+
+    fun guardarPuntuacionFinal(usuario:String,puntuacion:Int):Boolean{
         val conexion = obtenerConexion()
         if (conexion != null) {
             try {
                 val query =
-                    "INSERT INTO puntuacion (usuario,id_aplicacion,nivel,lugar) VALUES (?,?,?,?)"
+                    "INSERT INTO puntuacion (alumno_usuario,aplicacion_id_aplicacion,nivel) VALUES (?,?,?)"
                 val statement: PreparedStatement = conexion.prepareStatement(query)
                 statement.setString(1, usuario)
                 statement.setInt(2,4)
-                statement.setInt(2,puntuacion)
-                statement.setString(2,lugar)
+                statement.setInt(3,puntuacion)
                 statement.executeUpdate()
                 return true
             } catch (e: SQLException) {
