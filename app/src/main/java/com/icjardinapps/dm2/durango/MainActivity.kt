@@ -12,6 +12,7 @@ import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.icjardinapps.dm2.durango.actividades.LoginActivity
 import com.icjardinapps.dm2.durango.actividades.MapaActivity
+import com.icjardinapps.dm2.durango.actividades.RankingActivity
 import java.util.Locale
 
 /**
@@ -69,6 +70,12 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
+            val cardViewRanking: CardView = findViewById(R.id.card_ranking)
+            cardViewRanking.setOnClickListener {
+                val intent = Intent(this, RankingActivity::class.java)
+                startActivity(intent)
+            }
+
             // Cambiar idioma
             val cardViewIdioma: CardView = findViewById(R.id.card_lenguaje)
             cardViewIdioma.setOnClickListener {
@@ -119,4 +126,6 @@ class MainActivity : AppCompatActivity() {
 
         dialog.show()
     }
+
+
 }

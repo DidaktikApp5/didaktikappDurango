@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.icjardinapps.dm2.durango"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.icjardinapps.dm2.durango"

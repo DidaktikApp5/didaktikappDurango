@@ -4,6 +4,7 @@ import android.content.Context
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.PreparedStatement
+import java.sql.ResultSet
 import java.sql.SQLException
 import java.util.Properties
 
@@ -65,6 +66,31 @@ class ConexionDb(context: Context) {
         }
         return false
     }
+
+    fun todasPuntuaciones(): MutableList<String> {
+        val lista: MutableList<String> = mutableListOf()
+        val conexion = obtenerConexion()
+
+        if (conexion != null) {
+            try {
+                val query = "SELECT alumno_usuario, nivel FROM puntuacion where aplicacion_id_aplicacion=4 ORDER BY nivel desc"
+                val statement: PreparedStatement = conexion.prepareStatement(query)
+                val resultSet: ResultSet = statement.executeQuery()
+
+                while (resultSet.next()) {
+                    val alumno = resultSet.getString("alumno_usuario")
+                    val nivel = resultSet.getInt("nivel")
+                    lista.add("$alumno - Puntuacion: $nivel")
+                }
+            } catch (e: SQLException) {
+                e.printStackTrace()
+            } finally {
+                conexion.close()
+            }
+        }
+        return lista
+    }
+
 
     fun guardarPuntuacionNivel(usuario:String,puntuacion:Int,lugar:String):Boolean{
         val conexion = obtenerConexion()

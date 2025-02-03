@@ -30,17 +30,17 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/txtTituloRanking"
-        app:layout_constraintBottom_toTopOf="@id/volverMapa"
+        app:layout_constraintBottom_toTopOf="@id/volver"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.35"/>
 
     <!-- Botón debajo del RecyclerView -->
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/volverMapa"
+        android:id="@+id/volver"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="@string/volver_mapa"
+        android:text="@string/volver"
         android:padding="8dp"
         android:background="@drawable/button_background"
         app:layout_constraintTop_toBottomOf="@id/recyclerViewRanking"
