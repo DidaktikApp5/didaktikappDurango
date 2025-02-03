@@ -46,10 +46,7 @@ class DespedidaActivity : AppCompatActivity() {
         btnSalir = findViewById(R.id.btnSalirDespedida)
 
         btnSalir.setOnClickListener {
-            finish()
+            finishAffinity()
         }
-
-
-
     }
 }
