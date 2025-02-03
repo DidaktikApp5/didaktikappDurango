@@ -217,6 +217,11 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
             dialog.dismiss()
         }
 
+        // Detener el audio cuando el diálogo se cierra o se va de la actividad
+        dialog.setOnDismissListener {
+            mediaPlayer.stop() // Detiene la música si el diálogo se cierra
+        }
+
         dialog.show()
     }
 
