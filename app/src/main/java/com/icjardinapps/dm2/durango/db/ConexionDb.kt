@@ -80,7 +80,7 @@ class ConexionDb(context: Context) {
                 while (resultSet.next()) {
                     val alumno = resultSet.getString("alumno_usuario")
                     val nivel = resultSet.getInt("nivel")
-                    lista.add("$alumno - Puntuacion: $nivel")
+                    lista.add("$alumno ----------------- $nivel")
                 }
             } catch (e: SQLException) {
                 e.printStackTrace()
