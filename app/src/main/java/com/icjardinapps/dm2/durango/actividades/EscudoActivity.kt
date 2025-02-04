@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.ColorDrawable
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
@@ -32,6 +33,7 @@ class EscudoActivity : AppCompatActivity() {
     private val columnas = 10
     private val letrasSeleccionadas = mutableListOf<String>()
     private val palabrasCorrectasUsuario = mutableListOf<String>()
+    private lateinit var sonidoError: MediaPlayer
 
     // Crear un array de Strings y llenarlo manualmente
     private val arrayPalabras = listOf(
@@ -56,6 +58,7 @@ class EscudoActivity : AppCompatActivity() {
         tvLupus = findViewById(R.id.lupus)
         btnVolverMapa = findViewById(R.id.btnVolverMapa)
         gridLayout = findViewById(R.id.gridLayout)
+        sonidoError = MediaPlayer.create(this, R.raw.malo)
         btnVolverMapa.setOnClickListener{
             val intent = Intent(this, MapaActivity::class.java)
             startActivity(intent)
@@ -281,6 +284,7 @@ class EscudoActivity : AppCompatActivity() {
         } else {
             // Si la palabra es incorrecta, restablecer los colores de los seleccionados
             selectedViews.forEach { it.setBackgroundColor(Color.TRANSPARENT) }
+            sonidoError.start()
         }
 
         letrasSeleccionadas.clear()
