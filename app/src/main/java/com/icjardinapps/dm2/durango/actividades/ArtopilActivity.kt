@@ -75,6 +75,6 @@ class ArtopilActivity : AppCompatActivity() {
     }
 
     private fun actualizarVidas() {
-        tvVidas.text = vidasRestantes.toString()
+        tvVidas.text = "$vidasRestantes"
     }
 }
