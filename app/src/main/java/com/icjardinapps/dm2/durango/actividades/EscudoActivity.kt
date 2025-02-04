@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.icjardinapps.dm2.durango.R
 
 class EscudoActivity : AppCompatActivity() {
@@ -233,68 +234,73 @@ class EscudoActivity : AppCompatActivity() {
     }
 
     private fun agregarLetraSeleccionada(textView: TextView) {
-        if (textView.text.isNotEmpty()) {
-            letrasSeleccionadas.add(textView.text.toString()) // No impedir letras repetidas
-            textView.setBackgroundResource(R.color.azul_claro) // Color de selección
+        if (textView.text.isNotEmpty() && !selectedViews.contains(textView)) {
+            letrasSeleccionadas.add(textView.text.toString())
+            selectedViews.add(textView)
+            textView.setBackgroundResource(R.color.azul_claro) // Cambia el color temporalmente
         }
     }
 
-    // Verificar palabras permitiendo repeticiones
     private fun verificarPalabra() {
         val palabraSeleccionada = letrasSeleccionadas.joinToString("")
+
         if (arrayPalabras.any { it.equals(palabraSeleccionada, ignoreCase = true) }) {
-            Toast.makeText(this, "¡Palabra encontrada: $palabraSeleccionada!", Toast.LENGTH_SHORT).show()
-            if(tvArria.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
-                tvArria.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                palabrasCorrectasUsuario.add(tvArria.text.toString())
+            // Mantener el color azul si la palabra es correcta
+            selectedViews.forEach { it.setBackgroundResource(R.color.azul_claro) }
+
+            when {
+                tvArria.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
+                    tvArria.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                    palabrasCorrectasUsuario.add(tvArria.text.toString())
+                }
+                tvIbaia.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
+                    tvIbaia.paintFlags = tvIbaia.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                    palabrasCorrectasUsuario.add(tvIbaia.text.toString())
+                }
+                tvDorrea.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
+                    tvDorrea.paintFlags = tvDorrea.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                    palabrasCorrectasUsuario.add(tvDorrea.text.toString())
+                }
+                tvLupus.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
+                    tvLupus.paintFlags = tvLupus.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                    palabrasCorrectasUsuario.add(tvLupus.text.toString())
+                }
+                tvTabira.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
+                    tvTabira.paintFlags = tvTabira.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                    palabrasCorrectasUsuario.add(tvTabira.text.toString())
+                }
+                tvIbaizabal.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
+                    tvIbaizabal.paintFlags = tvIbaizabal.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                    palabrasCorrectasUsuario.add(tvIbaizabal.text.toString())
+                }
+                tvManaria.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
+                    tvManaria.paintFlags = tvManaria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                    palabrasCorrectasUsuario.add(tvManaria.text.toString())
+                }
             }
-            else if(tvIbaia.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
-                tvIbaia.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                palabrasCorrectasUsuario.add(tvIbaia.text.toString())
-            }
-            else if(tvDorrea.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
-                tvDorrea.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                palabrasCorrectasUsuario.add(tvDorrea.text.toString())
-            }
-            else if(tvLupus.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
-                tvLupus.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                palabrasCorrectasUsuario.add(tvLupus.text.toString())
-            }
-            else if(tvTabira.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
-                tvTabira.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                palabrasCorrectasUsuario.add(tvTabira.text.toString())
-            }
-            else if(tvIbaizabal.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
-                tvIbaizabal.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                palabrasCorrectasUsuario.add(tvIbaizabal.text.toString())
-            }
-            else if(tvManaria.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
-                tvManaria.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                palabrasCorrectasUsuario.add(tvManaria.text.toString())
-            }
-            letrasSeleccionadas.clear()
         } else {
-            letrasSeleccionadas.clear()
-            reiniciarColores()
+            // Si la palabra es incorrecta, restablecer los colores de los seleccionados
+            selectedViews.forEach { it.setBackgroundColor(Color.TRANSPARENT) }
         }
+
+        letrasSeleccionadas.clear()
+        selectedViews.clear()
     }
 
     private fun reiniciarColores() {
-        for (i in 0 until filas) {
-            for (j in 0 until columnas) {
-                val textView = gridLayout.getChildAt(i * columnas + j) as? TextView
-                if (textView != null) {
-                    // Verificar si el color de fondo es azul
-                    val backgroundColor = (textView.background as? ColorDrawable)?.color
-                    if (backgroundColor == R.color.azul_claro) {
-                        // Si es azul, no cambiar el color
+        val azulClaro = ContextCompat.getColor(this, R.color.azul_claro) // Obtener el color real
 
-                    } else {
-                        // Si no es azul, establecer el fondo como transparente
-                        textView.setBackgroundColor(Color.TRANSPARENT)
-                    }
+        for (i in 0 until gridLayout.childCount) {
+            val textView = gridLayout.getChildAt(i) as? TextView
+            if (textView != null) {
+                val background = textView.background
+                if (background is ColorDrawable && background.color == azulClaro) {
+                    // Si el fondo es azul claro, no cambiarlo
+                    continue
                 }
+                textView.setBackgroundColor(Color.TRANSPARENT) // Restablecer los demás a transparente
             }
         }
     }
+
 }
