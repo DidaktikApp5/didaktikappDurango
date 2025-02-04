@@ -82,4 +82,5 @@
     <string name="pieza">PIEZA</string>
     <string name="sopa_letras_completo">Has encontrado todas las palabras de la sopa de letras!</string>
     <string name="ranking_titulo">RANKING</string>
+    <string name="puzzle_final">Cuando juegues a todos se activara el puzzle!</string>
 </resources>

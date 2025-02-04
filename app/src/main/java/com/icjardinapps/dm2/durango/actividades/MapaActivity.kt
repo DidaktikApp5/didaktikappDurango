@@ -14,6 +14,7 @@ import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import android.widget.SeekBar
+import android.widget.Toast
 import android.widget.VideoView
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -50,6 +51,7 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
 
         binding = ActivityMapaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.btnPuzzleFinal.isEnabled = true
 
         // Obtener el SupportMapFragment y notificar cuando el mapa esté listo para ser usado.
         val mapFragment = supportFragmentManager
@@ -62,9 +64,16 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         // Listener para el botón Puzzle Final
+        binding.btnPuzzleFinal.isEnabled = true
         binding.btnPuzzleFinal.setOnClickListener {
-            abrirActividad(PuzleActivity::class.java)
+            if(numeroActividad == "6") {
+                abrirActividad(PuzleActivity::class.java)
+            } else {
+                Toast.makeText(this, getString(R.string.puzzle_final), Toast.LENGTH_SHORT).show()
+            }
+
         }
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

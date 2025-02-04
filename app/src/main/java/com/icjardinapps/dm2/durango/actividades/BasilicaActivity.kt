@@ -93,11 +93,11 @@ class BasilicaActivity : AppCompatActivity() {
             if (respuesta) {
                 puntaje++
                 actualizarPuntaje(puntaje)
-                tvPregunta.setTextColor(Color.GREEN)
+                tvPregunta.setBackgroundResource(R.color.verde_claro)
                 mensajeMascota.text = getString(R.string.correcto)
             } else {
                 mensajeMascota.text = getString(R.string.incorrecto)
-                tvPregunta.setTextColor(Color.RED)
+                tvPregunta.setBackgroundResource(R.color.rojo)
             }
 
             siguientePreguntaOFinal()
@@ -108,10 +108,10 @@ class BasilicaActivity : AppCompatActivity() {
             if (!respuesta) {
                 puntaje++
                 actualizarPuntaje(puntaje)
-                tvPregunta.setTextColor(getColor(R.color.verde))
+                tvPregunta.setBackgroundResource(R.color.verde_claro)
                 mensajeMascota.text = getString(R.string.correcto)
             } else {
-                tvPregunta.setTextColor(getColor(R.color.rojo))
+                tvPregunta.setBackgroundResource(R.color.rojo)
                 mensajeMascota.text = getString(R.string.incorrecto)
             }
 
@@ -128,7 +128,7 @@ class BasilicaActivity : AppCompatActivity() {
     private fun actualizarPregunta() {
         btnVerdadero.isEnabled = true
         btnFalso.isEnabled = true
-        tvPregunta.setTextColor(Color.BLACK)
+        tvPregunta.setBackgroundColor(Color.TRANSPARENT)
         mensajeMascota.text = ""
         ivImagen.setImageResource(Preguntas.imagenes[numPregunta])
         tvPregunta.text = Preguntas.preguntas[numPregunta]

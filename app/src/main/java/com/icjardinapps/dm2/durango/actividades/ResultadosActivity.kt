@@ -104,9 +104,11 @@ class ResultadosActivity : AppCompatActivity() {
                 val intent = Intent(this, MapaActivity::class.java)
                 intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "5")
                 startActivity(intent)
+            } else if(nombreJuego == "Escudo"){
+                val intent = Intent(this, MapaActivity::class.java)
+                intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "6")
+                startActivity(intent)
             }
-            /*val intent = Intent(this, MapaActivity::class.java)
-            startActivity(intent)*/
             dialog.dismiss()
         }
 
