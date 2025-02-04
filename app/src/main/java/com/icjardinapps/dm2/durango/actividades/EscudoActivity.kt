@@ -61,6 +61,7 @@ class EscudoActivity : AppCompatActivity() {
         sonidoError = MediaPlayer.create(this, R.raw.malo)
         btnVolverMapa.setOnClickListener{
             val intent = Intent(this, MapaActivity::class.java)
+            intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "5")
             startActivity(intent)
         }
         rellenarPalabrasABuscar()
@@ -255,30 +256,37 @@ class EscudoActivity : AppCompatActivity() {
                 tvArria.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
                     tvArria.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                     palabrasCorrectasUsuario.add(tvArria.text.toString())
+                    tvArria.setBackgroundResource(R.color.verde_claro)
                 }
                 tvIbaia.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
                     tvIbaia.paintFlags = tvIbaia.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                     palabrasCorrectasUsuario.add(tvIbaia.text.toString())
+                    tvIbaia.setBackgroundResource(R.color.verde_claro)
                 }
                 tvDorrea.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
                     tvDorrea.paintFlags = tvDorrea.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                     palabrasCorrectasUsuario.add(tvDorrea.text.toString())
+                    tvDorrea.setBackgroundResource(R.color.verde_claro)
                 }
                 tvLupus.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
                     tvLupus.paintFlags = tvLupus.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                     palabrasCorrectasUsuario.add(tvLupus.text.toString())
+                    tvLupus.setBackgroundResource(R.color.verde_claro)
                 }
                 tvTabira.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
                     tvTabira.paintFlags = tvTabira.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                     palabrasCorrectasUsuario.add(tvTabira.text.toString())
+                    tvTabira.setBackgroundResource(R.color.verde_claro)
                 }
                 tvIbaizabal.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
                     tvIbaizabal.paintFlags = tvIbaizabal.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                     palabrasCorrectasUsuario.add(tvIbaizabal.text.toString())
+                    tvIbaizabal.setBackgroundResource(R.color.verde_claro)
                 }
                 tvManaria.text.contentEquals(palabraSeleccionada, ignoreCase = true) -> {
                     tvManaria.paintFlags = tvManaria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                     palabrasCorrectasUsuario.add(tvManaria.text.toString())
+                    tvManaria.setBackgroundResource(R.color.verde_claro)
                 }
             }
         } else {

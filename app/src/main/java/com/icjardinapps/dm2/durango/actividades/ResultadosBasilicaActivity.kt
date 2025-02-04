@@ -106,6 +106,7 @@ class ResultadosBasilicaActivity : AppCompatActivity() {
 
         btnCerrar.setOnClickListener {
             val intent = Intent(this, MapaActivity::class.java)
+            intent.putExtra(MapaActivity.NUMEROACTIVIDAD,"4")
             startActivity(intent)
             dialog.dismiss()
         }

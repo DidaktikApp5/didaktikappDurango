@@ -82,4 +82,5 @@
     <string name="pieza">PIEZA</string>
     <string name="sopa_letras_completo">Letra-zoparen hitz guztiak aurkitu duzu!</string>
     <string name="ranking_titulo">RANKING</string>
+    <string name="puzzle_final">Denak jolasten duzunean puzzlea aktibatuko da!</string>
 </resources>

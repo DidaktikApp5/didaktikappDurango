@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
             val cardViewJugar: CardView = findViewById(R.id.card_jugar)
             cardViewJugar.setOnClickListener {
                 val intent = Intent(this, MapaActivity::class.java)
+                intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "0")
                 startActivity(intent)
             }
 

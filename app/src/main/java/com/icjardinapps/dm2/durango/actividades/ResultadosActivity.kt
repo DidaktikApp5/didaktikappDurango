@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -41,7 +42,7 @@ class ResultadosActivity : AppCompatActivity() {
             if(nombreJuego.equals("Artopil")) {
                 obtenerPiezaPatxi()
             } else {
-                obtenerPieza()
+                obtenerPieza(nombreJuego)
             }
 
         }
@@ -75,7 +76,7 @@ class ResultadosActivity : AppCompatActivity() {
      *
      * @author Julio González
      */
-    private fun obtenerPieza() {
+    private fun obtenerPieza(nombreJuego: String?) {
         // Reproduce el sonido de felicitación
         val mediaPlayer = MediaPlayer.create(this, R.raw.felicitacion)
         mediaPlayer.start()
@@ -87,8 +88,27 @@ class ResultadosActivity : AppCompatActivity() {
         val btnCerrar: Button = dialog.findViewById(R.id.btnGanarCerrar)
 
         btnCerrar.setOnClickListener {
-            val intent = Intent(this, MapaActivity::class.java)
-            startActivity(intent)
+            if(nombreJuego == "Mikeldi"){
+                val intent = Intent(this, MapaActivity::class.java)
+                intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "1")
+                startActivity(intent)
+            } else if(nombreJuego == "Feria"){
+                val intent = Intent(this, MapaActivity::class.java)
+                intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "2")
+                startActivity(intent)
+            } else if(nombreJuego == "Sirena"){
+                val intent = Intent(this, MapaActivity::class.java)
+                intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "3")
+                startActivity(intent)
+            } else if(nombreJuego == "Patxikotxu"){
+                val intent = Intent(this, MapaActivity::class.java)
+                intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "5")
+                startActivity(intent)
+            } else if(nombreJuego == "Escudo"){
+                val intent = Intent(this, MapaActivity::class.java)
+                intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "6")
+                startActivity(intent)
+            }
             dialog.dismiss()
         }
 
