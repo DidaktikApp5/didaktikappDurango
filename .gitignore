@@ -6,6 +6,10 @@ build/
 local.properties
 secrets.properties
 config.properties
+app/src/main/assets/config.properties
+/app/src/main/assets/config.properties
+/app/src/main/assets/*.properties
+
 
 # Android Studio and IntelliJ IDEA files
 .idea/

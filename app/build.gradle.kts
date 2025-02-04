@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.icjardinapps.dm2.durango"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.icjardinapps.dm2.durango"
@@ -36,6 +36,12 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    packaging {
+        resources {
+            excludes += "META-INF/AL2.0"
+            excludes += "META-INF/LGPL2.1"
+        }
+    }
 }
 
 dependencies {
@@ -46,6 +52,7 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.play.services.maps)
     implementation(libs.androidx.gridlayout)
+    implementation(libs.mysql.connector.java)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -17,7 +17,7 @@
     <string name="bienvenida">¡Kaixo, %s👋!</string>
     <string name="title_activity_mapa">MapaActivity</string>
     <string name="desarrollado_por">Nork garatua:</string>
-    <string name="integrantes">Julio González\nMikel Ramos\nLierni Sarraoa\nLuis Ortiz de Villalba</string>
+    <string name="integrantes">Julio González\nMikel Ramos\nLierni Sarraoa\nLuis Ortiz de Villalba\nIrati Cossio\nAne Hernández\nLucía López\nIxone Revuelta</string>
     <string name="cerrar">Itxi</string>
     <string name="enhorabuena">Puzzlearen pieza berri bat lortu duzu</string>
     <string name="titulo_enhorabuena">Zorionak!</string>
@@ -81,4 +81,5 @@
     <string name="sopa_de_letras">Letra-zopa</string>
     <string name="pieza">PIEZA</string>
     <string name="sopa_letras_completo">Letra-zoparen hitz guztiak aurkitu duzu!</string>
+    <string name="ranking_titulo">RANKING</string>
 </resources>

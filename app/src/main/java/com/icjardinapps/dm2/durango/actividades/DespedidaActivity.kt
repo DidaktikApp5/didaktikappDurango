@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.R
+import com.icjardinapps.dm2.durango.db.ConexionDb
 
 /**
  * Clase para mostrar la ventana de despedida de la aplicación.
@@ -25,6 +26,7 @@ class DespedidaActivity : AppCompatActivity() {
      * @param savedInstanceState Estado de la actividad
      */
     override fun onCreate(savedInstanceState: Bundle?) {
+        val bd = ConexionDb(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_despedida)
 
@@ -34,10 +36,17 @@ class DespedidaActivity : AppCompatActivity() {
         mascotaImage.setImageResource(R.drawable.idle)
         (mascotaImage.drawable as AnimationDrawable).start()
 
+        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val user:String = sharedPreferences.getString("username", "").toString()
+
+        Thread {
+            bd.guardarPuntuacionFinal(user, 700)
+        }.start()
+
         btnSalir = findViewById(R.id.btnSalirDespedida)
 
         btnSalir.setOnClickListener {
-            finish()
+            finishAffinity()
         }
     }
 }

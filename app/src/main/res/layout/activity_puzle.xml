@@ -8,16 +8,88 @@
     android:background="@drawable/background_gradient">
 
     <!-- Zona del puzzle donde se deben colocar las piezas -->
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/zonePuzzle"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="@drawable/puzzle"
-        android:alpha="0.4"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:id="@+id/linearPuzzle1Final"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearPuzzle2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/piece1Puzzle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:alpha="0.4"
+                android:contentDescription="@string/pieza"
+                android:src="@drawable/pieza1" />
+
+            <ImageView
+                android:id="@+id/piece2Puzzle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:alpha="0.4"
+                android:contentDescription="@string/pieza"
+                android:src="@drawable/pieza2" />
+            <ImageView
+                android:id="@+id/piece3Puzzle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:alpha="0.4"
+                android:contentDescription="@string/pieza"
+                android:src="@drawable/pieza3" />
+
+            <ImageView
+                android:id="@+id/piece4Puzzle"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:alpha="0.4"
+                android:contentDescription="@string/pieza"
+                android:src="@drawable/pieza4" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearPuzzle2Final"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <ImageView
+                android:id="@+id/piece5Puzzle"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:alpha="0.4"
+                android:contentDescription="@string/pieza"
+                android:src="@drawable/pieza5" />
+
+            <ImageView
+                android:id="@+id/piece6Puzzle"
+                android:layout_width="160dp"
+                android:layout_height="100dp"
+                android:alpha="0.4"
+                android:contentDescription="@string/pieza"
+                android:src="@drawable/pieza6" />
+
+            <ImageView
+                android:id="@+id/piece7Puzzle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:alpha="0.4"
+                android:contentDescription="@string/pieza"
+                android:src="@drawable/pieza7" />
+        </LinearLayout>
+    </LinearLayout>
 
     <!-- Piezas del puzzle (debajo) -->
     <LinearLayout
@@ -32,20 +104,20 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/piece1"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:id="@+id/piece7"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_margin="5dp"
             android:contentDescription="@string/pieza"
-            android:src="@drawable/pieza1" />
+            android:src="@drawable/pieza7" />
 
         <ImageView
-            android:id="@+id/piece2"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:id="@+id/piece4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_margin="5dp"
             android:contentDescription="@string/pieza"
-            android:src="@drawable/pieza2" />
+            android:src="@drawable/pieza4" />
     </LinearLayout>
 
     <LinearLayout
@@ -60,20 +132,20 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/piece3"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:id="@+id/piece1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_margin="5dp"
             android:contentDescription="@string/pieza"
-            android:src="@drawable/pieza3" />
+            android:src="@drawable/pieza1" />
 
         <ImageView
-            android:id="@+id/piece4"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:id="@+id/piece6"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_margin="5dp"
             android:contentDescription="@string/pieza"
-            android:src="@drawable/pieza4" />
+            android:src="@drawable/pieza6" />
     </LinearLayout>
 
     <LinearLayout
@@ -87,6 +159,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
         <ImageView
+            android:id="@+id/piece2"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/pieza"
+            android:src="@drawable/pieza2" />
+
+        <ImageView
             android:id="@+id/piece5"
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -95,20 +175,12 @@
             android:src="@drawable/pieza5" />
 
         <ImageView
-            android:id="@+id/piece6"
-            android:layout_width="120dp"
+            android:id="@+id/piece3"
+            android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_margin="5dp"
             android:contentDescription="@string/pieza"
-            android:src="@drawable/pieza6" />
-
-        <ImageView
-            android:id="@+id/piece7"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_margin="5dp"
-            android:contentDescription="@string/pieza"
-            android:src="@drawable/pieza7" />
+            android:src="@drawable/pieza3" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

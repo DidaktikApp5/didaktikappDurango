@@ -10,6 +10,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.MainActivity
 import com.icjardinapps.dm2.durango.R
+import com.icjardinapps.dm2.durango.db.ConexionDb
 
 /**
  * Clase que representa la actividad de inicio de sesión.
@@ -26,6 +27,8 @@ class LoginActivity : AppCompatActivity() {
      * @param savedInstanceState Estado de la actividad
      */
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val bd=ConexionDb(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -39,13 +42,27 @@ class LoginActivity : AppCompatActivity() {
         (mascotaImage.drawable as AnimationDrawable).start()
 
         botonComenzar.setOnClickListener {
-            val nombre = editTextNombre.text.toString()
+            var nombre = editTextNombre.text.toString()
 
             if (nombre.isNotBlank()) {
                 // Guardamos el nombre de usuario en SharedPreferences
                 val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
                 editor.putString("username", nombre)
+
+                Thread {
+                    var insertSuccess = bd.guardarAlumnoBBDD(nombre)
+
+                    if(!insertSuccess) {
+                        var num = 1
+                        do {
+                            insertSuccess = bd.guardarAlumnoBBDD(nombre + num)
+                            num++
+                        } while(!insertSuccess)
+                        nombre+=(num-1)
+                    }
+                }.start()
+
                 editor.putBoolean("isFirstTime", false) // Marcar que ya no es la primera vez
                 editor.apply()
 

@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.icjardinapps.dm2.durango.R
 
 class MikeldiActivity : AppCompatActivity() {
+
     private lateinit var ivMikeldi: ImageView
     private lateinit var btnVolverMapa: Button
 

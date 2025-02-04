@@ -12,6 +12,7 @@ import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.icjardinapps.dm2.durango.actividades.LoginActivity
 import com.icjardinapps.dm2.durango.actividades.MapaActivity
+import com.icjardinapps.dm2.durango.actividades.RankingActivity
 import java.util.Locale
 
 /**
@@ -55,43 +56,49 @@ class MainActivity : AppCompatActivity() {
         } else {
             // Si ya no es la primera vez, mostrar la actividad principal
             setContentView(R.layout.activity_main)
-        }
 
-        // Mostrar el nombre del usuario introducido en el LoginActivity
-        val textViewBienvenida: TextView = findViewById(R.id.tv_nombreJugador)
-        val user:String = sharedPreferences.getString("username", "").toString()
+            // Mostrar el nombre del usuario introducido en el LoginActivity
+            val textViewBienvenida: TextView = findViewById(R.id.tv_nombreJugador)
+            val user:String = sharedPreferences.getString("username", "").toString()
 
-        textViewBienvenida.text = getString(R.string.bienvenida, user)
+            textViewBienvenida.text = getString(R.string.bienvenida, user)
 
-        // Ir a MapaActivity
-        val cardViewJugar: CardView = findViewById(R.id.card_jugar)
-        cardViewJugar.setOnClickListener {
-            val intent = Intent(this, MapaActivity::class.java)
-            startActivity(intent)
-        }
+            // Ir a MapaActivity
+            val cardViewJugar: CardView = findViewById(R.id.card_jugar)
+            cardViewJugar.setOnClickListener {
+                val intent = Intent(this, MapaActivity::class.java)
+                startActivity(intent)
+            }
 
-        // Cambiar idioma
-        val cardViewIdioma: CardView = findViewById(R.id.card_lenguaje)
-        cardViewIdioma.setOnClickListener {
-            val currentLanguage = sharedPreferences.getString("idioma", "es") // Obtener el idioma actual
-            val newLanguage = if (currentLanguage == "es") "eu" else "es" // Cambiar el idioma a euskera o español
-            sharedPreferences.edit().putString("idioma", newLanguage).apply() // Guardar el nuevo idioma
+            val cardViewRanking: CardView = findViewById(R.id.card_ranking)
+            cardViewRanking.setOnClickListener {
+                val intent = Intent(this, RankingActivity::class.java)
+                startActivity(intent)
+            }
 
-            // Cambiar el idioma de la aplicación
-            val locale = Locale(newLanguage)
-            Locale.setDefault(locale)
-            val config = resources.configuration
-            config.locale = locale
-            resources.updateConfiguration(config, resources.displayMetrics)
+            // Cambiar idioma
+            val cardViewIdioma: CardView = findViewById(R.id.card_lenguaje)
+            cardViewIdioma.setOnClickListener {
+                val currentLanguage = sharedPreferences.getString("idioma", "es") // Obtener el idioma actual
+                val newLanguage = if (currentLanguage == "es") "eu" else "es" // Cambiar el idioma a euskera o español
+                sharedPreferences.edit().putString("idioma", newLanguage).apply() // Guardar el nuevo idioma
 
-            // Reiniciar la actividad para aplicar los cambios de idioma
-            recreate()
-        }
+                // Cambiar el idioma de la aplicación
+                val locale = Locale(newLanguage)
+                Locale.setDefault(locale)
+                val config = resources.configuration
+                config.locale = locale
+                resources.updateConfiguration(config, resources.displayMetrics)
 
-        // Mostrar Acerca de
-        val cardViewAcercaDe: CardView = findViewById(R.id.card_acercaDe)
-        cardViewAcercaDe.setOnClickListener {
-            acercaDe()
+                // Reiniciar la actividad para aplicar los cambios de idioma
+                recreate()
+            }
+
+            // Mostrar Acerca de
+            val cardViewAcercaDe: CardView = findViewById(R.id.card_acercaDe)
+            cardViewAcercaDe.setOnClickListener {
+                acercaDe()
+            }
         }
     }
 
@@ -119,4 +126,6 @@ class MainActivity : AppCompatActivity() {
 
         dialog.show()
     }
+
+
 }

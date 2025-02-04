@@ -3,6 +3,7 @@ package com.icjardinapps.dm2.durango.actividades
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -75,6 +76,10 @@ class ResultadosActivity : AppCompatActivity() {
      * @author Julio González
      */
     private fun obtenerPieza() {
+        // Reproduce el sonido de felicitación
+        val mediaPlayer = MediaPlayer.create(this, R.raw.felicitacion)
+        mediaPlayer.start()
+
         dialog.setContentView(R.layout.ganar)
 
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
@@ -91,6 +96,10 @@ class ResultadosActivity : AppCompatActivity() {
     }
 
     private fun obtenerPiezaPatxi() {
+        // Reproduce el sonido de felicitación
+        val mediaPlayer = MediaPlayer.create(this, R.raw.felicitacion)
+        mediaPlayer.start()
+
         dialog.setContentView(R.layout.ganar)
 
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
