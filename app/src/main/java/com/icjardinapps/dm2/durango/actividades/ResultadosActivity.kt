@@ -63,6 +63,9 @@ class ResultadosActivity : AppCompatActivity() {
             "Mikeldi" -> {
                 txtAcierto.text = getString(R.string.encontrarMikeldi)
             }
+            "Escudo" -> {
+                txtAcierto.text = getString(R.string.sopa_letras_completo)
+            }
         }
     }
 

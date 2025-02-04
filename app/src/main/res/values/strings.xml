@@ -80,4 +80,5 @@
     <string name="encontrarMikeldi">Has encontrado a Mikeldi</string>
     <string name="sopa_de_letras">Sopa de letras</string>
     <string name="pieza">PIEZA</string>
+    <string name="sopa_letras_completo">Has encontrado todas las palabras de la sopa de letras!</string>
 </resources>

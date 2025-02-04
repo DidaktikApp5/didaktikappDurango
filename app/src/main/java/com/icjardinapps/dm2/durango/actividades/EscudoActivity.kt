@@ -2,6 +2,8 @@ package com.icjardinapps.dm2.durango.actividades
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
@@ -27,8 +29,8 @@ class EscudoActivity : AppCompatActivity() {
     private var direction: Pair<Int, Int>? = null  // Dirección del movimiento
     private val filas = 12
     private val columnas = 10
-    private val palabras = listOf("KOTLIN", "ANDROID", "JAVA", "SOPA", "LETTERS")
     private val letrasSeleccionadas = mutableListOf<String>()
+    private val palabrasCorrectasUsuario = mutableListOf<String>()
 
     // Crear un array de Strings y llenarlo manualmente
     private val arrayPalabras = listOf(
@@ -58,8 +60,6 @@ class EscudoActivity : AppCompatActivity() {
             startActivity(intent)
         }
         rellenarPalabrasABuscar()
-        val rowCount = 12 // Número de filas
-        val columnCount = 10 // Número de columnas
 
         for (i in 0 until gridLayout.childCount) {
             val child = gridLayout.getChildAt(i)
@@ -95,6 +95,7 @@ class EscudoActivity : AppCompatActivity() {
                         }
                         MotionEvent.ACTION_UP -> {
                             verificarPalabra()
+                            verificarJuegoCompletado()
                             lastTouchedView = null
                             selectedViews.clear()
                             direction = null  // Resetear dirección
@@ -106,6 +107,14 @@ class EscudoActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun verificarJuegoCompletado() {
+        if(palabrasCorrectasUsuario.size == 7){
+            val intent = Intent(this, ResultadosActivity::class.java)
+            intent.putExtra(ResultadosActivity.NOMBREACTIVIDAD, "Escudo")
+            startActivity(intent)
+        }
     }
 
     private fun rellenarPalabrasABuscar() {
@@ -226,7 +235,7 @@ class EscudoActivity : AppCompatActivity() {
     private fun agregarLetraSeleccionada(textView: TextView) {
         if (textView.text.isNotEmpty()) {
             letrasSeleccionadas.add(textView.text.toString()) // No impedir letras repetidas
-            textView.setBackgroundResource(android.R.color.holo_blue_light) // Color de selección
+            textView.setBackgroundResource(R.color.azul_claro) // Color de selección
         }
     }
 
@@ -235,8 +244,35 @@ class EscudoActivity : AppCompatActivity() {
         val palabraSeleccionada = letrasSeleccionadas.joinToString("")
         if (arrayPalabras.any { it.equals(palabraSeleccionada, ignoreCase = true) }) {
             Toast.makeText(this, "¡Palabra encontrada: $palabraSeleccionada!", Toast.LENGTH_SHORT).show()
+            if(tvArria.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
+                tvArria.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                palabrasCorrectasUsuario.add(tvArria.text.toString())
+            }
+            else if(tvIbaia.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
+                tvIbaia.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                palabrasCorrectasUsuario.add(tvIbaia.text.toString())
+            }
+            else if(tvDorrea.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
+                tvDorrea.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                palabrasCorrectasUsuario.add(tvDorrea.text.toString())
+            }
+            else if(tvLupus.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
+                tvLupus.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                palabrasCorrectasUsuario.add(tvLupus.text.toString())
+            }
+            else if(tvTabira.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
+                tvTabira.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                palabrasCorrectasUsuario.add(tvTabira.text.toString())
+            }
+            else if(tvIbaizabal.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
+                tvIbaizabal.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                palabrasCorrectasUsuario.add(tvIbaizabal.text.toString())
+            }
+            else if(tvManaria.text.contentEquals(palabraSeleccionada, ignoreCase = true)){
+                tvManaria.paintFlags = tvArria.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                palabrasCorrectasUsuario.add(tvManaria.text.toString())
+            }
             letrasSeleccionadas.clear()
-            reiniciarColores()
         } else {
             letrasSeleccionadas.clear()
             reiniciarColores()
@@ -247,50 +283,18 @@ class EscudoActivity : AppCompatActivity() {
         for (i in 0 until filas) {
             for (j in 0 until columnas) {
                 val textView = gridLayout.getChildAt(i * columnas + j) as? TextView
-                textView?.setBackgroundColor(Color.TRANSPARENT) // Fondo transparente
+                if (textView != null) {
+                    // Verificar si el color de fondo es azul
+                    val backgroundColor = (textView.background as? ColorDrawable)?.color
+                    if (backgroundColor == R.color.azul_claro) {
+                        // Si es azul, no cambiar el color
+
+                    } else {
+                        // Si no es azul, establecer el fondo como transparente
+                        textView.setBackgroundColor(Color.TRANSPARENT)
+                    }
+                }
             }
         }
     }
-
-    /*// Listas para almacenar las palabras y sus lugares correctos
-    private val palabras = listOf("palabra1", "palabra2", "palabra3")
-    private val lugaresCorrectos = listOf("lugar1", "lugar2", "lugar3")
-
-    // Variables para controlar el estado del juego
-    private var palabrasCorrectas = 0
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        // Inicializar el botón
-        val boton = findViewById<Button>(R.id.boton)
-        boton.setOnClickListener {
-            if (palabrasCorrectas == palabras.size) {
-                // Si todas las palabras están en su lugar, el botón se habilita
-                boton.isEnabled = true
-                boton.setTextColor(Color.BLACK)
-            }
-        }
-    }
-
-    // Función para manejar la acción de arrastrar y soltar
-    fun arrastrarYSoltar(view: View) {
-        // Se extrae el texto de la palabra arrastrada
-        val palabraArrastrada = (view as TextView).text.toString()
-
-        // Buscar el lugar correcto para la palabra
-        val lugarCorrecto = lugaresCorrectos[palabras.indexOf(palabraArrastrada)]
-
-        // Buscar el TextView que corresponde al lugar correcto
-        val lugarTextView = findViewById<TextView>(resources.getIdentifier(lugarCorrecto, "id", packageName))
-
-        // Si la palabra está en su lugar correcto
-        if (lugarTextView.text == palabraArrastrada) {
-            // Se pone verde el TextView correspondiente
-            lugarTextView.setTextColor(Color.GREEN)
-            palabrasCorrectas++ // Incrementar el contador de palabras correctas
-        }
-    }*/
-
 }
