@@ -78,6 +78,7 @@ class PatxikotxuActivity : AppCompatActivity() {
         // Configura el comportamiento del botón volver para volver al mapa
         btnVolverMapa.setOnClickListener {
             val intent = Intent(this, MapaActivity::class.java)
+            intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "4.1")
             startActivity(intent)
         }
 

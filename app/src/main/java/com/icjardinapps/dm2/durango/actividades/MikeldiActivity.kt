@@ -27,6 +27,7 @@ class MikeldiActivity : AppCompatActivity() {
         }
         btnVolverMapa.setOnClickListener{
             val intent = Intent(this, MapaActivity::class.java)
+            intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "0")
             startActivity(intent)
         }
     }

@@ -29,13 +29,19 @@ import com.google.android.gms.maps.model.PatternItem
 import com.google.android.gms.maps.model.PolylineOptions
 import com.icjardinapps.dm2.durango.MainActivity
 import com.icjardinapps.dm2.durango.R
+import com.icjardinapps.dm2.durango.actividades.ResultadosActivity.Companion.NOMBREACTIVIDAD
 import com.icjardinapps.dm2.durango.databinding.ActivityMapaBinding
 
 class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
+    companion object {
+        const val NUMEROACTIVIDAD = "0"
+    }
+
     private lateinit var dialog: Dialog
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapaBinding
-    private var nombreActividadUbicacion5: String? = null
+    private lateinit var numeroActividad: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +55,7 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
+        numeroActividad = intent.getStringExtra(NUMEROACTIVIDAD).toString()
         // Listener para el botón Volver
         binding.btnVolver.setOnClickListener {
             abrirActividad(MainActivity::class.java)
@@ -135,14 +141,35 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Listener para clics en los marcadores
         mMap.setOnMarkerClickListener { marker ->
-            when (marker.tag) {
-                "mikeldi" -> mostrarInfoMikeldi()
-                "feria" -> mostrarInfoFeria()
-                "sirena" -> mostrarInfoSirena()
-                "basilica" -> mostrarInfoBasilica()
-                "personajeArtopila" -> mostrarInfoArtopila()
-                "escudo" -> mostrarInfoEscudo()
-                else -> false  // Si no se encuentra el tag, no hace nada
+            // Obtener el numero de actividad
+            if(numeroActividad == "0"){
+                when(marker.tag) {
+                    "mikeldi" -> mostrarInfoMikeldi()
+                }
+            } else if(numeroActividad == "1"){
+                when(marker.tag) {
+                    "feria" -> mostrarInfoFeria()
+                }
+            } else if(numeroActividad == "2"){
+                when(marker.tag) {
+                    "sirena" -> mostrarInfoSirena()
+                }
+            } else if(numeroActividad == "3"){
+                when(marker.tag) {
+                    "basilica" -> mostrarInfoBasilica()
+                }
+            } else if(numeroActividad == "4"){
+                when(marker.tag) {
+                    "personajeArtopila" -> mostrarInfoArtopila()
+                }
+            } else if(numeroActividad == "4.1"){
+                when(marker.tag) {
+                    "personajeArtopila" -> abrirActividad(PatxikotxuActivity::class.java)
+                }
+            } else if(numeroActividad == "5"){
+                when(marker.tag) {
+                    "escudo" -> mostrarInfoEscudo()
+                }
             }
             true
         }

@@ -61,6 +61,7 @@ class EscudoActivity : AppCompatActivity() {
         sonidoError = MediaPlayer.create(this, R.raw.malo)
         btnVolverMapa.setOnClickListener{
             val intent = Intent(this, MapaActivity::class.java)
+            intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "5")
             startActivity(intent)
         }
         rellenarPalabrasABuscar()
