@@ -28,13 +28,11 @@ El objetivo de la aplicación es proporcionar una forma educativa y entretenida 
 
 ## 📱 Capturas de pantalla
 
-<img src="https://github.com/DidaktikApp5/didaktikappDurango/blob/Julio/app/src/main/res/drawable/login_image.png" alt="Login" align="left"/>
-
-<div align="center">
-<img src="https://github.com/DidaktikApp5/didaktikappDurango/blob/Julio/app/src/main/res/drawable/menu_image.png" alt="Menu"/>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <img src="https://github.com/DidaktikApp5/didaktikappDurango/blob/Julio/app/src/main/res/drawable/login_image.png" alt="Login" style="width: 30%;"/>
+  <img src="https://github.com/DidaktikApp5/didaktikappDurango/blob/Julio/app/src/main/res/drawable/menu_image.png" alt="Menu" style="width: 30%;"/>
+  <img src="https://github.com/DidaktikApp5/didaktikappDurango/blob/Julio/app/src/main/res/drawable/map_image.png" alt="Mapa" style="width: 30%;"/>
 </div>
-
-<img src="https://github.com/DidaktikApp5/didaktikappDurango/blob/Julio/app/src/main/res/drawable/map_image.png" alt="Mapa" align="right"/>
 
 ## Desarrolladores 👩‍💻👨‍💻
 Este proyecto fue desarrollado por el siguiente equipo:
