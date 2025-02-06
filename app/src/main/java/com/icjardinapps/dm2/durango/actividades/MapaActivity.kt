@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.Toast
@@ -30,7 +29,6 @@ import com.google.android.gms.maps.model.PatternItem
 import com.google.android.gms.maps.model.PolylineOptions
 import com.icjardinapps.dm2.durango.MainActivity
 import com.icjardinapps.dm2.durango.R
-import com.icjardinapps.dm2.durango.actividades.ResultadosActivity.Companion.NOMBREACTIVIDAD
 import com.icjardinapps.dm2.durango.databinding.ActivityMapaBinding
 
 class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -134,127 +132,123 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
             Gap(20f)    // Epacios entre los segmentos
         )
 
-        if(numeroActividad == "0"){
-            polylineOptionsRed = PolylineOptions()
-                .add(LatLng(43.172993, -2.633388))  // Mikeldi
-                .add(LatLng(43.171167, -2.630722))  // Feria
-                .add(LatLng(43.168194, -2.628278))  // Sirena
-                .add(LatLng(43.168389, -2.631222))  // Basilica
-                .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
-                .add(LatLng(43.165611, -2.632333))  // Escudo
-                .width(15f)  // Grosor de la línea
-                .color(android.graphics.Color.RED)  // Color de la línea
-                .pattern(pattern) // Patron
-                .geodesic(true)
-        } else if(numeroActividad == "1"){
-            polylineOptionsGreen = PolylineOptions()
-                .add(LatLng(43.172993, -2.633388))  // Mikeldi
-                .add(LatLng(43.171167, -2.630722))  // Feria
-                .width(15f)  // Grosor de la línea
-                .color(android.graphics.Color.GREEN)  // Color de la línea
-                .pattern(pattern) // Patron
-                .geodesic(true) // Seguir la curvatura de la tierra
-            polylineOptionsRed = PolylineOptions()
-                .add(LatLng(43.171167, -2.630722))  // Feria
-                .add(LatLng(43.168194, -2.628278))  // Sirena
-                .add(LatLng(43.168389, -2.631222))  // Basilica
-                .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
-                .add(LatLng(43.165611, -2.632333))  // Escudo
-                .width(15f)  // Grosor de la línea
-                .color(android.graphics.Color.RED)  // Color de la línea
-                .pattern(pattern) // Patron
-                .geodesic(true)
-        } else if(numeroActividad == "2"){
-            polylineOptionsGreen = PolylineOptions()
-                .add(LatLng(43.172993, -2.633388))  // Mikeldi
-                .add(LatLng(43.171167, -2.630722))  // Feria
-                .add(LatLng(43.168194, -2.628278))  // Sirena
-                .width(15f)  // Grosor de la línea
-                .color(android.graphics.Color.GREEN)  // Color de la línea
-                .pattern(pattern) // Patron
-                .geodesic(true) // Seguir la curvatura de la tierra
-            polylineOptionsRed = PolylineOptions()
-                .add(LatLng(43.168194, -2.628278))  // Sirena
-                .add(LatLng(43.168389, -2.631222))  // Basilica
-                .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
-                .add(LatLng(43.165611, -2.632333))  // Escudo
-                .width(15f)  // Grosor de la línea
-                .color(android.graphics.Color.RED)  // Color de la línea
-                .pattern(pattern) // Patron
-                .geodesic(true)
-        } else if(numeroActividad == "3"){
-            polylineOptionsGreen = PolylineOptions()
-                .add(LatLng(43.172993, -2.633388))  // Mikeldi
-                .add(LatLng(43.171167, -2.630722))  // Feria
-                .add(LatLng(43.168194, -2.628278))  // Sirena
-                .add(LatLng(43.168389, -2.631222))  // Basilica
-                .width(15f)  // Grosor de la línea
-                .color(android.graphics.Color.GREEN)  // Color de la línea
-                .pattern(pattern) // Patron
-                .geodesic(true) // Seguir la curvatura de la tierra
-            polylineOptionsRed = PolylineOptions()
-                .add(LatLng(43.168389, -2.631222))  // Basilica
-                .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
-                .add(LatLng(43.165611, -2.632333))  // Escudo
-                .width(15f)  // Grosor de la línea
-                .color(android.graphics.Color.RED)  // Color de la línea
-                .pattern(pattern) // Patron
-                .geodesic(true)
-        } else if(numeroActividad == "4"){
-            polylineOptionsGreen = PolylineOptions()
-                .add(LatLng(43.172993, -2.633388))  // Mikeldi
-                .add(LatLng(43.171167, -2.630722))  // Feria
-                .add(LatLng(43.168194, -2.628278))  // Sirena
-                .add(LatLng(43.168389, -2.631222))  // Basilica
-                .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
-                .width(15f)  // Grosor de la línea
-                .color(android.graphics.Color.GREEN)  // Color de la línea
-                .pattern(pattern) // Patron
-                .geodesic(true) // Seguir la curvatura de la tierra
-            polylineOptionsRed = PolylineOptions()
-                .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
-                .add(LatLng(43.165611, -2.632333))  // Escudo
-                .width(15f)  // Grosor de la línea
-                .color(android.graphics.Color.RED)  // Color de la línea
-                .pattern(pattern) // Patron
-                .geodesic(true)
-        } else if(numeroActividad == "5"){
-            polylineOptionsGreen = PolylineOptions()
-                .add(LatLng(43.172993, -2.633388))  // Mikeldi
-                .add(LatLng(43.171167, -2.630722))  // Feria
-                .add(LatLng(43.168194, -2.628278))  // Sirena
-                .add(LatLng(43.168389, -2.631222))  // Basilica
-                .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
-                .add(LatLng(43.165611, -2.632333))  // Escudo
-                .width(15f)  // Grosor de la línea
-                .color(android.graphics.Color.GREEN)  // Color de la línea
-                .pattern(pattern) // Patron
-                .geodesic(true) // Seguir la curvatura de la tierra
-        } else if(numeroActividad == "6"){
-            polylineOptionsGreen = PolylineOptions()
-                .add(LatLng(43.172993, -2.633388))  // Mikeldi
-                .add(LatLng(43.171167, -2.630722))  // Feria
-                .add(LatLng(43.168194, -2.628278))  // Sirena
-                .add(LatLng(43.168389, -2.631222))  // Basilica
-                .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
-                .add(LatLng(43.165611, -2.632333))  // Escudo
-                .width(15f)  // Grosor de la línea
-                .color(android.graphics.Color.GREEN)  // Color de la línea
-                .pattern(pattern) // Patron
-                .geodesic(true) // Seguir la curvatura de la tierra
+        when (numeroActividad) {
+            "0" -> {
+                polylineOptionsRed = PolylineOptions()
+                    .add(LatLng(43.172993, -2.633388))  // Mikeldi
+                    .add(LatLng(43.171167, -2.630722))  // Feria
+                    .add(LatLng(43.168194, -2.628278))  // Sirena
+                    .add(LatLng(43.168389, -2.631222))  // Basilica
+                    .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
+                    .add(LatLng(43.165611, -2.632333))  // Escudo
+                    .width(15f)  // Grosor de la línea
+                    .color(android.graphics.Color.RED)  // Color de la línea
+                    .pattern(pattern) // Patron
+                    .geodesic(true)
+            }
+            "1" -> {
+                polylineOptionsGreen = PolylineOptions()
+                    .add(LatLng(43.172993, -2.633388))  // Mikeldi
+                    .add(LatLng(43.171167, -2.630722))  // Feria
+                    .width(15f)  // Grosor de la línea
+                    .color(android.graphics.Color.GREEN)  // Color de la línea
+                    .pattern(pattern) // Patron
+                    .geodesic(true) // Seguir la curvatura de la tierra
+                polylineOptionsRed = PolylineOptions()
+                    .add(LatLng(43.171167, -2.630722))  // Feria
+                    .add(LatLng(43.168194, -2.628278))  // Sirena
+                    .add(LatLng(43.168389, -2.631222))  // Basilica
+                    .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
+                    .add(LatLng(43.165611, -2.632333))  // Escudo
+                    .width(15f)  // Grosor de la línea
+                    .color(android.graphics.Color.RED)  // Color de la línea
+                    .pattern(pattern) // Patron
+                    .geodesic(true)
+            }
+            "2" -> {
+                polylineOptionsGreen = PolylineOptions()
+                    .add(LatLng(43.172993, -2.633388))  // Mikeldi
+                    .add(LatLng(43.171167, -2.630722))  // Feria
+                    .add(LatLng(43.168194, -2.628278))  // Sirena
+                    .width(15f)  // Grosor de la línea
+                    .color(android.graphics.Color.GREEN)  // Color de la línea
+                    .pattern(pattern) // Patron
+                    .geodesic(true) // Seguir la curvatura de la tierra
+                polylineOptionsRed = PolylineOptions()
+                    .add(LatLng(43.168194, -2.628278))  // Sirena
+                    .add(LatLng(43.168389, -2.631222))  // Basilica
+                    .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
+                    .add(LatLng(43.165611, -2.632333))  // Escudo
+                    .width(15f)  // Grosor de la línea
+                    .color(android.graphics.Color.RED)  // Color de la línea
+                    .pattern(pattern) // Patron
+                    .geodesic(true)
+            }
+            "3" -> {
+                polylineOptionsGreen = PolylineOptions()
+                    .add(LatLng(43.172993, -2.633388))  // Mikeldi
+                    .add(LatLng(43.171167, -2.630722))  // Feria
+                    .add(LatLng(43.168194, -2.628278))  // Sirena
+                    .add(LatLng(43.168389, -2.631222))  // Basilica
+                    .width(15f)  // Grosor de la línea
+                    .color(android.graphics.Color.GREEN)  // Color de la línea
+                    .pattern(pattern) // Patron
+                    .geodesic(true) // Seguir la curvatura de la tierra
+                polylineOptionsRed = PolylineOptions()
+                    .add(LatLng(43.168389, -2.631222))  // Basilica
+                    .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
+                    .add(LatLng(43.165611, -2.632333))  // Escudo
+                    .width(15f)  // Grosor de la línea
+                    .color(android.graphics.Color.RED)  // Color de la línea
+                    .pattern(pattern) // Patron
+                    .geodesic(true)
+            }
+            "4" -> {
+                polylineOptionsGreen = PolylineOptions()
+                    .add(LatLng(43.172993, -2.633388))  // Mikeldi
+                    .add(LatLng(43.171167, -2.630722))  // Feria
+                    .add(LatLng(43.168194, -2.628278))  // Sirena
+                    .add(LatLng(43.168389, -2.631222))  // Basilica
+                    .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
+                    .width(15f)  // Grosor de la línea
+                    .color(android.graphics.Color.GREEN)  // Color de la línea
+                    .pattern(pattern) // Patron
+                    .geodesic(true) // Seguir la curvatura de la tierra
+                polylineOptionsRed = PolylineOptions()
+                    .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
+                    .add(LatLng(43.165611, -2.632333))  // Escudo
+                    .width(15f)  // Grosor de la línea
+                    .color(android.graphics.Color.RED)  // Color de la línea
+                    .pattern(pattern) // Patron
+                    .geodesic(true)
+            }
+            "5" -> {
+                polylineOptionsGreen = PolylineOptions()
+                    .add(LatLng(43.172993, -2.633388))  // Mikeldi
+                    .add(LatLng(43.171167, -2.630722))  // Feria
+                    .add(LatLng(43.168194, -2.628278))  // Sirena
+                    .add(LatLng(43.168389, -2.631222))  // Basilica
+                    .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
+                    .add(LatLng(43.165611, -2.632333))  // Escudo
+                    .width(15f)  // Grosor de la línea
+                    .color(android.graphics.Color.GREEN)  // Color de la línea
+                    .pattern(pattern) // Patron
+                    .geodesic(true) // Seguir la curvatura de la tierra
+            }
+            "6" -> {
+                polylineOptionsGreen = PolylineOptions()
+                    .add(LatLng(43.172993, -2.633388))  // Mikeldi
+                    .add(LatLng(43.171167, -2.630722))  // Feria
+                    .add(LatLng(43.168194, -2.628278))  // Sirena
+                    .add(LatLng(43.168389, -2.631222))  // Basilica
+                    .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
+                    .add(LatLng(43.165611, -2.632333))  // Escudo
+                    .width(15f)  // Grosor de la línea
+                    .color(android.graphics.Color.GREEN)  // Color de la línea
+                    .pattern(pattern) // Patron
+                    .geodesic(true) // Seguir la curvatura de la tierra
+            }
         }
-        // Camino entre los marcadores
-        /*val polylineOptions = PolylineOptions()
-            .add(LatLng(43.172993, -2.633388))  // Mikeldi
-            .add(LatLng(43.171167, -2.630722))  // Feria
-            /*.add(LatLng(43.168194, -2.628278))  // Sirena
-            .add(LatLng(43.168389, -2.631222))  // Basilica
-            .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
-            .add(LatLng(43.165611, -2.632333))  // Escudo*/
-            .width(15f)  // Grosor de la línea
-            .color(android.graphics.Color.RED)  // Color de la línea
-            .pattern(pattern) // Patron
-            .geodesic(true) // Seguir la curvatura de la tierra*/
 
         // Añadir la polyline al mapa
         val numero = numeroActividad.toIntOrNull()
@@ -271,87 +265,48 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
         // Listener para clics en los marcadores
-        //Esta parte es para la aplicacion real
-        /*mMap.setOnMarkerClickListener { marker ->
-            // Obtener el numero de actividad
-            if(numeroActividad == "0"){
-                when(marker.tag) {
-                    "mikeldi" -> mostrarInfoMikeldi()
-                }
-            } else if(numeroActividad == "1"){
-                when(marker.tag) {
-                    "feria" -> mostrarInfoFeria()
-                }
-            } else if(numeroActividad == "2"){
-                when(marker.tag) {
-                    "sirena" -> mostrarInfoSirena()
-                }
-            } else if(numeroActividad == "3"){
-                when(marker.tag) {
-                    "basilica" -> mostrarInfoBasilica()
-                }
-            } else if(numeroActividad == "4"){
-                when(marker.tag) {
-                    "personajeArtopila" -> mostrarInfoArtopila()
-                }
-            } else if(numeroActividad == "4.1"){
-                when(marker.tag) {
-                    "personajeArtopila" -> abrirActividad(PatxikotxuActivity::class.java)
-                }
-            } else if(numeroActividad == "5"){
-                when(marker.tag) {
-                    "escudo" -> mostrarInfoEscudo()
-                }
-            }
-            true
-        }*/
-
-        // Listener para clics en los marcadores
-        //Este trozo es para cuando se haga la presentacion
         mMap.setOnMarkerClickListener { marker ->
             // Obtener el numero de actividad
-            if(numeroActividad == "0"){
-                when(marker.tag) {
-                    "mikeldi" -> mostrarInfoMikeldi()
+            when (numeroActividad) {
+                "0" -> {
+                    when(marker.tag) {
+                        "mikeldi" -> mostrarInfoMikeldi()
+                    }
                 }
-            } else if(numeroActividad == "1"){
-                when(marker.tag) {
-                    "mikeldi" -> mostrarInfoMikeldi()
-                    "feria" -> mostrarInfoFeria()
+                "1" -> {
+                    when(marker.tag) {
+                        "feria" -> mostrarInfoFeria()
+                    }
                 }
-            } else if(numeroActividad == "2"){
-                when(marker.tag) {
-                    "mikeldi" -> mostrarInfoMikeldi()
-                    "feria" -> mostrarInfoFeria()
-                    "sirena" -> mostrarInfoSirena()
+                "2" -> {
+                    when(marker.tag) {
+                        "sirena" -> mostrarInfoSirena()
+                    }
                 }
-            } else if(numeroActividad == "3"){
-                when(marker.tag) {
-                    "mikeldi" -> mostrarInfoMikeldi()
-                    "feria" -> mostrarInfoFeria()
-                    "sirena" -> mostrarInfoSirena()
-                    "basilica" -> mostrarInfoBasilica()
+                "3" -> {
+                    when(marker.tag) {
+                        "basilica" -> mostrarInfoBasilica()
+                    }
                 }
-            } else if(numeroActividad == "4"){
-                when(marker.tag) {
-                    "mikeldi" -> mostrarInfoMikeldi()
-                    "feria" -> mostrarInfoFeria()
-                    "sirena" -> mostrarInfoSirena()
-                    "basilica" -> mostrarInfoBasilica()
-                    "personajeArtopila" -> mostrarInfoArtopila()
+                "4" -> {
+                    when(marker.tag) {
+                        "personajeArtopila" -> mostrarInfoArtopila()
+                    }
                 }
-            } else if(numeroActividad == "5"){
-                when(marker.tag) {
-                    "mikeldi" -> mostrarInfoMikeldi()
-                    "feria" -> mostrarInfoFeria()
-                    "sirena" -> mostrarInfoSirena()
-                    "basilica" -> mostrarInfoBasilica()
-                    "personajeArtopila" -> mostrarInfoArtopila()
-                    "escudo" -> mostrarInfoEscudo()
+                "4.1" -> {
+                    when(marker.tag) {
+                        "personajeArtopila" -> abrirActividad(PatxikotxuActivity::class.java)
+                    }
+                }
+                "5" -> {
+                    when(marker.tag) {
+                        "escudo" -> mostrarInfoEscudo()
+                    }
                 }
             }
             true
         }
+
         // Mover la cámara al centro del mapa
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marcadorBasilica!!.position, 16f))
     }

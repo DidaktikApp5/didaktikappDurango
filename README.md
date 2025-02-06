@@ -1,49 +1,43 @@
-CASTELLANO:
-Al abrir la APP les aparecerá un mapa de Durango, donde aparecerán 7 paradas.
-Las paradas son marcas o simbolos.
-Los alumnos podrán clicar sobre cada una de las paradas.
-Cuando se clique la parada abrirá una ventana con una explicacion o un juego.
-Cada juego ganado obtendra una pieza para el puzzle final.
-Cuando se terminen todos los juegos aparecera una palabra en pantalla "Felicidades".
-Los juegos que aparecen:
-- Buscando a Wally (Mikeldi)
-- Asociar fotos (Mercado de Durango)
-- Elegir el audio correspondiente (Bonbardeo)
-- Verdadero o Falso (Uribarri Andra Maria Basilika)
-- Asociar fotos con palabras (Patxikotxu y Pantxike)
-- Sopa de letras (ARMARRI)
-- Puzzle (Con una imagen normal, juego final)
+# Durango Bizi - Juego Educativo 🎮📚
 
-EUSKERA:
-App irekitzean Durangoko mapa bat agertuko zaie, eta bertan 7 geltoki agertuko dira.
-Geldialdiak markak edo sinboloak dira.
-Ikasleek geldialdi bakoitzaren gainean klikatu ahal izango dute.
-Geldialdia klikatzean, azalpen edo joko bat duen leihoa irekiko da.
-Irabazitako joko bakoitzak azken puzzlerako pieza bat lortuko du.
-Joko guztiak amaitzen direnean, hitz bat agertuko da pantailan "Zorionak".
-Agertzen diren jokoak:
-- Wally bilatzen (Mikeldi)
-- Lotu argazkiak (Durango Azoka)
-- Aukeratu dagokion audioa (Bonbardaketa)
-- Egia ala Gezurra (Uribarriko Andra Maria Basilika)
-- Argazkiak hitzekin lotu (Patxikotxu eta Pantxike)
-- Letra-zopa (ARMARRI)
-- Puzzlea (Irudi normal batekin, azken jolasa)
+Bienvenidos a **Durango Bizi**, una aplicación móvil interactiva diseñada para aprender sobre la historia y cultura de Durango de una manera divertida y educativa. A través de una serie de juegos, los usuarios podrán descubrir información sobre lugares históricos, sonidos significativos, y personajes importantes de la ciudad, para luego completar un puzzle final al ganar cada juego.
 
-INGLES:
-When you open the APP, a map of Durango will appear, where 7 stops will appear.
-The stops are marks or symbols.
-Students will be able to click on each of the stops.
-When the stop is clicked, a windows will open with an explanation or a game.
-Each game won will get a piece for the final puzzle.
-When all the games are finished, a word "Congratulations" will appear on the screen.
-The games that appear:
-- Finding Wally (Mikeldi)
-- Associate photos (DUrango market)
-- Choose the corresponding audio (Bonbardeo)
-- True or False (Uribarri Andra Maria Basilika)
-- Associate photos with words (Patxikotxu and Pantxike)
-- Word search (ARMARRI)
-- Puzzle (With a normal image, final game)
-- Hola
+## Características 🌟
 
+- **Menú de Bienvenida**: Al iniciar la aplicación, los usuarios deben ingresar un nombre de usuario para identificarse en la aplicación. 📝
+
+- **Menú Principal**:
+  - **Cambio de Idioma**: Los usuarios pueden cambiar entre el idioma español y euskera. 🌍🇪🇸🇪🇺
+  - **Ranking**: Visualiza el ranking global con las puntuaciones de los jugadores. 🏆
+  - **Jugar**: Accede a la sección de juegos. 🎮
+
+- **Juegos Interactivos**:
+  - **Buscando a Mikeldi**: Un juego similar a "Buscar a Wally", donde los usuarios deben encontrar al cerdo Mikeldi en la imagen. 🐷🔍
+  - **Mercado de Durango**: Los jugadores deben seleccionar las imágenes que corresponden al mercado de Durango. 🏪🛒
+  - **Elegir el audio correspondiente del bombardeo**: El jugador debe elegir el sonido correcto de la sirena relacionada con el bombardeo. 🎶⚡
+  - **Preguntas de verdadero o falso sobre la Basílica de Santa María de Uribarri**: Responde a las preguntas de verdadero o falso relacionadas con la Basílica. ⛪️❓
+  - **Elegir los nombres correctos**: El jugador debe elegir los nombres correctos, Patxikotxu y Pantxike. 🧑‍🤝‍🧑✍️
+  - **Sopa de letras**: Encuentra las palabras relacionadas con Durango en una sopa de letras. 🔠🧩
+  - **Puzzle**: Al completar los juegos, el jugador obtiene piezas para un puzzle final que representa una imagen de Durango. 🧩🎨
+
+- **Mapa Interactivo**: El juego se desarrolla en un mapa de Durango con 6 paradas relacionadas con los juegos. Cada parada tiene un símbolo significativo con los juegos y al completarlo ganas una pieza del puzzle. 🗺️📍
+
+## Objetivo 🎯
+
+El objetivo de la aplicación es proporcionar una forma educativa y entretenida para aprender sobre la ciudad de Durango. 🏙️✨
+
+## 📱 Capturas de pantalla
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <img src="https://github.com/DidaktikApp5/didaktikappDurango/blob/Julio/app/src/main/res/drawable/login_image.png" alt="Login" style="width: 30%;"/>
+  <img src="https://github.com/DidaktikApp5/didaktikappDurango/blob/Julio/app/src/main/res/drawable/menu_image.png" alt="Menu" style="width: 30%;"/>
+  <img src="https://github.com/DidaktikApp5/didaktikappDurango/blob/Julio/app/src/main/res/drawable/map_image.png" alt="Mapa" style="width: 30%;"/>
+</div>
+
+## Desarrolladores 👩‍💻👨‍💻
+Este proyecto fue desarrollado por el siguiente equipo:
+
+- Julio González
+- Mikel Ramos
+- Lierni Sarraoa
+- Luis Ortiz de Villalba
