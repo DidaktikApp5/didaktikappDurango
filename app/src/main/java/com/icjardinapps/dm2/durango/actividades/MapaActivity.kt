@@ -42,6 +42,9 @@ import com.icjardinapps.dm2.durango.databinding.ActivityMapaBinding
  * @author Mikel Ramos
  */
 class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
+    /**
+     * Constantes de la clase
+     */
     companion object {
         /**
          * Constante que representa el número de la actividad que se está ejecutando.
@@ -49,6 +52,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         const val NUMEROACTIVIDAD = "0"
     }
 
+    /**
+     * Atributos de la clase
+     */
     private lateinit var dialog: Dialog
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapaBinding
@@ -274,7 +280,6 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
                     .geodesic(true) // Seguir la curvatura de la tierra
             }
         }
-
         // Añadir la polyline al mapa
         val numero = numeroActividad.toIntOrNull()
         if(numero != null && numero == 0){
@@ -335,7 +340,6 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         // Mover la cámara al centro del mapa
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marcadorBasilica!!.position, 16f))
     }
-
 
     /**
      * Metodo que convierte un Drawable vectorial en un Bitmap.
@@ -457,7 +461,6 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     /**
      * Función que muestra una ventana de diálogo con la información de la Basilica.
      *
-     * @author Julio González
      */
     private fun mostrarInfoBasilica() {
         dialog.setContentView(R.layout.info_basilica)

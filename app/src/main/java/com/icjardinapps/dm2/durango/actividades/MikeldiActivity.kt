@@ -15,6 +15,9 @@ import com.icjardinapps.dm2.durango.R
  */
 class MikeldiActivity : AppCompatActivity() {
 
+    /**
+     * Atributos de la clase
+     */
     private lateinit var ivMikeldi: ImageView
     private lateinit var btnVolverMapa: Button
 

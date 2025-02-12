@@ -15,6 +15,7 @@ googleAndroidLibrariesMapsplatformSecretsGradlePlugin = "2.0.1"
 mysqlConnectorJava = "5.1.49"
 playServicesMaps = "19.0.0"
 gridlayout = "1.0.0"
+dokka = "2.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }

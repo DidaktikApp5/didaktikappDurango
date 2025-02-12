@@ -20,6 +20,9 @@ import com.icjardinapps.dm2.durango.R
  */
 class SirenaActivity : AppCompatActivity() {
 
+    /**
+     * Atributos de la clase
+     */
     private lateinit var mediaPlayer: MediaPlayer
     private val correctOption = R.id.rdOpcion2
 

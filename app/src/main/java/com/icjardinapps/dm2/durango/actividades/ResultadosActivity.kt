@@ -18,10 +18,16 @@ import com.icjardinapps.dm2.durango.R
  */
 class ResultadosActivity : AppCompatActivity() {
 
+    /**
+     * Constantes de la clase
+     */
     companion object {
         const val NOMBREACTIVIDAD = "nombreJuego"
     }
 
+    /**
+     * Atributos para la clase
+     */
     private lateinit var dialog: Dialog
 
     /**

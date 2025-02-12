@@ -17,7 +17,9 @@ import com.icjardinapps.dm2.durango.R
  *
  */
 class PuzleActivity : AppCompatActivity() {
-    // Referencias a las imágenes
+    /**
+     * Referencia a las imagenes
+     */
     private lateinit var pieza1: ImageView
     private lateinit var pieza2: ImageView
     private lateinit var pieza3: ImageView
@@ -83,7 +85,6 @@ class PuzleActivity : AppCompatActivity() {
     /**
      * Hace que una imagen sea arrastrable.
      *
-     * @author Julio Gonzalez
      * @param view la vista de la imagen que será arrastrable.
      */
     private fun setDraggable(view: ImageView) {
@@ -98,7 +99,6 @@ class PuzleActivity : AppCompatActivity() {
     /**
      * Configura un área de destino para aceptar elementos arrastrados.
      *
-     * @author Julio Gonzalez
      * @param target la imagen que aceptará el elemento arrastrado.
      * @param matchingView la vista de la imagen que debe ser arrastrada y coincidir.
      */
@@ -125,8 +125,6 @@ class PuzleActivity : AppCompatActivity() {
     /**
      * Verifica si todos los pares han sido emparejados correctamente.
      * Si no quedan pares, finaliza la actividad.
-     *
-     * @author Julio Gonzalez
      */
     private fun checkCompletion() {
         if (remainingPairs == 0) {

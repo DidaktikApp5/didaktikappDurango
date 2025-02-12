@@ -7,7 +7,7 @@ import com.icjardinapps.dm2.durango.R
  * Clase para guardar la información de las preguntas y su respuesta correcta
  * en la actividad de verdadero o falso de la basílica.
  *
- * @author Julio González
+ * @author DidaktikAppDurango
  */
 object Preguntas {
     /**

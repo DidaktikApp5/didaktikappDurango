@@ -9,16 +9,18 @@ import java.sql.SQLException
 import java.util.Properties
 
 /**
- * Clase que gestiona la conexión a la base de datos y las operaciones CRUD relacionadas con la aplicación.
+ * Clase para la conexion de la base de datos
  *
- * @param context Contexto de la aplicación, utilizado para acceder a los recursos del sistema como archivos.
- * @author Mikel Ramos
+ * @version 1.0
+ * @author DidaktikAppDurango
  */
 class ConexionDb(context: Context) {
-    private val dbUrl: String
-    private val dbUser: String
-    private val dbPassword: String
-
+    /**
+     * Atributos de la clase
+     */
+    private val dbUrl:String
+    private val dbUser:String
+    private val dbPassword:String
     init {
         // Crear instancia de Properties
         val properties = Properties()

@@ -17,7 +17,10 @@ import com.icjardinapps.dm2.durango.R
 /**
  * Clase que representa la actividad de Patxikotxu.
  * Esta clase hereda de AppCompatActivity y se encarga de mostrar la interfaz de usuario
- * La interfaz de usuario es un juego de adivinar los nombres de los personajes
+ * La interfaz de usuario es un juego de adivinar los nombres de los personajes.
+ *
+ * @version 1.0
+ * @author DidaktikAppDurango
  */
 class PatxikotxuActivity : AppCompatActivity() {
     /**
@@ -161,6 +164,9 @@ class PatxikotxuActivity : AppCompatActivity() {
         sonidoCorrecto.release()
     }
 
+    /**
+     * Mostrar la informacion de Patxikotxu
+     */
     private fun mostrarInfoPatxikotxu() {
         dialog.setContentView(R.layout.info_patxikotxu)
 
@@ -191,7 +197,11 @@ class PatxikotxuActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    // Función para abrir actividades
+    /**
+     * Para abrir actividades
+     *
+     * @param clase
+     */
     private fun <T> abrirActividad(clase: Class<T>) {
         val intent = Intent(this, clase)
         startActivity(intent)

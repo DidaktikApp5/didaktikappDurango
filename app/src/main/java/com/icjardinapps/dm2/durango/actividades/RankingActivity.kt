@@ -26,9 +26,17 @@ import com.icjardinapps.dm2.durango.db.ConexionDb
  * @author Mikel Ramos
  */
 class RankingActivity : AppCompatActivity() {
+    /**
+     * Atributos de la clase
+     */
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: RankingAdapter
 
+    /**
+     * onCreate, inicializa la actividad y configura los listeners de los botones.
+     *
+     * @param savedInstanceState Estado previamente guardado de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         val bd = ConexionDb(this)
         super.onCreate(savedInstanceState)
@@ -61,7 +69,9 @@ class RankingActivity : AppCompatActivity() {
 
     }
 
-    // Función para abrir actividades
+    /**
+     * Para abrir actividades
+     */
     private fun <T> abrirActividad(clase: Class<T>) {
         val intent = Intent(this, clase)
         startActivity(intent)
