@@ -7,6 +7,18 @@ plugins {
 }
 
 tasks.dokkaHtml.configure {
-    outputDirectory.set(file("$rootDir/JavaDoc"))
+    outputDirectory.set(file("$rootDir/docs/KDoc"))
+    dokkaSourceSets {
+        configureEach {
+            includeNonPublic.set(true)
+            reportUndocumented.set(true)
+            sourceRoots.setFrom(
+                files(
+                    "src/main/java/com/icjardinapps/dm2/durango",
+                    "src/main/java/com/icjardinapps/dm2/durango/actividades",
+                    "src/main/java/com/icjardinapps/dm2/durango/db"
+                )
+            )
+        }
+    }
 }
-
