@@ -14,7 +14,7 @@ import com.icjardinapps.dm2.durango.R
 /**
  * Clase para mostrar la ventana de resultados de la actividad Basílica.
  *
- * @author Julio González
+ * @author DidaktikAppDurango
  */
 class ResultadosBasilicaActivity : AppCompatActivity() {
     /**

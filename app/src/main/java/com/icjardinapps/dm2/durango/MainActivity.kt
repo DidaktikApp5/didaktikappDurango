@@ -18,7 +18,7 @@ import java.util.Locale
 /**
  * Actividad principal que muestra el menú de inicio de la aplicación
  *
- * @author Julio González
+ * @author DidaktikAppDurango
  */
 class MainActivity : AppCompatActivity() {
     /**
@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
      * Maneja la verificación de si es la primera vez que se inicia la aplicación
      * y el cambio de idioma.
      *
-     * @author Julio González
      * @param savedInstanceState Estado de la actividad
      */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -105,8 +104,6 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Función que muestra una ventana de diálogo con los desarrolladores de la app
-     *
-     * @author Julio González
      */
     private fun acercaDe() {
         dialog.setContentView(R.layout.acerca_de)
@@ -127,6 +124,4 @@ class MainActivity : AppCompatActivity() {
 
         dialog.show()
     }
-
-
 }

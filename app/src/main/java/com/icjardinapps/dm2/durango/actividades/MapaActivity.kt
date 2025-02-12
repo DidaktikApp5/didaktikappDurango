@@ -33,11 +33,23 @@ import com.icjardinapps.dm2.durango.R
 import com.icjardinapps.dm2.durango.actividades.ResultadosActivity.Companion.NOMBREACTIVIDAD
 import com.icjardinapps.dm2.durango.databinding.ActivityMapaBinding
 
+/**
+ * Actividad del mapa
+ *
+ * @version 1.0
+ * @author DidaktikAppDurango
+ */
 class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
+    /**
+     * Constantes de la clase
+     */
     companion object {
         const val NUMEROACTIVIDAD = "0"
     }
 
+    /**
+     * Atributos de la clase
+     */
     private lateinit var dialog: Dialog
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapaBinding
@@ -45,7 +57,11 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var polylineOptionsRed: PolylineOptions
     private lateinit var polylineOptionsGreen: PolylineOptions
 
-
+    /**
+     * onCreate, inicializa la actividad y configura los listeners de los botones.
+     *
+     * @param savedInstanceState Estado previamente guardado de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -78,6 +94,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
+    /**
+     * Para poner en marcha el mapa
+     */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
@@ -243,19 +262,6 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
                 .pattern(pattern) // Patron
                 .geodesic(true) // Seguir la curvatura de la tierra
         }
-        // Camino entre los marcadores
-        /*val polylineOptions = PolylineOptions()
-            .add(LatLng(43.172993, -2.633388))  // Mikeldi
-            .add(LatLng(43.171167, -2.630722))  // Feria
-            /*.add(LatLng(43.168194, -2.628278))  // Sirena
-            .add(LatLng(43.168389, -2.631222))  // Basilica
-            .add(LatLng(43.166778, -2.631833))  // Personaje Artopila
-            .add(LatLng(43.165611, -2.632333))  // Escudo*/
-            .width(15f)  // Grosor de la línea
-            .color(android.graphics.Color.RED)  // Color de la línea
-            .pattern(pattern) // Patron
-            .geodesic(true) // Seguir la curvatura de la tierra*/
-
         // Añadir la polyline al mapa
         val numero = numeroActividad.toIntOrNull()
         if(numero != null && numero == 0){
@@ -356,7 +362,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marcadorBasilica!!.position, 16f))
     }
 
-    // Función para convertir un Drawable (Vector) en un Bitmap
+    /**
+     * Funcion para convertir un Drawable (Vector) en un Bitmap
+     */
     private fun getBitmapFromVectorDrawable(drawable: Drawable?): Bitmap {
         val width = drawable?.intrinsicWidth ?: 0
         val height = drawable?.intrinsicHeight ?: 0
@@ -374,12 +382,17 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         return bitmap
     }
 
-    // Función para abrir actividades
+    /**
+     * Funcion para abrir actividades
+     */
     private fun <T> abrirActividad(clase: Class<T>) {
         val intent = Intent(this, clase)
         startActivity(intent)
     }
 
+    /**
+     * Mostrar informacion del juego Mikeldi
+     */
     private fun mostrarInfoMikeldi() {
         dialog.setContentView(R.layout.info_mikeldi)
 
@@ -430,6 +443,12 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         dialog.show()
     }
 
+    /**
+     * Para actualizar el seekBar
+     *
+     * @param seekBar
+     * @param mediaPlayer
+     */
     private fun updateSeekBar(seekBar: SeekBar, mediaPlayer: MediaPlayer) {
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed(object : Runnable {
@@ -440,6 +459,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         }, 1000)
     }
 
+    /**
+     * Mostrar informacion del juego Sirena
+     */
     private fun mostrarInfoSirena() {
         dialog.setContentView(R.layout.info_sirena)
 
@@ -458,7 +480,6 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     /**
      * Función que muestra una ventana de diálogo con la información de la Basilica.
      *
-     * @author Julio González
      */
     private fun mostrarInfoBasilica() {
         dialog.setContentView(R.layout.info_basilica)
@@ -475,6 +496,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         dialog.show()
     }
 
+    /**
+     * Mostrar informacion del juego Feria
+     */
     private fun mostrarInfoFeria() {
         dialog.setContentView(R.layout.info_feria)
 
@@ -506,6 +530,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         dialog.show()
     }
 
+    /**
+     * Mostrar informacion del juego Artopil
+     */
     private fun mostrarInfoArtopila() {
         dialog.setContentView(R.layout.info_artopila)
 
@@ -537,6 +564,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         dialog.show()
     }
 
+    /**
+     * Mostrar informacion del juego Patxikotxu
+     */
     private fun mostrarInfoPatxikotxu() {
         dialog.setContentView(R.layout.info_patxikotxu)
 
@@ -568,6 +598,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         dialog.show()
     }
 
+    /**
+     * Mostrar informacion del juego Escudo
+     */
     private fun mostrarInfoEscudo() {
         dialog.setContentView(R.layout.info_escudo)
 

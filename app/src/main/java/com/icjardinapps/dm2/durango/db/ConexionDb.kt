@@ -8,12 +8,23 @@ import java.sql.ResultSet
 import java.sql.SQLException
 import java.util.Properties
 
+/**
+ * Clase para la conexion de la base de datos
+ *
+ * @version 1.0
+ * @author DidaktikAppDurango
+ */
 class ConexionDb(context: Context) {
+    /**
+     * Atributos de la clase
+     */
     private val dbUrl:String
     private val dbUser:String
     private val dbPassword:String
 
-
+    /**
+     * Para las propiedades de la base de datos
+     */
     init {
         // Crear instancia de Properties
         val properties = Properties()
@@ -34,6 +45,11 @@ class ConexionDb(context: Context) {
         dbPassword = properties.getProperty("db_password") ?: throw IllegalArgumentException("db_password no definido")
     }
 
+    /**
+     * Obtiene la conexion de la BD.
+     *
+     * @return Devuelve la conexion
+     */
     fun obtenerConexion(): Connection? {
         return try {
             DriverManager.getConnection(dbUrl, dbUser, dbPassword)
@@ -43,6 +59,12 @@ class ConexionDb(context: Context) {
         }
     }
 
+    /**
+     * Guarda la información en la BD
+     *
+     * @param usuario
+     * @return Devuelve true si ha ido bien y false si algo ha ido mal
+     */
     fun guardarAlumnoBBDD(usuario: String): Boolean {
         val conexion = obtenerConexion()
         if (conexion != null) {
@@ -67,6 +89,11 @@ class ConexionDb(context: Context) {
         return false
     }
 
+    /**
+     * Devuelve todas las puntuaciones de la BD.
+     *
+     * @return Devuelve una lista de puntuaciones.
+     */
     fun todasPuntuaciones(): MutableList<String> {
         val lista: MutableList<String> = mutableListOf()
         val conexion = obtenerConexion()
@@ -92,6 +119,13 @@ class ConexionDb(context: Context) {
     }
 
 
+    /**
+     * Guarda la puntutacion final del usuario
+     *
+     * @param usuario
+     * @param puntuacion
+     * @return Devuelve true si ha ido bien y si no devuelve false
+     */
     fun guardarPuntuacionFinal(usuario:String,puntuacion:Int):Boolean{
         val conexion = obtenerConexion()
         if (conexion != null) {

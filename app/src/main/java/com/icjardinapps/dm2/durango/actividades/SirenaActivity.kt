@@ -12,11 +12,25 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.icjardinapps.dm2.durango.R
 
+/**
+ * Actividad para le juego de la sirena
+ *
+ * @version 1.0
+ * @author DidaktikAppDurango
+ */
 class SirenaActivity : AppCompatActivity() {
 
+    /**
+     * Atributos de la clase
+     */
     private lateinit var mediaPlayer: MediaPlayer
     private val correctOption = R.id.rdOpcion2
 
+    /**
+     * onCreate, inicializa la actividad y configura los listeners de los botones.
+     *
+     * @param savedInstanceState Estado previamente guardado de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -67,7 +81,9 @@ class SirenaActivity : AppCompatActivity() {
         }
     }
 
-    // Función para reproducir el audio
+    /**
+     * Funcion para reproducir el audio
+     */
     private fun reproducirAudio(resourceId: Int) {
         // Verifica si ya existe un MediaPlayer inicializado, si es así, libéralo
         if (::mediaPlayer.isInitialized) {
@@ -79,7 +95,9 @@ class SirenaActivity : AppCompatActivity() {
         mediaPlayer.start()
     }
 
-    // Asegurarse de liberar los recursos al destruir la actividad
+    /**
+     * Asegurarse de liberar los recursos al destruir la actividad
+     */
     override fun onDestroy() {
         super.onDestroy()
         if (::mediaPlayer.isInitialized) {

@@ -12,14 +12,31 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.R
 
+/**
+ * Ventana para mostrar los resultados del juego
+ *
+ * @author DidaktikAppDurango
+ * @version 1.0
+ */
 class ResultadosActivity : AppCompatActivity() {
 
+    /**
+     * Constantes de la clase
+     */
     companion object {
         const val NOMBREACTIVIDAD = "nombreJuego"
     }
 
+    /**
+     * Atributos para la clase
+     */
     private lateinit var dialog: Dialog
 
+    /**
+     * onCreate, inicializa la actividad y configura los listeners de los botones.
+     *
+     * @param savedInstanceState Estado previamente guardado de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultados)
@@ -48,6 +65,9 @@ class ResultadosActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Segun la constante nombreJuego se mostrará un texto u otro
+     */
     private fun cambiarTexto(nombreJuego: String?, txtAcierto: TextView) {
         when (nombreJuego) {
             "Sirena" -> {
@@ -73,8 +93,6 @@ class ResultadosActivity : AppCompatActivity() {
 
     /**
      * Función que muestra una ventana de diálogo con un mensaje de obtención de pieza.
-     *
-     * @author Julio González
      */
     private fun obtenerPieza(nombreJuego: String?) {
         // Reproduce el sonido de felicitación
@@ -115,6 +133,9 @@ class ResultadosActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    /**
+     * Para obtener la pieza despues del juego Patxikotxu
+     */
     private fun obtenerPiezaPatxi() {
         // Reproduce el sonido de felicitación
         val mediaPlayer = MediaPlayer.create(this, R.raw.felicitacion)

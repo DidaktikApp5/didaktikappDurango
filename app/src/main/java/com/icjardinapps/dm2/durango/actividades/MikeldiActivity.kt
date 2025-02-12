@@ -10,11 +10,25 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.icjardinapps.dm2.durango.R
 
+/**
+ * Juego de Mikeldi, es una especie de buscando a Wally
+ *
+ * @version 1.0
+ * @author DidaktikAppDurango
+ */
 class MikeldiActivity : AppCompatActivity() {
 
+    /**
+     * Atributos de la clase
+     */
     private lateinit var ivMikeldi: ImageView
     private lateinit var btnVolverMapa: Button
 
+    /**
+     * onCreate, inicializa la actividad y configura los listeners de los botones.
+     *
+     * @param savedInstanceState Estado previamente guardado de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mikeldi)
