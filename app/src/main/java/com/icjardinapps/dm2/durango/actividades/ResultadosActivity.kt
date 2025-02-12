@@ -5,13 +5,17 @@ import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.R
 
+/**
+ * Actividad que muestra los resultados de una actividad, así como el mensaje de felicitación
+ * y proporciona opciones para avanzar a la siguiente actividad o volver al mapa.
+ *
+ */
 class ResultadosActivity : AppCompatActivity() {
 
     companion object {
@@ -20,6 +24,12 @@ class ResultadosActivity : AppCompatActivity() {
 
     private lateinit var dialog: Dialog
 
+    /**
+     * Se ejecuta cuando se crea la actividad. Inicializa la vista, la animación y los botones.
+     * Obtiene el nombre de la actividad desde el intent y actualiza el texto correspondiente.
+     *
+     * @param savedInstanceState El estado guardado de la actividad, si existe.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultados)
@@ -44,10 +54,15 @@ class ResultadosActivity : AppCompatActivity() {
             } else {
                 obtenerPieza(nombreJuego)
             }
-
         }
     }
 
+    /**
+     * Cambia el texto del TextView según el nombre de la actividad que se ha completado.
+     *
+     * @param nombreJuego Nombre del juego o actividad completada.
+     * @param txtAcierto El TextView que mostrará el texto correspondiente.
+     */
     private fun cambiarTexto(nombreJuego: String?, txtAcierto: TextView) {
         when (nombreJuego) {
             "Sirena" -> {
@@ -72,8 +87,10 @@ class ResultadosActivity : AppCompatActivity() {
     }
 
     /**
-     * Función que muestra una ventana de diálogo con un mensaje de obtención de pieza.
+     * Muestra una ventana de diálogo con un mensaje de felicitación y permite al usuario
+     * avanzar a la siguiente actividad o volver al mapa según la actividad completada.
      *
+     * @param nombreJuego El nombre del juego o actividad completada.
      * @author Julio González
      */
     private fun obtenerPieza(nombreJuego: String?) {
@@ -88,26 +105,32 @@ class ResultadosActivity : AppCompatActivity() {
         val btnCerrar: Button = dialog.findViewById(R.id.btnGanarCerrar)
 
         btnCerrar.setOnClickListener {
-            if(nombreJuego == "Mikeldi"){
-                val intent = Intent(this, MapaActivity::class.java)
-                intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "1")
-                startActivity(intent)
-            } else if(nombreJuego == "Feria"){
-                val intent = Intent(this, MapaActivity::class.java)
-                intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "2")
-                startActivity(intent)
-            } else if(nombreJuego == "Sirena"){
-                val intent = Intent(this, MapaActivity::class.java)
-                intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "3")
-                startActivity(intent)
-            } else if(nombreJuego == "Patxikotxu"){
-                val intent = Intent(this, MapaActivity::class.java)
-                intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "5")
-                startActivity(intent)
-            } else if(nombreJuego == "Escudo"){
-                val intent = Intent(this, MapaActivity::class.java)
-                intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "6")
-                startActivity(intent)
+            when (nombreJuego) {
+                "Mikeldi" -> {
+                    val intent = Intent(this, MapaActivity::class.java)
+                    intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "1")
+                    startActivity(intent)
+                }
+                "Feria" -> {
+                    val intent = Intent(this, MapaActivity::class.java)
+                    intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "2")
+                    startActivity(intent)
+                }
+                "Sirena" -> {
+                    val intent = Intent(this, MapaActivity::class.java)
+                    intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "3")
+                    startActivity(intent)
+                }
+                "Patxikotxu" -> {
+                    val intent = Intent(this, MapaActivity::class.java)
+                    intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "5")
+                    startActivity(intent)
+                }
+                "Escudo" -> {
+                    val intent = Intent(this, MapaActivity::class.java)
+                    intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "6")
+                    startActivity(intent)
+                }
             }
             dialog.dismiss()
         }
@@ -115,6 +138,10 @@ class ResultadosActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    /**
+     * Muestra una ventana de felicitación para la actividad "Patxikotxu" y redirige
+     * al usuario a la siguiente actividad.
+     */
     private fun obtenerPiezaPatxi() {
         // Reproduce el sonido de felicitación
         val mediaPlayer = MediaPlayer.create(this, R.raw.felicitacion)

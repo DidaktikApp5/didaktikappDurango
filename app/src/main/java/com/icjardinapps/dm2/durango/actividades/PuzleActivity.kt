@@ -9,6 +9,13 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.icjardinapps.dm2.durango.R
 
+/**
+ * Actividad que permite a los usuarios completar un rompecabezas arrastrando y soltando piezas en sus posiciones correctas.
+ *
+ * La actividad cuenta con siete piezas de un puzle que deben ser colocadas correctamente en su destino correspondiente.
+ * Una vez que todas las piezas han sido posicionadas, el juego finaliza y se redirige a la actividad de despedida.
+ *
+ */
 class PuzleActivity : AppCompatActivity() {
     // Referencias a las imágenes
     private lateinit var pieza1: ImageView
@@ -27,6 +34,14 @@ class PuzleActivity : AppCompatActivity() {
     private lateinit var pieza7Final: ImageView
     private var remainingPairs = 7
 
+    /**
+     * Metodo llamado al crear la actividad.
+     *
+     * Se inicializan las referencias a las vistas de las piezas del puzle y sus posiciones finales.
+     * Se configuran los elementos para permitir arrastrar y soltar.
+     *
+     * @param savedInstanceState Estado de la actividad en caso de recreación.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_puzle)

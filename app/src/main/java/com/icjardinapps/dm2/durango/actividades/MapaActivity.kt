@@ -31,8 +31,21 @@ import com.icjardinapps.dm2.durango.MainActivity
 import com.icjardinapps.dm2.durango.R
 import com.icjardinapps.dm2.durango.databinding.ActivityMapaBinding
 
+/**
+ * MapaActivity es una actividad que maneja la visualización y la interacción con un mapa de Google Maps
+ * en el que se muestran diferentes marcadores y rutas entre ellos. Los marcadores representan ubicaciones
+ * específicas, y las rutas se dibujan como líneas de diferentes colores dependiendo del número de actividad.
+ *
+ * Esta actividad también permite al usuario interactuar con los marcadores para obtener más información
+ * relacionada con la actividad o para navegar a otras actividades.
+ *
+ * @author Mikel Ramos
+ */
 class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     companion object {
+        /**
+         * Constante que representa el número de la actividad que se está ejecutando.
+         */
         const val NUMEROACTIVIDAD = "0"
     }
 
@@ -44,6 +57,12 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var polylineOptionsGreen: PolylineOptions
 
 
+    /**
+     * Metodo que se ejecuta cuando la actividad es creada. Aquí se inicializan los elementos del layout,
+     * se obtiene el número de actividad y se configura el mapa.
+     *
+     * @param savedInstanceState el estado guardado de la actividad, si está disponible.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -76,6 +95,12 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
+    /**
+     * Este metodo es llamado cuando el mapa está listo para ser utilizado. Aquí se agregan los marcadores,
+     * las rutas y se configuran los clics en los marcadores.
+     *
+     * @param googleMap el objeto de mapa de Google Maps.
+     */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
@@ -311,7 +336,13 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marcadorBasilica!!.position, 16f))
     }
 
-    // Función para convertir un Drawable (Vector) en un Bitmap
+
+    /**
+     * Metodo que convierte un Drawable vectorial en un Bitmap.
+     *
+     * @param vectorDrawable el Drawable vectorial a convertir.
+     * @return un Bitmap convertido del Drawable.
+     */
     private fun getBitmapFromVectorDrawable(drawable: Drawable?): Bitmap {
         val width = drawable?.intrinsicWidth ?: 0
         val height = drawable?.intrinsicHeight ?: 0
@@ -329,12 +360,19 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         return bitmap
     }
 
-    // Función para abrir actividades
+    /**
+     * Abre una nueva actividad.
+     *
+     * @param activityClass la clase de la actividad a abrir.
+     */
     private fun <T> abrirActividad(clase: Class<T>) {
         val intent = Intent(this, clase)
         startActivity(intent)
     }
 
+    /**
+     * Muestra la información de Mikeldi.
+     */
     private fun mostrarInfoMikeldi() {
         dialog.setContentView(R.layout.info_mikeldi)
 
@@ -385,6 +423,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         dialog.show()
     }
 
+    /**
+     * Actualizar el SeekBar
+     */
     private fun updateSeekBar(seekBar: SeekBar, mediaPlayer: MediaPlayer) {
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed(object : Runnable {
@@ -395,6 +436,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         }, 1000)
     }
 
+    /**
+     * Muestra la información de la Sirena.
+     */
     private fun mostrarInfoSirena() {
         dialog.setContentView(R.layout.info_sirena)
 
@@ -430,6 +474,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         dialog.show()
     }
 
+    /**
+     * Muestra la información de la Feria.
+     */
     private fun mostrarInfoFeria() {
         dialog.setContentView(R.layout.info_feria)
 
@@ -461,6 +508,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         dialog.show()
     }
 
+    /**
+     * Muestra la información de la Artopila.
+     */
     private fun mostrarInfoArtopila() {
         dialog.setContentView(R.layout.info_artopila)
 
@@ -492,6 +542,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         dialog.show()
     }
 
+    /**
+     * Muestra la información de la Patxikotxu.
+     */
     private fun mostrarInfoPatxikotxu() {
         dialog.setContentView(R.layout.info_patxikotxu)
 
@@ -523,6 +576,9 @@ class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
         dialog.show()
     }
 
+    /**
+     * Muestra la información de la Escudo.
+     */
     private fun mostrarInfoEscudo() {
         dialog.setContentView(R.layout.info_escudo)
 

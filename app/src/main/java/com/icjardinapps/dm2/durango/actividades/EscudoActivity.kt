@@ -15,7 +15,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.icjardinapps.dm2.durango.R
 
+/**
+ * Clase que representa la actividad del juego "Escudo".
+ * En esta actividad, el usuario debe encontrar palabras en una sopa de letras.
+ */
 class EscudoActivity : AppCompatActivity() {
+
+    /** TextViews que contienen las palabras a buscar */
     private lateinit var tvTabira: TextView
     private lateinit var tvIbaizabal: TextView
     private lateinit var tvManaria: TextView
@@ -46,6 +52,11 @@ class EscudoActivity : AppCompatActivity() {
         "Lupus"
     )
 
+    /**
+     * Metodo que se ejecuta al crear la actividad.
+     * Inicializa los componentes de la interfaz y configura los eventos de los TextViews.
+     * @param savedInstanceState Estado de la actividad si se ha guardado previamente.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_escudo)
@@ -114,6 +125,10 @@ class EscudoActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Verifica si el usuario ha encontrado todas las palabras.
+     * Si es así, se redirige a la actividad de resultados.
+     */
     private fun verificarJuegoCompletado() {
         if(palabrasCorrectasUsuario.size == 7){
             val intent = Intent(this, ResultadosActivity::class.java)
@@ -122,6 +137,9 @@ class EscudoActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Llena los TextViews con las palabras que el usuario debe buscar.
+     */
     private fun rellenarPalabrasABuscar() {
         tvTabira.text = arrayPalabras[0]
         tvIbaizabal.text = arrayPalabras[1]
@@ -132,6 +150,12 @@ class EscudoActivity : AppCompatActivity() {
         tvLupus.text = arrayPalabras[6]
     }
 
+    /**
+     * Determina la dirección de movimiento entre dos TextViews.
+     * @param startView Primera vista seleccionada.
+     * @param endView Última vista seleccionada.
+     * @return Un par de valores que indica la dirección en filas y columnas.
+     */
     private fun calcularDireccion(startView: TextView?, endView: TextView?): Pair<Int, Int>? {
         if (startView == null || endView == null) return null
 
@@ -155,6 +179,12 @@ class EscudoActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Comprueba si la dirección del movimiento es válida.
+     * @param startView Primera vista seleccionada.
+     * @param endView Última vista seleccionada.
+     * @return `true` si la dirección es válida, `false` en caso contrario.
+     */
     private fun esDireccionValida(startView: TextView?, endView: TextView?): Boolean {
         if (startView == null || endView == null || direction == null) return false
 
@@ -200,6 +230,20 @@ class EscudoActivity : AppCompatActivity() {
         return null
     }
 
+    /**
+     * Rellena las letras intermedias entre dos TextView en un GridLayout.
+     *
+     * Esta función selecciona y marca todas las letras intermedias entre la vista
+     * de inicio (`startView`) y la vista de fin (`endView`) dentro de un `GridLayout`.
+     * Solo permite selección en líneas rectas (horizontal, vertical o diagonal).
+     *
+     * @param startView La vista inicial seleccionada por el usuario.
+     * @param endView La vista final seleccionada por el usuario.
+     *
+     * Si alguna de las vistas es `null`, la función retorna sin hacer cambios.
+     * Si la selección es válida, se agregan las letras intermedias a la lista de seleccionadas
+     * y se cambia su color temporalmente.
+     */
     private fun rellenarLetrasIntermedias(startView: TextView?, endView: TextView?) {
         if (startView == null || endView == null) return
 
@@ -237,6 +281,10 @@ class EscudoActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Agrega una letra seleccionada a la lista y cambia su color.
+     * @param textView TextView seleccionado por el usuario.
+     */
     private fun agregarLetraSeleccionada(textView: TextView) {
         if (textView.text.isNotEmpty() && !selectedViews.contains(textView)) {
             letrasSeleccionadas.add(textView.text.toString())
@@ -245,6 +293,14 @@ class EscudoActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Verifica si la palabra formada por las letras seleccionadas es válida.
+     *
+     * Si la palabra seleccionada está en la lista de palabras correctas, mantiene
+     * los `TextView` en color azul y tacha la palabra en la lista de palabras
+     * a encontrar. Si es incorrecta, restablece los colores originales y reproduce
+     * un sonido de error.
+     */
     private fun verificarPalabra() {
         val palabraSeleccionada = letrasSeleccionadas.joinToString("")
 
@@ -299,6 +355,13 @@ class EscudoActivity : AppCompatActivity() {
         selectedViews.clear()
     }
 
+    /**
+     * Reinicia los colores del GridLayout, excepto los que ya han sido validados.
+     *
+     * Recorre todos los `TextView` del `GridLayout` y restablece su color de fondo a
+     * transparente, a menos que estén marcados como parte de una palabra correcta
+     * (color azul claro).
+     */
     private fun reiniciarColores() {
         val azulClaro = ContextCompat.getColor(this, R.color.azul_claro) // Obtener el color real
 
