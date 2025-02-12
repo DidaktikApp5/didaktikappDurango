@@ -4,17 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.icjardinapps.dm2.durango.R
 
 /**
- * Juego de Mikeldi, es una especie de buscando a Wally
+ * Actividad que representa la pantalla de Mikeldi.
  *
- * @version 1.0
- * @author DidaktikAppDurango
+ * En esta actividad, el usuario puede interactuar con la imagen de Mikeldi
+ * y navegar a la pantalla de resultados o volver al mapa principal.
  */
 class MikeldiActivity : AppCompatActivity() {
 
@@ -25,21 +22,36 @@ class MikeldiActivity : AppCompatActivity() {
     private lateinit var btnVolverMapa: Button
 
     /**
-     * onCreate, inicializa la actividad y configura los listeners de los botones.
+     * Metodo llamado al crear la actividad.
      *
-     * @param savedInstanceState Estado previamente guardado de la actividad.
+     * Se establecen los elementos de la interfaz y los eventos de clic en los botones.
+     *
+     * @param savedInstanceState Estado de la actividad en caso de recreación.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mikeldi)
+
         ivMikeldi = findViewById(R.id.ivMikeldi)
         btnVolverMapa = findViewById(R.id.btnVolverMapa)
-        ivMikeldi.setOnClickListener{
+
+        /**
+         * Evento de clic en la imagen de Mikeldi.
+         *
+         * Redirige al usuario a la pantalla de resultados con la actividad "Mikeldi".
+         */
+        ivMikeldi.setOnClickListener {
             val intent = Intent(this, ResultadosActivity::class.java)
             intent.putExtra(ResultadosActivity.NOMBREACTIVIDAD, "Mikeldi")
             startActivity(intent)
         }
-        btnVolverMapa.setOnClickListener{
+
+        /**
+         * Evento de clic en el botón "Volver al mapa".
+         *
+         * Redirige al usuario a la pantalla del mapa y envía el número de actividad "0".
+         */
+        btnVolverMapa.setOnClickListener {
             val intent = Intent(this, MapaActivity::class.java)
             intent.putExtra(MapaActivity.NUMEROACTIVIDAD, "0")
             startActivity(intent)

@@ -21,10 +21,6 @@ class ConexionDb(context: Context) {
     private val dbUrl:String
     private val dbUser:String
     private val dbPassword:String
-
-    /**
-     * Para las propiedades de la base de datos
-     */
     init {
         // Crear instancia de Properties
         val properties = Properties()
@@ -39,16 +35,16 @@ class ConexionDb(context: Context) {
             e.printStackTrace()
         }
 
-        // Obtener valores de las propiedades
+        // Obtener valores de las propiedades desde el archivo
         dbUrl = properties.getProperty("db_url") ?: throw IllegalArgumentException("db_url no definido")
         dbUser = properties.getProperty("db_user") ?: throw IllegalArgumentException("db_user no definido")
         dbPassword = properties.getProperty("db_password") ?: throw IllegalArgumentException("db_password no definido")
     }
 
     /**
-     * Obtiene la conexion de la BD.
+     * Obtiene una conexión a la base de datos utilizando los parámetros configurados.
      *
-     * @return Devuelve la conexion
+     * @return La conexión a la base de datos si es exitosa, o null en caso de error.
      */
     fun obtenerConexion(): Connection? {
         return try {
@@ -60,10 +56,10 @@ class ConexionDb(context: Context) {
     }
 
     /**
-     * Guarda la información en la BD
+     * Guarda un nuevo alumno en la base de datos.
      *
-     * @param usuario
-     * @return Devuelve true si ha ido bien y false si algo ha ido mal
+     * @param usuario El nombre del usuario (en este caso, el nombre de usuario que representa al alumno).
+     * @return true si la operación es exitosa, false en caso contrario.
      */
     fun guardarAlumnoBBDD(usuario: String): Boolean {
         val conexion = obtenerConexion()
@@ -72,7 +68,7 @@ class ConexionDb(context: Context) {
                 val query =
                     "INSERT INTO alumno (usuario, nombre, año_nacimiento, id_aplicacion) VALUES (?, ?, ?, ?)"
                 val statement: PreparedStatement = conexion.prepareStatement(query)
-                statement.setString(1,usuario)
+                statement.setString(1, usuario)
                 statement.setString(2, usuario)
                 statement.setInt(3, 2000)
                 statement.setInt(4, 4)
@@ -90,9 +86,9 @@ class ConexionDb(context: Context) {
     }
 
     /**
-     * Devuelve todas las puntuaciones de la BD.
+     * Recupera todas las puntuaciones de los usuarios en la base de datos y las devuelve en orden descendente por nivel.
      *
-     * @return Devuelve una lista de puntuaciones.
+     * @return Lista de puntuaciones, cada elemento es una cadena que combina el nombre del usuario y su nivel.
      */
     fun todasPuntuaciones(): MutableList<String> {
         val lista: MutableList<String> = mutableListOf()
@@ -118,24 +114,23 @@ class ConexionDb(context: Context) {
         return lista
     }
 
-
     /**
-     * Guarda la puntutacion final del usuario
+     * Guarda la puntuación final de un alumno en la base de datos.
      *
-     * @param usuario
-     * @param puntuacion
-     * @return Devuelve true si ha ido bien y si no devuelve false
+     * @param usuario El nombre del usuario.
+     * @param puntuacion La puntuación obtenida por el usuario en la actividad.
+     * @return true si la operación es exitosa, false en caso contrario.
      */
-    fun guardarPuntuacionFinal(usuario:String,puntuacion:Int):Boolean{
+    fun guardarPuntuacionFinal(usuario: String, puntuacion: Int): Boolean {
         val conexion = obtenerConexion()
         if (conexion != null) {
             try {
                 val query =
-                    "INSERT INTO puntuacion (alumno_usuario,aplicacion_id_aplicacion,nivel) VALUES (?,?,?)"
+                    "INSERT INTO puntuacion (alumno_usuario, aplicacion_id_aplicacion, nivel) VALUES (?,?,?)"
                 val statement: PreparedStatement = conexion.prepareStatement(query)
                 statement.setString(1, usuario)
-                statement.setInt(2,4)
-                statement.setInt(3,puntuacion)
+                statement.setInt(2, 4)
+                statement.setInt(3, puntuacion)
                 statement.executeUpdate()
                 return true
             } catch (e: SQLException) {
@@ -147,5 +142,4 @@ class ConexionDb(context: Context) {
         }
         return false
     }
-
 }

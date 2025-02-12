@@ -16,10 +16,14 @@ import com.icjardinapps.dm2.durango.databinding.ActivityRankingBinding
 import com.icjardinapps.dm2.durango.db.ConexionDb
 
 /**
- * Para la actividad del ranking
+ * Actividad que muestra el ranking de puntuaciones de los usuarios.
+ * La actividad obtiene las puntuaciones almacenadas en la base de datos
+ * y las muestra en una lista (RecyclerView) ordenada.
  *
- * @version 1.0
- * @author DidaktikAppDurango
+ * Esta actividad tiene un botón que permite volver a la pantalla principal
+ * (`MainActivity`).
+ *
+ * @author Mikel Ramos
  */
 class RankingActivity : AppCompatActivity() {
     /**

@@ -8,29 +8,31 @@ import androidx.recyclerview.widget.RecyclerView
 import com.icjardinapps.dm2.durango.R
 
 /**
- * Adaptador para mostrar una lista de puntuaciones en un RecyclerView.
+ * Adaptador para el RecyclerView que muestra las puntuaciones en el ranking.
+ * Este adaptador se encarga de inflar las vistas y asignar los datos correspondientes
+ * a cada elemento del RecyclerView.
  *
- * @param lista Lista de puntuaciones representadas como Strings.
- * @version 1.0
- * @author DidaktikAppDurango
+ * @param lista Lista de puntuaciones a mostrar en el RecyclerView.
+ * @author Mikel Ramos
  */
 class RankingAdapter(private val lista: List<String>) : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
 
     /**
-     * Constructor del ViewHolder.
+     * Clase ViewHolder que mantiene las vistas de cada ítem del RecyclerView.
+     * Almacena una referencia a un TextView que se usará para mostrar la puntuación.
      *
-     * @param view Vista del elemento de la lista.
+     * @param view Vista que representa cada ítem del RecyclerView.
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtPuntuacion: TextView = view.findViewById(R.id.txtPuntuacion)
     }
 
     /**
-     * Crea nuevas vistas (invocado por el layout manager).
+     * Infla la vista del item en el RecyclerView y crea un ViewHolder para ella.
      *
-     * @param parent   El ViewGroup al que se agregará la nueva vista.
-     * @param viewType El tipo de vista de la nueva vista.
-     * @return Un nuevo ViewHolder con la vista inflada.
+     * @param parent Vista padre que contiene el RecyclerView.
+     * @param viewType Tipo de vista que se necesita (no se usa en este caso).
+     * @return El ViewHolder creado para un item.
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -39,19 +41,20 @@ class RankingAdapter(private val lista: List<String>) : RecyclerView.Adapter<Ran
     }
 
     /**
-     * Reemplaza el contenido de una vista (invocado por el layout manager).
+     * Asigna los datos de la lista a los elementos del ViewHolder.
+     * En este caso, se asigna una puntuación al TextView correspondiente.
      *
-     * @param holder   El ViewHolder que debe ser actualizado.
-     * @param position La posición del elemento dentro de la lista de datos.
+     * @param holder El ViewHolder donde se va a asignar la puntuación.
+     * @param position Posición del ítem en la lista de puntuaciones.
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.txtPuntuacion.text = lista[position]
     }
 
     /**
-     * Devuelve el tamaño del conjunto de datos (invocado por el layout manager).
+     * Devuelve la cantidad de ítems en la lista de puntuaciones.
      *
-     * @return El número total de elementos en la lista.
+     * @return El tamaño de la lista de puntuaciones.
      */
     override fun getItemCount(): Int = lista.size
 }

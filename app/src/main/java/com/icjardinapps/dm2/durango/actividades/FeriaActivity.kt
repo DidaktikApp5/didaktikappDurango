@@ -13,6 +13,16 @@ import android.view.MotionEvent
 import android.widget.Toast
 import com.icjardinapps.dm2.durango.R
 
+/**
+ * Actividad que representa un juego de arrastrar y soltar objetos en una feria.
+ *
+ * El usuario debe arrastrar imágenes de elementos a una bolsa. Si los objetos son correctos,
+ * desaparecen y, al completar todos los elementos correctos, se redirige a la pantalla de resultados.
+ *
+ * @author Mikel Ramos
+ *
+ * En caso de error, se reproduce un sonido y se restablecen las imágenes.
+ */
 class FeriaActivity : AppCompatActivity() {
 
     private lateinit var mediaPlayer: MediaPlayer
@@ -28,6 +38,13 @@ class FeriaActivity : AppCompatActivity() {
     private val imagenesCorrectas = listOf("ets", "libro", "goazen")
     private var countCorrectas = 0
 
+    /**
+     * Metodo llamado al crear la actividad.
+     *
+     * Se inicializan las vistas y se configuran los eventos de arrastre y soltar.
+     *
+     * @param savedInstanceState Estado de la actividad en caso de recreación.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feria)
@@ -76,6 +93,13 @@ class FeriaActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Configura el evento de arrastrar para un `ImageView`.
+     *
+     * Al detectar un toque sobre la imagen, se inicia un evento de arrastre con su identificador.
+     *
+     * @param imageView Imagen que será arrastrada.
+     */
     private fun setDragListener(imageView: ImageView) {
         imageView.setOnTouchListener { view, event ->
             when (event.action) {
@@ -95,6 +119,9 @@ class FeriaActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Restablece la visibilidad de todas las imágenes y reinicia el contador de aciertos.
+     */
     private fun resetImagenes() {
         ets.visibility = View.VISIBLE
         libro.visibility = View.VISIBLE
@@ -105,19 +132,25 @@ class FeriaActivity : AppCompatActivity() {
         countCorrectas = 0
     }
 
-    // Función para reproducir el audio
+    /**
+     * Reproduce un archivo de audio.
+     *
+     * Si ya hay un `MediaPlayer` en uso, se libera antes de crear uno nuevo.
+     *
+     * @param resourceId ID del recurso de audio a reproducir.
+     */
     private fun reproducirAudio(resourceId: Int) {
-        // Verifica si ya existe un MediaPlayer inicializado, si es así, libéralo
         if (::mediaPlayer.isInitialized) {
             mediaPlayer.release() // Libera el reproductor si ya existe
         }
 
-        // Inicializa un nuevo MediaPlayer y comienza la reproducción
         mediaPlayer = MediaPlayer.create(this, resourceId)
         mediaPlayer.start()
     }
 
-    // Asegurarse de liberar los recursos al destruir la actividad
+    /**
+     * Libera los recursos del `MediaPlayer` cuando la actividad se destruye.
+     */
     override fun onDestroy() {
         super.onDestroy()
         if (::mediaPlayer.isInitialized) {
